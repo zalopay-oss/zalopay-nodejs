@@ -6,6 +6,16 @@ The Zalopay Node SDK provides convenient access to the ZaloPay API from applicat
 
 Run
 
+1. Login to zalopay-oss namespace on github packages
+
+```
+npm login --scope=@zalopay-oss --auth-type=legacy --registry=https://npm.pkg.github.com
+```
+
+Note: Password is your GitHub personal access token. Read this for more information: [Link](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token)
+
+2. Install the package
+
 ```
 npm i @zalopay-oss/zalopay-nodejs
 ```
