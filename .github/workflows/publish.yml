@@ -21,6 +21,7 @@ jobs:
         run: npm ci
       - name: Publish package to GitHub Packages
         run: |
+          echo "@zalopay-oss:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
           npm publish
         env:
