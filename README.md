@@ -8,7 +8,7 @@ Run
 
 1. Login to zalopay-oss namespace on github packages
 
-```
+```bash
 npm login --scope=@zalopay-oss --auth-type=legacy --registry=https://npm.pkg.github.com
 ```
 
@@ -16,7 +16,7 @@ Note: Password is your GitHub personal access token. Read this for more informat
 
 2. Install the package
 
-```
+```bash
 npm i @zalopay-oss/zalopay-nodejs
 ```
 
@@ -24,8 +24,8 @@ npm i @zalopay-oss/zalopay-nodejs
 
 1. Create a client with some initial configuration
 
-```
-import { ZaloPayClient } from "@zalopay-oss/zalopay-nodejs"
+```ts
+import { ZaloPayClient } from "@zalopay-oss/zalopay-nodejs";
 
 const client = new ZaloPayClient({
   appId: "your_app_id",
@@ -38,7 +38,7 @@ const client = new ZaloPayClient({
 
 2. Create a simple order through the client and handle the result
 
-```
+```ts
 const order: CreateOrderRequest = {
   appTransId: "your_app_trans_id",
   appUser: "user_id",
@@ -58,3 +58,19 @@ client.orderProvider.create(order)
   })
   .catch(err => console.log(err));
 ```
+
+## Note
+
+Because the package is hosted on Github Packages, not in the npm registry so when you want to containerize your project or something similar. You must remember to config the npm to find the package in GitHub packages. Here is the example with the Dockerfile:
+
+```Dockerfile
+FROM node:18-alpine AS deps
+WORKDIR /app
+
+COPY package.json ./
+RUN  echo "@zalopay-oss:registry=https://npm.pkg.github.com" >> .npmrc
+RUN  echo "//npm.pkg.github.com/:_authToken=&{your_github_personal_access_token}" >> .npmrc
+RUN  npm install
+```
+
+Read this for more information: [Link](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token)
