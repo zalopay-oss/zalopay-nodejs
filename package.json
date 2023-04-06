@@ -1,6 +1,6 @@
 {
   "name": "@zalopay-oss/zalopay-nodejs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "./lib/ZaloPay.js",
   "types": "./types/ZaloPay.d.ts",

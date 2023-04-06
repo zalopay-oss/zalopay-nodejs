@@ -4,9 +4,17 @@ The Zalopay Node SDK provides convenient access to the ZaloPay API from applicat
 
 ## Installation
 
-Run
+We have published our package on both GitHub Packages and npm registry
 
-1. Login to zalopay-oss namespace on github packages
+Install from npm registry by default, run:
+
+```bash
+npm i @zalopay-oss/zalopay-nodejs
+```
+
+Or install from Github Packages
+
+1. Configure to download the package individually from GitHub Packages (if your default registry is not GitHub packages)
 
 ```bash
 npm login --scope=@zalopay-oss --auth-type=legacy --registry=https://npm.pkg.github.com
@@ -61,7 +69,7 @@ client.orderProvider.create(order)
 
 ## Note
 
-Because the package is hosted on Github Packages, not in the npm registry so when you want to containerize your project or something similar. You must remember to config the npm to find the package in GitHub packages. Here is the example with the Dockerfile:
+Some cases you want to download the package from Github Packages, not from the npm registry and containerize your project or something similar. You must remember to config the npm to find the package in GitHub packages. Here is the example with the Dockerfile:
 
 ```Dockerfile
 FROM node:18-alpine AS deps
