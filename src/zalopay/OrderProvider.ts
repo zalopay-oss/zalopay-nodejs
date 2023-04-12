@@ -26,9 +26,8 @@ export class OrderProvider {
       order.callbackUrl = order.callbackUrl || this.config.callbackUrl
       order.appTime = order.appTime || Date.now()
 
-      order.mac = order.mac || this.getCreateOrderMac(order)
-
-      // Use function
+      // This to ensure that the mac is created correctly with the latest data
+      order.mac = this.getCreateOrderMac(order)
       const request = toSnake(order)
       return this.httpClient
         .post<CreateOrderResponseJSON>("/v2/create", null, { params: request })
@@ -63,7 +62,7 @@ export class OrderProvider {
 
   query(order: QueryOrderRequest): Promise<QueryOrderResponse> {
     order.appId ||= +this.config.appId
-    order.mac ||= this.getQueryOrderMac(order)
+    order.mac = this.getQueryOrderMac(order)
 
     const request = toQueryOrderRequestJSON(order)
     return this.httpClient
