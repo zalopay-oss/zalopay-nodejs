@@ -4,29 +4,19 @@ The Zalopay Node SDK provides convenient access to the ZaloPay API from applicat
 
 ## Installation
 
-We have published our package on both GitHub Packages and npm registry
-
-Install from npm registry by default, run:
-
 ```bash
 npm i @zalopay-oss/zalopay-nodejs
 ```
 
-Or install from Github Packages
+We have published our package on both GitHub Packages and npm registry.
 
-1. Configure to download the package individually from GitHub Packages (if your default registry is not GitHub packages)
+To install from Github Packages please configure to download the package individually from GitHub Packages (if your default registry is not GitHub packages)
 
 ```bash
 npm login --scope=@zalopay-oss --auth-type=legacy --registry=https://npm.pkg.github.com
 ```
 
 Note: Password is your GitHub personal access token. Read this for more information: [Link](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token)
-
-2. Install the package
-
-```bash
-npm i @zalopay-oss/zalopay-nodejs
-```
 
 ## Quick Start
 
@@ -55,7 +45,7 @@ const order: CreateOrderRequest = {
   amount: "amount",
   description: "description",
   bankCode: "zalopayapp",
-  type: 'CreateOrderRequest',
+  type: 'order',
 };
 
 
