@@ -4,7 +4,7 @@ on:
     tags:
       - "v*.*.*"
 jobs:
-  github_packages:
+  github-packages:
     runs-on: ubuntu-latest
     permissions:
       packages: write
