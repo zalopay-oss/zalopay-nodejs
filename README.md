@@ -34,7 +34,7 @@ const order: CreateOrderRequest = {
   appUser: "user_id",
   item: JSON.stringify(items),
   embedData: JSON.stringify(embed_data),
-  amount: "amount",
+  amount: 1000,
   description: "description",
   bankCode: "zalopayapp",
   type: 'order',
