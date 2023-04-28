@@ -1,5 +1,5 @@
 
-export class AgreementQueryUserRequest {
+export class AgreementUnbindRequest {
     /**
     * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
     */
@@ -51,7 +51,7 @@ export class AgreementQueryUserRequest {
         }    ];
 
     static getAttributeTypeMap() {
-        return AgreementQueryUserRequest.attributeTypeMap;
+        return AgreementUnbindRequest.attributeTypeMap;
     }
 }
 

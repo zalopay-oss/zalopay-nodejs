@@ -40,6 +40,7 @@ export class Tokenization extends Service {
         bindRequest.mac = "";
         const response = await getJsonResponse<AgreementBindRequest, AgreementBindResponse>(
             this._bind,
+            "post",
             bindRequest,
         );
         return ObjectSerializer.deserialize(response, "AgreementBindResponse");
@@ -50,6 +51,7 @@ export class Tokenization extends Service {
         unbindRequest.mac = "";
         const response = await getJsonResponse<AgreementQueryUserRequest, AgreementUnbindResponse>(
             this._unbind,
+            "post",
             unbindRequest,
         );
         return ObjectSerializer.deserialize(response, "AgreementUnbindResponse");
@@ -60,6 +62,7 @@ export class Tokenization extends Service {
         unbindRequest.mac = "";
         const response = await getJsonResponse<AgreementQueryUserRequest, OACommonResponse>(
             this._pay,
+            "post",
             unbindRequest,
         );
         return ObjectSerializer.deserialize(response, "OACommonResponse");
@@ -70,6 +73,7 @@ export class Tokenization extends Service {
         agreementQueryRequest.mac = "";
         const response = await getJsonResponse<AgreementQueryRequest, AgreementQueryResponse>(
             this._query,
+            "post",
             agreementQueryRequest,
         );
         return ObjectSerializer.deserialize(response, "AgreementQueryResponse");
@@ -80,6 +84,7 @@ export class Tokenization extends Service {
         agreementBalanceRequest.mac = "";
         const response = await getJsonResponse<AgreementBalanceRequest, AgreementBalanceResponse>(
             this._balance,
+            "post",
             agreementBalanceRequest,
         );
         return ObjectSerializer.deserialize(response, "AgreementBalanceResponse");
@@ -90,6 +95,7 @@ export class Tokenization extends Service {
         agreementQueryUserRequest.mac = "";
         const response = await getJsonResponse<AgreementQueryUserRequest, AgreementQueryUserResponse>(
             this._query_user,
+            "post",
             agreementQueryUserRequest,
         );
         return ObjectSerializer.deserialize(response, "AgreementQueryUserResponse");

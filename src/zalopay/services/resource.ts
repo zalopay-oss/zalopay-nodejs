@@ -1,4 +1,5 @@
 import Service from "../service";
+import {Method} from "axios";
 
 abstract class Resource {
     protected endpoint: string;
@@ -9,9 +10,17 @@ abstract class Resource {
         this.endpoint = endpoint;
     }
 
-    public request(json: string): Promise<string> {
-        return this.service.httpClient.post(this.endpoint, json)
-            .then((response) => response.data);
+    public request(method: Method, data: string): Promise<string> {
+        const headers = {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        };
+        return this.service.httpClient.request<Method, string>({
+            method,
+            url: this.endpoint,
+            data,
+            headers,
+        });
     }
 }
 
