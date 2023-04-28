@@ -1,4 +1,4 @@
-import { ZaloPayClient } from "./zalopay/ZaloPayClient";
+import { ZaloPayClient } from "./zalopay/zaloPayClient";
 import {
   CreateOrderRequest,
   CreateOrderResponse,

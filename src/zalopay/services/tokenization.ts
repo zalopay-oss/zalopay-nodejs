@@ -1,4 +1,4 @@
-import {ZaloPayClient} from "../ZaloPayClient";
+import {ZaloPayClient} from "../zaloPayClient";
 import Service from "../service";
 import {AgreementBindRequest} from "../../../typings/agreementBindRequest";
 import {AgreementBindResponse} from "../../../typings/agreementBindResponse";
@@ -20,7 +20,7 @@ import {
 import hmacUtils from "../utils/hmacUtils";
 import HmacUtils from "../utils/hmacUtils";
 
-export class Tokenization extends Service {
+class Tokenization extends Service {
     private readonly _bind: TokenizationResource;
     private readonly _unbind: TokenizationResource;
     private readonly _query: TokenizationResource;
@@ -45,7 +45,7 @@ export class Tokenization extends Service {
     public async bind(bindRequest: AgreementBindRequest): Promise<AgreementBindResponse> {
         bindRequest.app_id ||= +this.config.appId;
         const dataSign: string = this.getDataToSign(bindRequest);
-        bindRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key2);
+        bindRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
         const response = await getJsonResponse<AgreementBindRequest, AgreementBindResponse>(
             this._bind,
             "post",
@@ -57,7 +57,7 @@ export class Tokenization extends Service {
     public async unbind(unbindRequest: AgreementQueryUserRequest): Promise<AgreementUnbindResponse> {
         unbindRequest.app_id ||= +this.config.appId;
         const dataSign: string = this.getDataToSign(unbindRequest);
-        unbindRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key2);
+        unbindRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
         const response = await getJsonResponse<AgreementQueryUserRequest, AgreementUnbindResponse>(
             this._unbind,
             "post",
@@ -69,7 +69,7 @@ export class Tokenization extends Service {
     public async pay(payRequest: AgreementPayRequest): Promise<OACommonResponse> {
         payRequest.app_id ||= +this.config.appId;
         const dataSign: string = this.getDataToSign(payRequest);
-        payRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key2);
+        payRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
         const response = await getJsonResponse<AgreementQueryUserRequest, OACommonResponse>(
             this._pay,
             "post",
@@ -81,7 +81,7 @@ export class Tokenization extends Service {
     public async query(queryRequest: AgreementQueryRequest): Promise<AgreementQueryResponse> {
         queryRequest.app_id ||= +this.config.appId;
         const dataSign: string = this.getDataToSign(queryRequest);
-        queryRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key2);
+        queryRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
         const response = await getJsonResponse<AgreementQueryRequest, AgreementQueryResponse>(
             this._query,
             "post",
@@ -93,7 +93,7 @@ export class Tokenization extends Service {
     public async balance(balanceRequest: AgreementBalanceRequest): Promise<AgreementBalanceResponse> {
         balanceRequest.app_id ||= +this.config.appId;
         const dataSign: string = this.getDataToSign(balanceRequest);
-        balanceRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key2);
+        balanceRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
         const response = await getJsonResponse<AgreementBalanceRequest, AgreementBalanceResponse>(
             this._balance,
             "post",
@@ -105,7 +105,7 @@ export class Tokenization extends Service {
     public async queryUser(queryUserRequest: AgreementQueryUserRequest): Promise<AgreementQueryUserResponse> {
         queryUserRequest.app_id ||= +this.config.appId;
         const dataSign: string = this.getDataToSign(queryUserRequest);
-        queryUserRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key2);
+        queryUserRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
         const response = await getJsonResponse<AgreementQueryUserRequest, AgreementQueryUserResponse>(
             this._query_user,
             "post",
@@ -158,5 +158,6 @@ export class Tokenization extends Service {
         }
         return data.join(hmacUtils.DATA_SEPARATOR);
     }
-
 }
+
+export default Tokenization;

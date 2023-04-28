@@ -1,6 +1,6 @@
 import {Config} from "./model/Config";
 import {AxiosInstance} from "axios";
-import {ZaloPayClient} from "./ZaloPayClient";
+import {ZaloPayClient} from "./zaloPayClient";
 
 class Service {
     config: Config;

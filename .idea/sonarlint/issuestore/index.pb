@@ -1,16 +1,10 @@
 
->
-src/ZaloPay.ts,a/e/aec6a9b016db893f056d24419859fd6c70d65e7d
-R
-"test/zalopay/ZalopayClient.test.ts,7/f/7f4d02bda10b4119bebec5f83afafab234d8813e
 K
 src/zalopay/model/Config.ts,d/7/d7be9323a5dd1f27bc34f662b410df1fd817ed2d
 >
 jest.config.js,8/8/881d5d47bdc17ef8facebef59b68b5fc099a0293
 <
 package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
-9
-	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 w
 G.idea/sonarlint/issuestore/7/f/7f4d02bda10b4119bebec5f83afafab234d8813e,2/0/2014dc491cdeee9c28979cfe1cd245f409fd71b8
 A

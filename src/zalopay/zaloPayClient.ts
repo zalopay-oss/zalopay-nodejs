@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 import { Config } from "./model/Config";
-import { OrderProvider } from "./OrderProvider";
-import { SecurityProvider } from "./SecurityProvider";
+import { OrderProvider } from "./orderProvider";
+import { SecurityProvider } from "./securityProvider";
 
 export class ZaloPayClient {
   config: Config;

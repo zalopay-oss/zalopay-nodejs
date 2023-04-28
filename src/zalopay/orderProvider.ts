@@ -1,5 +1,5 @@
 import { CreateOrderRequest, CreateOrderResponse, CreateQuickPayOrderRequest, CreateQuickPayOrderResponse, CreateRefundOrderRequest, CreateRefundOrderResponse, CreateZODOrderRequest, CreateZODOrderResponse, isCreateOrderRequest, isCreateRefundOrderRequest, isCreateZODOrderRequest, QueryOrderRequest, QueryOrderResponse } from "./model/Order";
-import { ZaloPayClient } from "./ZaloPayClient";
+import { ZaloPayClient } from "./zaloPayClient";
 import * as CryptoJS from "crypto-js"
 import * as qs from "qs"
 import { AxiosInstance } from "axios";

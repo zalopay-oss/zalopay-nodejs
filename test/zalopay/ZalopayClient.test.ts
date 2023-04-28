@@ -1,4 +1,4 @@
-import { ZaloPayClient } from "../../src/ZaloPay";
+import { ZaloPayClient } from "../../src";
 
 describe('ZaloPayClient', () => {
   it('should create an instance of ZaloPayClient', () => {
