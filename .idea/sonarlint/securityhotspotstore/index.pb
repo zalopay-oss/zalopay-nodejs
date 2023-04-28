@@ -29,8 +29,6 @@ G.idea/sonarlint/issuestore/3/0/30adb7253ae9d128d949368cf1caeabbf740e0e0,0/6/06
 scripts/run.sh,e/9/e93c14acd92a9b9c158d8c5652aeae76952ddef2
 w
 G.idea/sonarlint/issuestore/d/7/d7be9323a5dd1f27bc34f662b410df1fd817ed2d,9/8/9827f65c0b7f74fc1e2246adb3efa4466728e388
-O
-typings/agreementBindRequest.ts,8/f/8fcda4e8397459dbc88f8550abb2d326b637acc1
 S
 #typings/agreementBalanceResponse.ts,1/0/10892c1a094ce68427fc3d4c1917fd07ba354390
 K

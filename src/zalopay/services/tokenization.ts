@@ -12,10 +12,13 @@ import {
     AgreementQueryResponse,
     AgreementQueryUserRequest,
     AgreementQueryUserResponse,
+    AgreementUnbindRequest,
     AgreementUnbindResponse,
     OACommonResponse,
     ObjectSerializer
 } from "../../../typings/models";
+import hmacUtils from "../utils/hmacUtils";
+import HmacUtils from "../utils/hmacUtils";
 
 export class Tokenization extends Service {
     private readonly _bind: TokenizationResource;
@@ -25,6 +28,8 @@ export class Tokenization extends Service {
     private readonly _pay: TokenizationResource;
     private readonly _query_user: TokenizationResource;
 
+    private hmacUtils: HmacUtils;
+
     public constructor(client: ZaloPayClient) {
         super(client);
         this._bind = new TokenizationResource(this, "/agreement/bind");
@@ -33,11 +38,14 @@ export class Tokenization extends Service {
         this._balance = new TokenizationResource(this, "/agreement/balance");
         this._pay = new TokenizationResource(this, "/agreement/pay");
         this._query_user = new TokenizationResource(this, "/agreement/query_user");
+
+        this.hmacUtils = new HmacUtils();
     }
 
     public async bind(bindRequest: AgreementBindRequest): Promise<AgreementBindResponse> {
         bindRequest.app_id ||= +this.config.appId;
-        bindRequest.mac = "";
+        const dataSign: string = this.getDataToSign(bindRequest);
+        bindRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key2);
         const response = await getJsonResponse<AgreementBindRequest, AgreementBindResponse>(
             this._bind,
             "post",
@@ -48,7 +56,8 @@ export class Tokenization extends Service {
 
     public async unbind(unbindRequest: AgreementQueryUserRequest): Promise<AgreementUnbindResponse> {
         unbindRequest.app_id ||= +this.config.appId;
-        unbindRequest.mac = "";
+        const dataSign: string = this.getDataToSign(unbindRequest);
+        unbindRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key2);
         const response = await getJsonResponse<AgreementQueryUserRequest, AgreementUnbindResponse>(
             this._unbind,
             "post",
@@ -57,49 +66,97 @@ export class Tokenization extends Service {
         return ObjectSerializer.deserialize(response, "AgreementUnbindResponse");
     }
 
-    public async pay(unbindRequest: AgreementPayRequest): Promise<OACommonResponse> {
-        unbindRequest.app_id ||= +this.config.appId;
-        unbindRequest.mac = "";
+    public async pay(payRequest: AgreementPayRequest): Promise<OACommonResponse> {
+        payRequest.app_id ||= +this.config.appId;
+        const dataSign: string = this.getDataToSign(payRequest);
+        payRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key2);
         const response = await getJsonResponse<AgreementQueryUserRequest, OACommonResponse>(
             this._pay,
             "post",
-            unbindRequest,
+            payRequest,
         );
         return ObjectSerializer.deserialize(response, "OACommonResponse");
     }
 
-    public async query(agreementQueryRequest: AgreementQueryRequest): Promise<AgreementQueryResponse> {
-        agreementQueryRequest.app_id ||= +this.config.appId;
-        agreementQueryRequest.mac = "";
+    public async query(queryRequest: AgreementQueryRequest): Promise<AgreementQueryResponse> {
+        queryRequest.app_id ||= +this.config.appId;
+        const dataSign: string = this.getDataToSign(queryRequest);
+        queryRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key2);
         const response = await getJsonResponse<AgreementQueryRequest, AgreementQueryResponse>(
             this._query,
             "post",
-            agreementQueryRequest,
+            queryRequest,
         );
         return ObjectSerializer.deserialize(response, "AgreementQueryResponse");
     }
 
-    public async balance(agreementBalanceRequest: AgreementBalanceRequest): Promise<AgreementBalanceResponse> {
-        agreementBalanceRequest.app_id ||= +this.config.appId;
-        agreementBalanceRequest.mac = "";
+    public async balance(balanceRequest: AgreementBalanceRequest): Promise<AgreementBalanceResponse> {
+        balanceRequest.app_id ||= +this.config.appId;
+        const dataSign: string = this.getDataToSign(balanceRequest);
+        balanceRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key2);
         const response = await getJsonResponse<AgreementBalanceRequest, AgreementBalanceResponse>(
             this._balance,
             "post",
-            agreementBalanceRequest,
+            balanceRequest,
         );
         return ObjectSerializer.deserialize(response, "AgreementBalanceResponse");
     }
 
-    public async queryUser(agreementQueryUserRequest: AgreementQueryUserRequest): Promise<AgreementQueryUserResponse> {
-        agreementQueryUserRequest.app_id ||= +this.config.appId;
-        agreementQueryUserRequest.mac = "";
+    public async queryUser(queryUserRequest: AgreementQueryUserRequest): Promise<AgreementQueryUserResponse> {
+        queryUserRequest.app_id ||= +this.config.appId;
+        const dataSign: string = this.getDataToSign(queryUserRequest);
+        queryUserRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key2);
         const response = await getJsonResponse<AgreementQueryUserRequest, AgreementQueryUserResponse>(
             this._query_user,
             "post",
-            agreementQueryUserRequest,
+            queryUserRequest,
         );
         return ObjectSerializer.deserialize(response, "AgreementQueryUserResponse");
     }
 
+    private getDataToSign(request:
+                              AgreementBindRequest
+                              | AgreementUnbindRequest
+                              | AgreementPayRequest
+                              | AgreementQueryUserRequest
+                              | AgreementBalanceRequest
+                              | AgreementQueryRequest): string {
+        const data = [];
+        if (request instanceof AgreementBindRequest) {
+            data.push(request.app_id);
+            data.push(request.app_trans_id);
+            data.push(request.binding_data);
+            data.push(request.binding_type);
+            data.push(request.identifier);
+            data.push(request.max_amount);
+            data.push(request.req_date);
+        } else if (request instanceof AgreementUnbindRequest) {
+            data.push(request.app_id);
+            data.push(request.identifier);
+            data.push(request.binding_id);
+            data.push(request.req_date);
+        } else if (request instanceof AgreementPayRequest) {
+            data.push(request.app_id);
+            data.push(request.identifier);
+            data.push(request.zp_trans_token);
+            data.push(request.pay_token);
+            data.push(request.req_date);
+        } else if (request instanceof AgreementQueryUserRequest) {
+            data.push(request.app_id);
+            data.push(request.access_token);
+            data.push(request.req_date);
+        } else if (request instanceof AgreementBalanceRequest) {
+            data.push(request.app_id);
+            data.push(request.pay_token);
+            data.push(request.identifier);
+            data.push(request.amount);
+            data.push(request.req_date);
+        } else { // AgreementQueryRequest
+            data.push(request.app_id);
+            data.push(request.app_trans_id);
+            data.push(request.req_date);
+        }
+        return data.join(hmacUtils.DATA_SEPARATOR);
+    }
 
 }

@@ -35,8 +35,6 @@ S
 #typings/agreementBalanceResponse.ts,1/0/10892c1a094ce68427fc3d4c1917fd07ba354390
 W
 'typings/agreementBalanceResponseData.ts,2/a/2a761bac2bc18da078bf12077868bdea34f0d072
-O
-typings/agreementBindRequest.ts,8/f/8fcda4e8397459dbc88f8550abb2d326b637acc1
 N
 typings/agreementPayRequest.ts,7/1/71214b9fc968e8edfe677a8e673598f8331844c5
 P
