@@ -7,4 +7,4 @@ build: openapi-generator-cli generate \
     		--additional-properties=serviceName=Tokenization \
     		--additional-properties=modelPropertyNaming=original \
     		--additional-properties=helperFunctions=templates/helpers/camelCase.ts
-    cp build/model/* typings
+    cp build/model/* src/zalopay/typings

@@ -8,4 +8,5 @@ openapi-generator-cli generate \
 		--additional-properties=modelPropertyNaming=original \
 		--additional-properties=helperFunctions=./templates/helpers/camelCase.ts
 
-
+cp build/model/* src/zalopay/typings
+rm -r build

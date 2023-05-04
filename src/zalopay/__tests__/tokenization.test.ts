@@ -1,19 +1,19 @@
-import {ZaloPayClient} from "../../zaloPayClient";
-import {TokenizationAPI} from "../../services";
+import {ZaloPayClient} from "../zaloPayClient";
+import {TokenizationAPI} from "../services";
 import nock from "nock";
-import {createClient} from "../__mocks__/base";
+import {createClient} from "./__mocks__/base";
 import {
     bindingSuccess,
     queryBalanceSuccess,
     queryBindingSuccess, queryUserSuccess, submitPayProcessing,
     unbindSuccess
-} from "../__mocks__/tokenization/responses";
-import {AgreementBindRequest} from "../../../../typings/agreementBindRequest";
-import {AgreementUnbindRequest} from "../../../../typings/agreementUnbindRequest";
-import {AgreementQueryRequest} from "../../../../typings/agreementQueryRequest";
-import {AgreementBalanceRequest} from "../../../../typings/agreementBalanceRequest";
-import {AgreementPayRequest} from "../../../../typings/agreementPayRequest";
-import {AgreementQueryUserRequest} from "../../../../typings/agreementQueryUserRequest";
+} from "./__mocks__/tokenization/responses";
+import {AgreementBindRequest} from "../typings/agreementBindRequest";
+import {AgreementUnbindRequest} from "../typings/agreementUnbindRequest";
+import {AgreementQueryRequest} from "../typings/agreementQueryRequest";
+import {AgreementBalanceRequest} from "../typings/agreementBalanceRequest";
+import {AgreementPayRequest} from "../typings/agreementPayRequest";
+import {AgreementQueryUserRequest} from "../typings/agreementQueryUserRequest";
 
 let client: ZaloPayClient;
 let tokenizationAPI: TokenizationAPI;

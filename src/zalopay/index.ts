@@ -1,11 +1,11 @@
-import { ZaloPayClient } from "./zalopay/zaloPayClient";
+import { ZaloPayClient } from "./zaloPayClient";
 import {
   CreateOrderRequest,
   CreateOrderResponse,
   CreateQuickPayOrderRequest,
   CreateQuickPayOrderResponse,
-} from "./zalopay/model/Order";
-import { Config } from "./zalopay/model/Config";
+} from "./model/Order";
+import { Config } from "./model/Config";
 export { ZaloPayClient };
 export type {
   CreateOrderRequest,
