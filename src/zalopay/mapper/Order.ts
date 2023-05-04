@@ -21,8 +21,8 @@ export function toCreateOrderRequestJSON(input: CreateOrderRequest): CreateOrder
     phone: input.phone,
     email: input.email,
     address: input.address,
-  }
-  return req
+  };
+  return req;
 }
 
 export function toCreateOrderResponse(input: CreateOrderResponseJSON): CreateOrderResponse {
@@ -33,8 +33,8 @@ export function toCreateOrderResponse(input: CreateOrderResponseJSON): CreateOrd
     subReturnMessage: input.sub_return_message,
     orderUrl: input.order_url,
     zpTransToken: input.zp_trans_token,
-  }
-  return res
+  };
+  return res;
 }
 
 export function toQueryOrderRequestJSON(input: QueryOrderRequest): QueryOrderRequestJSON {
@@ -42,8 +42,8 @@ export function toQueryOrderRequestJSON(input: QueryOrderRequest): QueryOrderReq
     app_id: input.appId,
     app_trans_id: input.appTransId,
     mac: input.mac,
-  }
-  return req
+  };
+  return req;
 }
 
 export function toQueryOrderResponse(input: QueryOrderResponseJSON): QueryOrderResponse {
@@ -55,6 +55,6 @@ export function toQueryOrderResponse(input: QueryOrderResponseJSON): QueryOrderR
     isProcessing: input.is_processing,
     zpTransId: input.zp_trans_id,
     amount: input.amount,
-  }
-  return res
+  };
+  return res;
 }

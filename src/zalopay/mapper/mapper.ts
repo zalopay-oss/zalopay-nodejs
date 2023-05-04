@@ -9,7 +9,7 @@ export const snake = (str: string) =>
     .replace(/([A-Z]+)/g, (_, p1) => `_${p1.toLowerCase()}`);
 
 const detectObject = (obj: any) => {
-  return Object.prototype.toString.call(obj) === '[object Object]';
+  return Object.prototype.toString.call(obj) === "[object Object]";
 
 };
 

@@ -1,7 +1,7 @@
 import { CreateOrderRequest, CreateOrderResponse, CreateQuickPayOrderRequest, CreateQuickPayOrderResponse, CreateRefundOrderRequest, CreateRefundOrderResponse, CreateZODOrderRequest, CreateZODOrderResponse, isCreateOrderRequest, isCreateRefundOrderRequest, isCreateZODOrderRequest, QueryOrderRequest, QueryOrderResponse } from "./model/Order";
 import { ZaloPayClient } from "./zaloPayClient";
-import * as CryptoJS from "crypto-js"
-import * as qs from "qs"
+import * as CryptoJS from "crypto-js";
+import * as qs from "qs";
 import { AxiosInstance } from "axios";
 import { Config } from "./model/Config";
 import { toQueryOrderRequestJSON, toQueryOrderResponse } from "./mapper/Order";
@@ -13,7 +13,7 @@ export class OrderProvider {
   httpClient: AxiosInstance;
   constructor(client: ZaloPayClient) {
     this.config = client.config;
-    this.httpClient = client.httpClient
+    this.httpClient = client.httpClient;
   }
   create(order: CreateOrderRequest): Promise<CreateOrderResponse>
   create(order: CreateQuickPayOrderRequest): Promise<CreateQuickPayOrderResponse>
@@ -22,26 +22,26 @@ export class OrderProvider {
   create(order: CreateOrderRequest | CreateQuickPayOrderRequest | CreateRefundOrderRequest | CreateZODOrderRequest)
     : Promise<CreateOrderResponse | CreateQuickPayOrderResponse | CreateRefundOrderResponse | CreateZODOrderResponse> {
     if (isCreateOrderRequest(order)) {
-      order.appId = order.appId || +this.config.appId
-      order.callbackUrl = order.callbackUrl || this.config.callbackUrl
-      order.appTime = order.appTime || Date.now()
+      order.appId = order.appId || +this.config.appId;
+      order.callbackUrl = order.callbackUrl || this.config.callbackUrl;
+      order.appTime = order.appTime || Date.now();
 
       // This to ensure that the mac is created correctly with the latest data
-      order.mac = this.getCreateOrderMac(order)
-      const request = toSnake(order)
+      order.mac = this.getCreateOrderMac(order);
+      const request = toSnake(order);
       return this.httpClient
         .post<CreateOrderResponseJSON>("/v2/create", null, { params: request })
         .then((data) => <CreateOrderResponse>toCamel(data.data));
     } else if (isCreateRefundOrderRequest(order)) {
       return new Promise<CreateRefundOrderResponse>((resolve, _) => {
-        const res: CreateRefundOrderResponse = <CreateRefundOrderResponse>{}
+        const res: CreateRefundOrderResponse = <CreateRefundOrderResponse>{};
         resolve(res);
-      })
+      });
     } else if (isCreateZODOrderRequest(order)) {
       return new Promise<CreateZODOrderResponse>((resolve, _) => {
-        const res: CreateZODOrderResponse = <CreateZODOrderResponse>{}
+        const res: CreateZODOrderResponse = <CreateZODOrderResponse>{};
         resolve(res);
-      })
+      });
 
     }
     // add more logic for other types here
@@ -54,26 +54,26 @@ export class OrderProvider {
           subReturnMessage: "test",
           isProcessing: "123",
           zpTransId: "123"
-        }
+        };
         resolve(res);
-      })
+      });
     }
   }
 
   query(order: QueryOrderRequest): Promise<QueryOrderResponse> {
-    order.appId ||= +this.config.appId
-    order.mac = this.getQueryOrderMac(order)
+    order.appId ||= +this.config.appId;
+    order.mac = this.getQueryOrderMac(order);
 
-    const request = toQueryOrderRequestJSON(order)
+    const request = toQueryOrderRequestJSON(order);
     return this.httpClient
       .post<QueryOrderResponseJSON>("/v2/query",
         qs.stringify(request),
         {
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         })
-      .then(data => toQueryOrderResponse(data.data))
+      .then(data => toQueryOrderResponse(data.data));
   }
 
   private getCreateOrderMac(order: CreateOrderRequest) {

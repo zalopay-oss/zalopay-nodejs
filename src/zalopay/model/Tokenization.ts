@@ -73,5 +73,4 @@ export interface DeleteBindingRequest {
     mac?: string;
 }
 
-export interface DeleteBindingResponse extends BaseResponse {
-}
+export type DeleteBindingResponse = BaseResponse

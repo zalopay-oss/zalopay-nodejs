@@ -12,7 +12,7 @@ export class ZaloPayClient {
   constructor(config: Config) {
     this.config = config;
     this.httpClient = axios.create({
-      baseURL: config.env == 'sandbox' ? 'https://sb-openapi.zalopay.vn' : 'https://openapi.zalopay.vn',
+      baseURL: config.env == "sandbox" ? "https://sb-openapi.zalopay.vn" : "https://openapi.zalopay.vn",
     });
     this.orderProvider = new OrderProvider(this);
     this.securityProvider = new SecurityProvider(this);

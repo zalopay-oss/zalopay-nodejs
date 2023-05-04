@@ -12,8 +12,8 @@ abstract class Resource {
 
     public request(method: Method, data: string): Promise<string> {
         const headers = {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
+            Accept: "application/json",
+            "Content-Type": "application/json",
         };
         return this.service.httpClient.request<Method, string>({
             method,

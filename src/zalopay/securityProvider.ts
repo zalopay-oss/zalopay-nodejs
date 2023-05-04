@@ -1,11 +1,11 @@
 import { ZaloPayClient } from "./zaloPayClient";
-import * as CryptoJS from "crypto-js"
+import * as CryptoJS from "crypto-js";
 import { Config } from "./index";
 
 export class SecurityProvider {
-  config: Config
+  config: Config;
   constructor(client: ZaloPayClient) {
-    this.config = client.config
+    this.config = client.config;
   }
 
   getMac(data: string) {

@@ -4,7 +4,7 @@ import {ZaloPayClient} from "./zaloPayClient";
 
 class Service {
     config: Config;
-    httpClient: AxiosInstance
+    httpClient: AxiosInstance;
 
     protected constructor(client: ZaloPayClient) {
         this.config = client.config;

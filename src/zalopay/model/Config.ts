@@ -3,5 +3,5 @@ export interface Config {
   key1: string;
   key2: string;
   callbackUrl?: string;
-  env: 'sandbox' | 'production';
+  env: "sandbox" | "production";
 }
