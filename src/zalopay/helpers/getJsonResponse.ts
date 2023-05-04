@@ -9,9 +9,11 @@ async function getJsonResponse<T, R>(
     const request = typeof jsonRequest === "string" ? jsonRequest : JSON.stringify(jsonRequest);
     const response = await resource.request(method, request);
     try {
-        return typeof response === "string" ? JSON.parse(response) : response;
+        const respJson = typeof response === "string" ? JSON.parse(response) : response;
+        return respJson.data;
     } catch (e) {
-        return response;
+        console.error("Error while get response data");
+        throw e;
     }
 }
 

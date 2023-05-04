@@ -11,14 +11,14 @@ import { {{classname}} } from '{{filename}}';
 {{/description}}
 {{^isEnum}}
 export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
-{{#vars}}
-{{#description}}
-    /**
-    * {{{.}}}
-    */
-{{/description}}
-    '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}};
-{{/vars}}
+    {{#vars}}
+        {{#description}}
+            /**
+            * {{{.}}}
+            */
+        {{/description}}
+        '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}};
+    {{/vars}}
 
     {{#discriminator}}
     static discriminator: string | undefined = "{{discriminatorName}}";

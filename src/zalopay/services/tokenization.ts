@@ -32,12 +32,12 @@ class Tokenization extends Service {
 
     public constructor(client: ZaloPayClient) {
         super(client);
-        this._bind = new TokenizationResource(this, "/agreement/bind");
-        this._unbind = new TokenizationResource(this, "/agreement/unbind");
-        this._query = new TokenizationResource(this, "/agreement/query");
-        this._balance = new TokenizationResource(this, "/agreement/balance");
-        this._pay = new TokenizationResource(this, "/agreement/pay");
-        this._query_user = new TokenizationResource(this, "/agreement/query_user");
+        this._bind = new TokenizationResource(this, "/v2/agreement/bind");
+        this._unbind = new TokenizationResource(this, "/v2/agreement/unbind");
+        this._query = new TokenizationResource(this, "/v2/agreement/query");
+        this._balance = new TokenizationResource(this, "/v2/agreement/balance");
+        this._pay = new TokenizationResource(this, "/v2/agreement/pay");
+        this._query_user = new TokenizationResource(this, "/v2/agreement/query_user");
 
         this.hmacUtils = new HmacUtils();
     }

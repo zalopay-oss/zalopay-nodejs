@@ -5,7 +5,7 @@ class TokenizationResource extends Resource {
     public constructor(service: Service, endpoint: string) {
         super(
             service,
-            ``
+            endpoint
         );
     }
 }

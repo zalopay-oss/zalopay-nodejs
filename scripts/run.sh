@@ -5,4 +5,5 @@ openapi-generator-cli generate \
 		-o build \
 		--global-property models,supportingFiles \
 		--additional-properties=serviceName=Tokenization \
-		--additional-properties=modelPropertyNaming=original
+		--additional-properties=modelPropertyNaming=original \
+		--additional-properties=helperFunctions=./templates/helpers/camelCase.ts
