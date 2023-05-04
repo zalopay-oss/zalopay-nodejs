@@ -13,10 +13,11 @@
 
 export * from './agreementBalanceRequest';
 export * from './agreementBalanceResponse';
-export * from './agreementBalanceResponseData';
+export * from './agreementBalanceResponseDataInner';
 export * from './agreementBindRequest';
 export * from './agreementBindResponse';
 export * from './agreementPayRequest';
+export * from './agreementPayResponse';
 export * from './agreementQueryRequest';
 export * from './agreementQueryResponse';
 export * from './agreementQueryResponseData';
@@ -34,57 +35,60 @@ export * from './oARefundRequest';
 export * from './oARefundResponse';
 
 
-import {AgreementBalanceRequest} from './agreementBalanceRequest';
-import {AgreementBalanceResponse} from './agreementBalanceResponse';
-import {AgreementBalanceResponseData} from './agreementBalanceResponseData';
-import {AgreementBindRequest} from './agreementBindRequest';
-import {AgreementBindResponse} from './agreementBindResponse';
-import {AgreementPayRequest} from './agreementPayRequest';
-import {AgreementQueryRequest} from './agreementQueryRequest';
-import {AgreementQueryResponse} from './agreementQueryResponse';
-import {AgreementQueryResponseData} from './agreementQueryResponseData';
-import {AgreementQueryUserRequest} from './agreementQueryUserRequest';
-import {AgreementQueryUserResponse} from './agreementQueryUserResponse';
-import {AgreementUnbindResponse} from './agreementUnbindResponse';
-import {OACommonResponse} from './oACommonResponse';
-import {OACreateOrderRequest} from './oACreateOrderRequest';
-import {OACreateOrderResponse} from './oACreateOrderResponse';
-import {OAQueryOrderRequest} from './oAQueryOrderRequest';
-import {OAQueryOrderResponse} from './oAQueryOrderResponse';
-import {OAQueryRefundRequest} from './oAQueryRefundRequest';
-import {OARefundRequest} from './oARefundRequest';
-import {OARefundResponse} from './oARefundResponse';
+import { AgreementBalanceRequest } from './agreementBalanceRequest';
+import { AgreementBalanceResponse } from './agreementBalanceResponse';
+import { AgreementBalanceResponseDataInner } from './agreementBalanceResponseDataInner';
+import { AgreementBindRequest } from './agreementBindRequest';
+import { AgreementBindResponse } from './agreementBindResponse';
+import { AgreementPayRequest } from './agreementPayRequest';
+import { AgreementPayResponse } from './agreementPayResponse';
+import { AgreementQueryRequest } from './agreementQueryRequest';
+import { AgreementQueryResponse } from './agreementQueryResponse';
+import { AgreementQueryResponseData } from './agreementQueryResponseData';
+import { AgreementQueryUserRequest } from './agreementQueryUserRequest';
+import { AgreementQueryUserResponse } from './agreementQueryUserResponse';
+import { AgreementUnbindRequest } from './agreementUnbindRequest';
+import { AgreementUnbindResponse } from './agreementUnbindResponse';
+import { OACommonResponse } from './oACommonResponse';
+import { OACreateOrderRequest } from './oACreateOrderRequest';
+import { OACreateOrderResponse } from './oACreateOrderResponse';
+import { OAQueryOrderRequest } from './oAQueryOrderRequest';
+import { OAQueryOrderResponse } from './oAQueryOrderResponse';
+import { OAQueryRefundRequest } from './oAQueryRefundRequest';
+import { OARefundRequest } from './oARefundRequest';
+import { OARefundResponse } from './oARefundResponse';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
-    "string",
-    "boolean",
-    "double",
-    "integer",
-    "long",
-    "float",
-    "number",
-    "any"
-];
+                    "string",
+                    "boolean",
+                    "double",
+                    "integer",
+                    "long",
+                    "float",
+                    "number",
+                    "any"
+                 ];
 
-let enumsMap: { [index: string]: any } = {
-    "AgreementBindRequest.BindingTypeEnum": AgreementBindRequest.BindingTypeEnum,
-    "OACreateOrderRequest.ProductCodeEnum": OACreateOrderRequest.ProductCodeEnum,
+let enumsMap: {[index: string]: any} = {
+        "AgreementBindRequest.BindingTypeEnum": AgreementBindRequest.BindingTypeEnum,
+        "OACreateOrderRequest.ProductCodeEnum": OACreateOrderRequest.ProductCodeEnum,
 }
 
-let typeMap: { [index: string]: any } = {
+let typeMap: {[index: string]: any} = {
     "AgreementBalanceRequest": AgreementBalanceRequest,
     "AgreementBalanceResponse": AgreementBalanceResponse,
-    "AgreementBalanceResponseData": AgreementBalanceResponseData,
+    "AgreementBalanceResponseDataInner": AgreementBalanceResponseDataInner,
     "AgreementBindRequest": AgreementBindRequest,
     "AgreementBindResponse": AgreementBindResponse,
     "AgreementPayRequest": AgreementPayRequest,
+    "AgreementPayResponse": AgreementPayResponse,
     "AgreementQueryRequest": AgreementQueryRequest,
     "AgreementQueryResponse": AgreementQueryResponse,
     "AgreementQueryResponseData": AgreementQueryResponseData,
     "AgreementQueryUserRequest": AgreementQueryUserRequest,
     "AgreementQueryUserResponse": AgreementQueryUserResponse,
-    "AgreementUnbindRequest": AgreementQueryUserRequest,
+    "AgreementUnbindRequest": AgreementUnbindRequest,
     "AgreementUnbindResponse": AgreementUnbindResponse,
     "OACommonResponse": OACommonResponse,
     "OACreateOrderRequest": OACreateOrderRequest,
@@ -120,7 +124,7 @@ export class ObjectSerializer {
             } else {
                 if (data[discriminatorProperty]) {
                     var discriminatorType = data[discriminatorProperty];
-                    if (typeMap[discriminatorType]) {
+                    if(typeMap[discriminatorType]){
                         return discriminatorType; // use the type given in the discriminator
                     } else {
                         return expectedType; // discriminator did not map to a type
@@ -164,7 +168,7 @@ export class ObjectSerializer {
 
             // get the map for the correct type.
             let attributeTypes = typeMap[type].getAttributeTypeMap();
-            let instance: { [index: string]: any } = {};
+            let instance: {[index: string]: any} = {};
             for (let index = 0; index < attributeTypes.length; index++) {
                 let attributeType = attributeTypes[index];
                 instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type);

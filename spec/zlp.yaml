@@ -260,7 +260,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OACommonResponse'
+                $ref: '#/components/schemas/AgreementPayResponse'
           description: OK
         405:
           description: Invalid input
@@ -924,18 +924,20 @@ components:
         sub_return_message:
           type: string
         data:
-          type: object
-          properties:
-            channel:
-              type: integer
-              format: int64
-              description: "Payment channel."
-            payable:
-              type: boolean
-              description: "If the user can pay on this channel."
-            bank_code:
-              type: string
-              description: "Bank code of the channel."
+          type: array
+          items:
+            type: object
+            properties:
+              channel:
+                type: integer
+                format: int64
+                description: "Payment channel."
+              payable:
+                type: boolean
+                description: "If the user can pay on this channel."
+              bank_code:
+                type: string
+                description: "Bank code of the channel."
         discount_amount:
           type: integer
           description: >-
@@ -1016,3 +1018,24 @@ components:
         - mac
       xml:
         name: AgreementPayRequest
+    AgreementPayResponse:
+      type: object
+      properties:
+        return_code:
+          type: integer
+          description: "1: Success, 2: Failed, 3: Processing"
+        return_message:
+          type: string
+          description: "Description of return code"
+        sub_return_code:
+          type: integer
+          description: "Detail error code"
+        sub_return_message:
+          type: string
+          description: "Detail error message"
+        app_trans_id:
+          type: string
+          description: "TXID of order transaction"
+        zp_trans_id:
+          type: integer
+          description: "The ZaloPay's transaction code"

@@ -1,29 +1,29 @@
 
 export class AgreementBalanceRequest {
-    /**
-    * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
-    */
-    'app_id': number;
-    /**
-    * The user\'s identifier on the merchant system,it can be a merchant user\'s id, phone, number, email...
-    */
-    'identifier': string;
-    /**
-    * The public token of the payer.
-    */
-    'pay_token': string;
-    /**
-    * Current timestamp in milliseconds.
-    */
-    'req_date': number;
-    /**
-    * Payment amount.
-    */
-    'amount': number;
-    /**
-    * It is signature of request. It\'s calculated by following input: hmacinput = app_id + `|` + pay_token + `|` + identifier + `|` + amount + `|` + req_date; and use sha256 with app\'s hmac key as sign key.
-    */
-    'mac': string;
+            /**
+            * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
+            */
+        'app_id': number;
+            /**
+            * The user\'s identifier on the merchant system,it can be a merchant user\'s id, phone, number, email...
+            */
+        'identifier': string;
+            /**
+            * The public token of the payer.
+            */
+        'pay_token': string;
+            /**
+            * Current timestamp in milliseconds.
+            */
+        'req_date': number;
+            /**
+            * Payment amount.
+            */
+        'amount': number;
+            /**
+            * It is signature of request. It\'s calculated by following input: hmacinput = app_id + `|` + pay_token + `|` + identifier + `|` + amount + `|` + req_date; and use sha256 with app\'s hmac key as sign key.
+            */
+        'mac': string;
 
     static discriminator: string | undefined = undefined;
 

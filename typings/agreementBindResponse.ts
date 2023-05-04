@@ -1,17 +1,17 @@
 
 export class AgreementBindResponse {
-    /**
-    * Return codes:  1 - SUCCESS  2 - FAIL  3 - PROCESSING  -500 - SYSTEM_ERROR  -429 - LIMIT_REQUEST_REACH  406 - ILLEGAL_STATUS  -405 - ILLEGAL_CLIENT_REQUEST  -403 - ILLEGAL_SIGNATURE_REQUEST  -402 - ILLEGAL_APP_REQUEST  -401 - ILLEGAL_DATA_REQUEST
-    */
-    'return_code'?: number;
-    'return_message'?: string;
-    /**
-    * 
-    */
-    'sub_return_code'?: number;
-    'sub_return_message'?: string;
-    'binding_id'?: string;
-    'binding_url'?: string;
+            /**
+            * Return codes:  1 - SUCCESS  2 - FAIL  3 - PROCESSING  -500 - SYSTEM_ERROR  -429 - LIMIT_REQUEST_REACH  406 - ILLEGAL_STATUS  -405 - ILLEGAL_CLIENT_REQUEST  -403 - ILLEGAL_SIGNATURE_REQUEST  -402 - ILLEGAL_APP_REQUEST  -401 - ILLEGAL_DATA_REQUEST
+            */
+        'return_code'?: number;
+        'return_message'?: string;
+            /**
+            * 
+            */
+        'sub_return_code'?: number;
+        'sub_return_message'?: string;
+        'binding_id'?: string;
+        'binding_url'?: string;
 
     static discriminator: string | undefined = undefined;
 

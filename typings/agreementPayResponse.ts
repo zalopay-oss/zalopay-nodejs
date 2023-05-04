@@ -1,21 +1,29 @@
-import { AgreementBalanceResponseDataInner } from './agreementBalanceResponseDataInner';
 
-export class AgreementBalanceResponse {
+export class AgreementPayResponse {
             /**
-            * Return codes: 1: Success, otherwise fail
+            * 1: Success, 2: Failed, 3: Processing
             */
         'return_code'?: number;
+            /**
+            * Description of return code
+            */
         'return_message'?: string;
             /**
-            * 
+            * Detail error code
             */
         'sub_return_code'?: number;
-        'sub_return_message'?: string;
-        'data'?: Array<AgreementBalanceResponseDataInner>;
             /**
-            * \"The discount amount of the best user\'s voucher for merchant\'s order If discount_amount == 0 that means user has no voucher can apply for current order.\"
+            * Detail error message
             */
-        'discount_amount'?: number;
+        'sub_return_message'?: string;
+            /**
+            * TXID of order transaction
+            */
+        'app_trans_id'?: string;
+            /**
+            * The ZaloPay\'s transaction code
+            */
+        'zp_trans_id'?: number;
 
     static discriminator: string | undefined = undefined;
 
@@ -41,18 +49,18 @@ export class AgreementBalanceResponse {
             "type": "string"
         },
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<AgreementBalanceResponseDataInner>"
+            "name": "app_trans_id",
+            "baseName": "app_trans_id",
+            "type": "string"
         },
         {
-            "name": "discount_amount",
-            "baseName": "discount_amount",
+            "name": "zp_trans_id",
+            "baseName": "zp_trans_id",
             "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
-        return AgreementBalanceResponse.attributeTypeMap;
+        return AgreementPayResponse.attributeTypeMap;
     }
 }
 

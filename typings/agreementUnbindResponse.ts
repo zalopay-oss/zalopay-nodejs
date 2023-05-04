@@ -1,15 +1,15 @@
 
 export class AgreementUnbindResponse {
-    /**
-    * Return codes: 1: Success, 2: Failed
-    */
-    'return_code'?: number;
-    'return_message'?: string;
-    /**
-    * 
-    */
-    'sub_return_code'?: number;
-    'sub_return_message'?: string;
+            /**
+            * Return codes: 1: Success, 2: Failed
+            */
+        'return_code'?: number;
+        'return_message'?: string;
+            /**
+            * 
+            */
+        'sub_return_code'?: number;
+        'sub_return_message'?: string;
 
     static discriminator: string | undefined = undefined;
 
