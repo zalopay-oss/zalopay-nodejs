@@ -9,21 +9,27 @@
 import { AgreementBalanceResponseDataInner } from './agreementBalanceResponseDataInner';
 
 export class AgreementBalanceResponse {
-            /**
-            * Return codes: 1: Success, otherwise fail
-            */
+        /**
+        * Return codes: 1: Success, otherwise fail
+        */
         'return_code'?: number;
+
         'return_message'?: string;
-            /**
-            * 
-            */
+
+        /**
+        * 
+        */
         'sub_return_code'?: number;
+
         'sub_return_message'?: string;
+
         'data'?: Array<AgreementBalanceResponseDataInner>;
-            /**
-            * \"The discount amount of the best user\'s voucher for merchant\'s order If discount_amount == 0 that means user has no voucher can apply for current order.\"
-            */
+
+        /**
+        * \"The discount amount of the best user\'s voucher for merchant\'s order If discount_amount == 0 that means user has no voucher can apply for current order.\"
+        */
         'discount_amount'?: number;
+
 
     static discriminator: string | undefined = undefined;
 

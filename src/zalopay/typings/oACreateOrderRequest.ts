@@ -8,75 +8,93 @@
 */
 
 export class OACreateOrderRequest {
-            /**
-            * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
-            */
+        /**
+        * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
+        */
         'app_id': number;
-            /**
-            * The merchant ID.
-            */
+
+        /**
+        * The merchant ID.
+        */
         'app_user': string;
-            /**
-            * Unique transaction ID of application, format: yyMMddxxxxxxxxx. Max length is 40. For example: 180208181007242
-            */
+
+        /**
+        * Unique transaction ID of application, format: yyMMddxxxxxxxxx. Max length is 40. For example: 180208181007242
+        */
         'app_trans_id': string;
-            /**
-            * The timestamp that order was created at in ms. The different limit is 15 mitnutes.
-            */
+
+        /**
+        * The timestamp that order was created at in ms. The different limit is 15 mitnutes.
+        */
         'app_time': number;
-            /**
-            * Amount of money will be charged.
-            */
+
+        /**
+        * Amount of money will be charged.
+        */
         'amount': number;
-            /**
-            * Optional title of order.
-            */
+
+        /**
+        * Optional title of order.
+        */
         'title'?: string;
-            /**
-            * Users will see this text when they are in the confirm payment screen.
-            */
+
+        /**
+        * Users will see this text when they are in the confirm payment screen.
+        */
         'description': string;
-            /**
-            * ZaloPay will use this URL to notify when the payment success. If not provided, the default app callback URL will be used.
-            */
+
+        /**
+        * ZaloPay will use this URL to notify when the payment success. If not provided, the default app callback URL will be used.
+        */
         'callback_url'?: string;
-            /**
-            * This URL is used for transactions on the payment gateway when a transaction completed; the user will be redirected to this URL. It\'s the responsibility of merchants to provide the correct link.
-            */
+
+        /**
+        * This URL is used for transactions on the payment gateway when a transaction completed; the user will be redirected to this URL. It\'s the responsibility of merchants to provide the correct link.
+        */
         'redirect_url'?: string;
-            /**
-            * JSON string describes the device specification.
-            */
+
+        /**
+        * JSON string describes the device specification.
+        */
         'device_info'?: string;
-            /**
-            * JSON string describes order items.
-            */
+
+        /**
+        * JSON string describes order items.
+        */
         'item': string;
-            /**
-            * JSON string include special information of order.
-            */
+
+        /**
+        * JSON string include special information of order.
+        */
         'embed_data': string;
-            /**
-            * It is signature of order. It\'s calculated by following input: hmac_input = app_id + `|` + app_trans_id + `|` + app_user + `|` + amount + `|` + app_time + `|` + embe_data + `|` + item and use SHA256 with app\'s hmac key as sign key.
-            */
+
+        /**
+        * It is signature of order. It\'s calculated by following input: hmac_input = app_id + `|` + app_trans_id + `|` + app_user + `|` + amount + `|` + app_time + `|` + embe_data + `|` + item and use SHA256 with app\'s hmac key as sign key.
+        */
         'mac': string;
-            /**
-            * If the order is for Agreement, this field must be AGREEMENT.
-            */
+
+        /**
+        * If the order is for Agreement, this field must be AGREEMENT.
+        */
         'product_code'?: OACreateOrderRequest.ProductCodeEnum;
+
         'bank_code'?: string;
-            /**
-            * User phone
-            */
+
+        /**
+        * User phone
+        */
         'phone'?: string;
-            /**
-            * User email
-            */
+
+        /**
+        * User email
+        */
         'email'?: string;
-            /**
-            * User address
-            */
+
+        /**
+        * User address
+        */
         'address'?: string;
+
 
     static discriminator: string | undefined = undefined;
 

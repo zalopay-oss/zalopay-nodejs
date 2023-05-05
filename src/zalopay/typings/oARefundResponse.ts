@@ -9,10 +9,15 @@
 
 export class OARefundResponse {
         'return_code'?: number;
+
         'return_message'?: string;
+
         'sub_return_code'?: number;
+
         'sub_return_message'?: string;
+
         'refund_id'?: number;
+
 
     static discriminator: string | undefined = undefined;
 

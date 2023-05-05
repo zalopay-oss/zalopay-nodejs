@@ -9,17 +9,22 @@
 import { AgreementQueryResponseData } from './agreementQueryResponseData';
 
 export class AgreementQueryResponse {
-            /**
-            * Return codes:  1 - SUCCESS  2 - FAILED  3 - PENDING
-            */
+        /**
+        * Return codes:  1 - SUCCESS  2 - FAILED  3 - PENDING
+        */
         'return_code'?: number;
+
         'return_message'?: string;
-            /**
-            * 
-            */
+
+        /**
+        * 
+        */
         'sub_return_code'?: number;
+
         'sub_return_message'?: string;
+
         'data'?: AgreementQueryResponseData;
+
 
     static discriminator: string | undefined = undefined;
 

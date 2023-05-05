@@ -8,18 +8,21 @@
 */
 
 export class AgreementBalanceResponseDataInner {
-            /**
-            * Payment channel.
-            */
+        /**
+        * Payment channel.
+        */
         'channel'?: number;
-            /**
-            * If the user can pay on this channel.
-            */
+
+        /**
+        * If the user can pay on this channel.
+        */
         'payable'?: boolean;
-            /**
-            * Bank code of the channel.
-            */
+
+        /**
+        * Bank code of the channel.
+        */
         'bank_code'?: string;
+
 
     static discriminator: string | undefined = undefined;
 

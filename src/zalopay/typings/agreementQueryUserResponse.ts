@@ -8,20 +8,25 @@
 */
 
 export class AgreementQueryUserResponse {
-            /**
-            * Return codes: 1: Success, 2: Failed, 3: Processing
-            */
+        /**
+        * Return codes: 1: Success, 2: Failed, 3: Processing
+        */
         'return_code'?: number;
+
         'return_message'?: string;
-            /**
-            * 
-            */
+
+        /**
+        * 
+        */
         'sub_return_code'?: number;
+
         'sub_return_message'?: string;
-            /**
-            * \"Masked phone of user. For example: ****1234.\"
-            */
+
+        /**
+        * \"Masked phone of user. For example: ****1234.\"
+        */
         'phone'?: string;
+
 
     static discriminator: string | undefined = undefined;
 

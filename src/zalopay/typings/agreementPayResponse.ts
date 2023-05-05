@@ -8,30 +8,36 @@
 */
 
 export class AgreementPayResponse {
-            /**
-            * 1: Success, 2: Failed, 3: Processing
-            */
+        /**
+        * 1: Success, 2: Failed, 3: Processing
+        */
         'return_code'?: number;
-            /**
-            * Description of return code
-            */
+
+        /**
+        * Description of return code
+        */
         'return_message'?: string;
-            /**
-            * Detail error code
-            */
+
+        /**
+        * Detail error code
+        */
         'sub_return_code'?: number;
-            /**
-            * Detail error message
-            */
+
+        /**
+        * Detail error message
+        */
         'sub_return_message'?: string;
-            /**
-            * TXID of order transaction
-            */
+
+        /**
+        * TXID of order transaction
+        */
         'app_trans_id'?: string;
-            /**
-            * The ZaloPay\'s transaction code
-            */
+
+        /**
+        * The ZaloPay\'s transaction code
+        */
         'zp_trans_id'?: number;
+
 
     static discriminator: string | undefined = undefined;
 
