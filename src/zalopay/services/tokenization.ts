@@ -7,7 +7,7 @@ import getJsonResponse from "../helpers/getJsonResponse";
 import {
     AgreementBalanceRequest,
     AgreementBalanceResponse,
-    AgreementPayRequest,
+    AgreementPayRequest, AgreementPayResponse,
     AgreementQueryRequest,
     AgreementQueryResponse,
     AgreementQueryUserRequest,
@@ -66,7 +66,7 @@ class Tokenization extends Service {
         return ObjectSerializer.deserialize(response, "AgreementUnbindResponse");
     }
 
-    public async pay(payRequest: AgreementPayRequest): Promise<OACommonResponse> {
+    public async pay(payRequest: AgreementPayRequest): Promise<AgreementPayResponse> {
         payRequest.app_id ||= +this.config.appId;
         const dataSign: string = this.getDataToSign(payRequest);
         payRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
@@ -75,7 +75,7 @@ class Tokenization extends Service {
             "post",
             payRequest,
         );
-        return ObjectSerializer.deserialize(response, "OACommonResponse");
+        return ObjectSerializer.deserialize(response, "AgreementPayResponse");
     }
 
     public async query(queryRequest: AgreementQueryRequest): Promise<AgreementQueryResponse> {

@@ -107,8 +107,8 @@ describe("Tokenization API", (): void => {
         const response = await tokenizationAPI.pay(request);
         expect(response.return_code).toEqual(3);
         expect(response.sub_return_code).toEqual(3);
-        // expect(response.zp_trans_id).toEqual("230407_13583500399");
-        // expect(response.zp_trans_id).toEqual("230407000006575");
+        expect(response.app_trans_id).toEqual("230407_13583500399");
+        expect(response.zp_trans_id).toEqual(230407000006575);
     });
 
     test("should get the the basic user information", async (): Promise<void> => {
