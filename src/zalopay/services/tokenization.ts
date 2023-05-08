@@ -1,7 +1,7 @@
 import {ZaloPayClient} from "../zaloPayClient";
 import Service from "../service";
-import {AgreementBindRequest} from "../typings/agreementBindRequest";
-import {AgreementBindResponse} from "../typings/agreementBindResponse";
+import {AgreementBindRequest} from "../models/agreementBindRequest";
+import {AgreementBindResponse} from "../models/agreementBindResponse";
 import TokenizationResource from "./resource/tokenizationResource";
 import getJsonResponse from "../helpers/getJsonResponse";
 import {
@@ -16,7 +16,7 @@ import {
     AgreementUnbindResponse,
     OACommonResponse,
     ObjectSerializer
-} from "../typings/models";
+} from "../models/models";
 import hmacUtils from "../utils/hmacUtils";
 import HmacUtils from "../utils/hmacUtils";
 

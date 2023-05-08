@@ -8,12 +8,12 @@ import {
     queryBindingSuccess, queryUserSuccess, submitPayProcessing,
     unbindSuccess
 } from "./__mocks__/tokenization/responses";
-import {AgreementBindRequest} from "../typings/agreementBindRequest";
-import {AgreementUnbindRequest} from "../typings/agreementUnbindRequest";
-import {AgreementQueryRequest} from "../typings/agreementQueryRequest";
-import {AgreementBalanceRequest} from "../typings/agreementBalanceRequest";
-import {AgreementPayRequest} from "../typings/agreementPayRequest";
-import {AgreementQueryUserRequest} from "../typings/agreementQueryUserRequest";
+import {AgreementBindRequest} from "../models/agreementBindRequest";
+import {AgreementUnbindRequest} from "../models/agreementUnbindRequest";
+import {AgreementQueryRequest} from "../models/agreementQueryRequest";
+import {AgreementBalanceRequest} from "../models/agreementBalanceRequest";
+import {AgreementPayRequest} from "../models/agreementPayRequest";
+import {AgreementQueryUserRequest} from "../models/agreementQueryUserRequest";
 
 let client: ZaloPayClient;
 let tokenizationAPI: TokenizationAPI;
