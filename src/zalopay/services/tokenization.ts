@@ -17,7 +17,6 @@ import {
     OACommonResponse,
     ObjectSerializer
 } from "../models/models";
-import hmacUtils from "../utils/hmacUtils";
 import HmacUtils from "../utils/hmacUtils";
 
 class Tokenization extends Service {
@@ -156,7 +155,7 @@ class Tokenization extends Service {
             data.push(request.app_trans_id);
             data.push(request.req_date);
         }
-        return data.join(hmacUtils.DATA_SEPARATOR);
+        return data.join(HmacUtils.DATA_SEPARATOR);
     }
 }
 
