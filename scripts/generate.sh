@@ -11,8 +11,6 @@ openapi-generator-cli generate \
 		--additional-properties=modelPropertyNaming=original \
 		--additional-properties=helperFunctions=./templates/helpers/camelCase.ts
 
+rm src/zalopay/models/*
 cp build/model/* src/zalopay/models
-
-# Clear
-rm -r docusaurus-playground
 rm -r build
