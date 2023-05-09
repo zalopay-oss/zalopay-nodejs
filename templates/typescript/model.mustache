@@ -18,7 +18,7 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
     * {{{.}}}
     */
     {{/description}}
-    '{{name}}'{{#isAppId}}?{{/isAppId}}{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}};
+    '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}};
 
     {{/vars}}
 
@@ -79,11 +79,3 @@ export enum {{classname}} {
 {{/isEnum}}
 {{/model}}
 {{/models}}
-
-{{#helpers}}
-    {{#isAppId}}
-        function(name, render) {
-            return render(name) === "app_id";
-        }
-    {{/isAppId}}
-{{/helpers}}
