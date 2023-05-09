@@ -19,11 +19,11 @@ export interface CreateOrderRequest {
   phone?: string;
   email?: string;
   address?: string;
-  type: 'order';
+  type: "order";
 }
 
 export function isCreateOrderRequest(obj: any): obj is CreateOrderRequest {
-  return 'type' in obj && obj.type === 'order';
+  return "type" in obj && obj.type === "order";
 }
 
 export interface CreateOrderResponse extends BaseResponse {
@@ -48,11 +48,11 @@ export interface CreateQuickPayOrderRequest {
   paymentCode: string
   currency?: string
   userIP?: string
-  type: 'quick_pay';
+  type: "quick_pay";
 }
 
 export function isCreateQuickPayOrderRequest(obj: any): obj is CreateQuickPayOrderRequest {
-  return 'type' in obj && obj.type === 'quick_pay';
+  return "type" in obj && obj.type === "quick_pay";
 }
 
 export interface CreateQuickPayOrderResponse extends BaseResponse {
@@ -68,11 +68,11 @@ export interface CreateRefundOrderRequest {
   timestamp: number;
   mac: string;
   description: string;
-  type: 'refund';
+  type: "refund";
 }
 
 export function isCreateRefundOrderRequest(obj: any): obj is CreateRefundOrderRequest {
-  return 'type' in obj && obj.type === 'refund';
+  return "type" in obj && obj.type === "refund";
 }
 
 export interface CreateRefundOrderResponse extends BaseResponse {
@@ -89,11 +89,11 @@ export interface CreateZODOrderRequest {
   receiver: any;
   orderInfo: ZODOrderInfo[];
   mcExtInfo: any;
-  type: 'zod';
+  type: "zod";
 }
 
 export function isCreateZODOrderRequest(obj: any): obj is CreateZODOrderRequest {
-  return 'type' in obj && obj.type === 'zod';
+  return "type" in obj && obj.type === "zod";
 }
 
 export interface ZODOrderInfo {
