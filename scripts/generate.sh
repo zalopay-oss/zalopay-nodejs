@@ -1,9 +1,8 @@
-# Get latest OpenAPI specification
-git clone https://gitlab.zalopay.vn/accounting/dojo/docusaurus-playground.git
 
 # Generate models from specification
+# Make sure Open API specification in specs folder is latest
 openapi-generator-cli generate \
-		-i docusaurus-playground/specs/en/* \
+		-i specs/* \
 		-g typescript-node \
 		-t templates/typescript \
 		-o build \
