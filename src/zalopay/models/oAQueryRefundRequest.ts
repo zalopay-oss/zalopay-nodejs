@@ -11,7 +11,7 @@ export class OAQueryRefundRequest {
         /**
         * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
         */
-        'app_id': number;
+        'app_id'?: number;
 
         /**
         * Refund ID that is used for requesting refund.
@@ -26,7 +26,7 @@ export class OAQueryRefundRequest {
         /**
         * It is signature of order. It\'s calculated by following input: hmacinput = appid + `|` + mrefundid + `|` + timestamp and use sha256 with app\'s hmac key as sign key
         */
-        'mac': string;
+        'mac'?: string;
 
 
     static discriminator: string | undefined = undefined;

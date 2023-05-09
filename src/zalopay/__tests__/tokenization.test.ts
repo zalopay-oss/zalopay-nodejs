@@ -86,7 +86,7 @@ describe("Tokenization API", (): void => {
         request.identifier = "84903863801";
         request.pay_token = "NJLHNTRLZDETZGQYZI0ZNTBKLTGWZJKTMTKXYJHLMWI5NTFI";
         request.amount = 50000;
-        request.req_date = 1680848533635;
+        // request.req_date = 1680848533635;
         const response = await tokenizationAPI.balance(request);
         expect(response.return_code).toEqual(1);
         expect(response.sub_return_code).toEqual(1);

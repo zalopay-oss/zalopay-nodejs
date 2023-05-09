@@ -11,7 +11,7 @@ export class OAQueryOrderRequest {
         /**
         * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
         */
-        'app_id': number;
+        'app_id'?: number;
 
         /**
         * The transaction ID that is used for querying.
@@ -21,7 +21,7 @@ export class OAQueryOrderRequest {
         /**
         * It is signature of order. It\'s calculated by following input: hmacinput = appid + `|` + apptransid and use sha256 with app\'s hmac key as sign key
         */
-        'mac': string;
+        'mac'?: string;
 
 
     static discriminator: string | undefined = undefined;

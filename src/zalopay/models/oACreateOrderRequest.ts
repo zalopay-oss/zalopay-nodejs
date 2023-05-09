@@ -11,7 +11,7 @@ export class OACreateOrderRequest {
         /**
         * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
         */
-        'app_id': number;
+        'app_id'?: number;
 
         /**
         * The merchant ID.
@@ -71,7 +71,7 @@ export class OACreateOrderRequest {
         /**
         * It is signature of order. It\'s calculated by following input: hmac_input = app_id + `|` + app_trans_id + `|` + app_user + `|` + amount + `|` + app_time + `|` + embe_data + `|` + item and use SHA256 with app\'s hmac key as sign key.
         */
-        'mac': string;
+        'mac'?: string;
 
         /**
         * If the order is for Agreement, this field must be AGREEMENT.

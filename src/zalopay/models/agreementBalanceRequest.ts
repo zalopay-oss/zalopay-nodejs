@@ -11,7 +11,7 @@ export class AgreementBalanceRequest {
         /**
         * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
         */
-        'app_id': number;
+        'app_id'?: number;
 
         /**
         * The user\'s identifier on the merchant system,it can be a merchant user\'s id, phone, number, email...
@@ -36,7 +36,7 @@ export class AgreementBalanceRequest {
         /**
         * It is signature of request. It\'s calculated by following input: hmacinput = app_id + `|` + pay_token + `|` + identifier + `|` + amount + `|` + req_date; and use sha256 with app\'s hmac key as sign key.
         */
-        'mac': string;
+        'mac'?: string;
 
 
     static discriminator: string | undefined = undefined;

@@ -11,7 +11,7 @@ export class AgreementQueryUserRequest {
         /**
         * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
         */
-        'app_id': number;
+        'app_id'?: number;
 
         /**
         * The access token of the user after binding success.(This is pay_token value)
@@ -26,7 +26,7 @@ export class AgreementQueryUserRequest {
         /**
         * It is signature of request. It\'s calculated by following input: hmacinput = app_id + `|` + access_token + `|` + req_date; and use sha256 with app\'s hmac key as sign key.
         */
-        'mac': string;
+        'mac'?: string;
 
 
     static discriminator: string | undefined = undefined;

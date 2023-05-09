@@ -11,7 +11,7 @@ export class AgreementQueryRequest {
         /**
         * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
         */
-        'app_id': number;
+        'app_id'?: number;
 
         /**
         * Unique transaction ID of application, format: yyMMddxxxxxxxxx. Max length is 40. For example: 180208181007242
@@ -26,7 +26,7 @@ export class AgreementQueryRequest {
         /**
         * It is signature of request. It\'s calculated by following input: hmacinput = app_id + `|` + apps_trans_id + `|` + req_date; and use sha256 with app\'s hmac key as sign key.
         */
-        'mac': string;
+        'mac'?: string;
 
 
     static discriminator: string | undefined = undefined;
