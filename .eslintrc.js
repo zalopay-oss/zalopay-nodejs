@@ -1,25 +1,13 @@
-const path = require('path');
-
 module.exports = {
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint"],
-  env: {
-    es6: true,
-    node: true
-  },
   parserOptions: {
     ecmaVersion: 6,
     sourceType: "module",
-    ecmaFeatures: {
-      modules: true
-    },
-    project: path.resolve(__dirname, "./tsconfig.json"),
-    tsconfigRootDir: __dirname
   },
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  env: {
+    node: true,
+  },
+  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
   rules: {
     quotes: ["error", "double"],
     semi: ["error", "always"],
@@ -27,19 +15,12 @@ module.exports = {
     "@typescript-eslint/ban-types": [
       "error",
       {
-        "extendDefaults": true,
-        "types": {
-          "{}": false
-        }
-      }
-    ]
+        extendDefaults: true,
+        types: {
+          "{}": false,
+        },
+      },
+    ],
+    "no-dupe-class-members": "off",
   },
-  overrides: [
-    {
-      files: ["*.ts"],
-      rules: {
-        "no-dupe-class-members": "off"
-      }
-    }
-  ]
-}
+};
