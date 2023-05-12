@@ -21,6 +21,18 @@ export * from './agreementQueryUserRequest';
 export * from './agreementQueryUserResponse';
 export * from './agreementUnbindRequest';
 export * from './agreementUnbindResponse';
+export * from './disbursementQueryMerchantBalanceRequest';
+export * from './disbursementQueryMerchantBalanceResponse';
+export * from './disbursementQueryMerchantBalanceResponseData';
+export * from './disbursementQueryOrderRequest';
+export * from './disbursementQueryOrderResponse';
+export * from './disbursementQueryOrderResponseData';
+export * from './disbursementQueryUserRequest';
+export * from './disbursementQueryUserResponse';
+export * from './disbursementQueryUserResponseData';
+export * from './disbursementTopupRequest';
+export * from './disbursementTopupResponse';
+export * from './disbursementTopupResponseData';
 export * from './oACommonResponse';
 export * from './oACreateOrderRequest';
 export * from './oACreateOrderResponse';
@@ -45,6 +57,18 @@ import { AgreementQueryUserRequest } from './agreementQueryUserRequest';
 import { AgreementQueryUserResponse } from './agreementQueryUserResponse';
 import { AgreementUnbindRequest } from './agreementUnbindRequest';
 import { AgreementUnbindResponse } from './agreementUnbindResponse';
+import { DisbursementQueryMerchantBalanceRequest } from './disbursementQueryMerchantBalanceRequest';
+import { DisbursementQueryMerchantBalanceResponse } from './disbursementQueryMerchantBalanceResponse';
+import { DisbursementQueryMerchantBalanceResponseData } from './disbursementQueryMerchantBalanceResponseData';
+import { DisbursementQueryOrderRequest } from './disbursementQueryOrderRequest';
+import { DisbursementQueryOrderResponse } from './disbursementQueryOrderResponse';
+import { DisbursementQueryOrderResponseData } from './disbursementQueryOrderResponseData';
+import { DisbursementQueryUserRequest } from './disbursementQueryUserRequest';
+import { DisbursementQueryUserResponse } from './disbursementQueryUserResponse';
+import { DisbursementQueryUserResponseData } from './disbursementQueryUserResponseData';
+import { DisbursementTopupRequest } from './disbursementTopupRequest';
+import { DisbursementTopupResponse } from './disbursementTopupResponse';
+import { DisbursementTopupResponseData } from './disbursementTopupResponseData';
 import { OACommonResponse } from './oACommonResponse';
 import { OACreateOrderRequest } from './oACreateOrderRequest';
 import { OACreateOrderResponse } from './oACreateOrderResponse';
@@ -86,6 +110,18 @@ let typeMap: {[index: string]: any} = {
     "AgreementQueryUserResponse": AgreementQueryUserResponse,
     "AgreementUnbindRequest": AgreementUnbindRequest,
     "AgreementUnbindResponse": AgreementUnbindResponse,
+    "DisbursementQueryMerchantBalanceRequest": DisbursementQueryMerchantBalanceRequest,
+    "DisbursementQueryMerchantBalanceResponse": DisbursementQueryMerchantBalanceResponse,
+    "DisbursementQueryMerchantBalanceResponseData": DisbursementQueryMerchantBalanceResponseData,
+    "DisbursementQueryOrderRequest": DisbursementQueryOrderRequest,
+    "DisbursementQueryOrderResponse": DisbursementQueryOrderResponse,
+    "DisbursementQueryOrderResponseData": DisbursementQueryOrderResponseData,
+    "DisbursementQueryUserRequest": DisbursementQueryUserRequest,
+    "DisbursementQueryUserResponse": DisbursementQueryUserResponse,
+    "DisbursementQueryUserResponseData": DisbursementQueryUserResponseData,
+    "DisbursementTopupRequest": DisbursementTopupRequest,
+    "DisbursementTopupResponse": DisbursementTopupResponse,
+    "DisbursementTopupResponseData": DisbursementTopupResponseData,
     "OACommonResponse": OACommonResponse,
     "OACreateOrderRequest": OACreateOrderRequest,
     "OACreateOrderResponse": OACreateOrderResponse,

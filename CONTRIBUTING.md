@@ -4,6 +4,7 @@
 To adding a new api, for example TokenizationAPI
 - Update Open API specification in `specs` folder to latest.
 - Generate request, response models by run the script in `scripts/generate.sh`
+- Find and replace `app_id`, `payment_id`, `mac`, `sig` in the generated request files
 - Add new service and related resources in `services` folder.
 - Update `services/index.ts` to expose new service API to client.
 - Add unit tests for new service in `__tests__` folder and verify by run `npm run test`.
