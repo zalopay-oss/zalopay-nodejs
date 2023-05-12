@@ -42,6 +42,7 @@ describe("Disbursement API", (): void => {
         const response = await disbursementAPI.queryMerchantBalance(request);
         expect(response.return_code).toEqual(1);
         expect(response.sub_return_code).toEqual(1);
+        expect(response.data?.balance).toEqual(1000000000);
     });
 
     test("should query user succcessful", async (): Promise<void> => {
