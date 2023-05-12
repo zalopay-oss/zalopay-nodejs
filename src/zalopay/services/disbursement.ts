@@ -38,7 +38,7 @@ class Disbursement extends Service {
     }
 
     public async queryMerchantBalance(balanceRequest: DisbursementQueryMerchantBalanceRequest): Promise<DisbursementQueryMerchantBalanceResponse> {
-        balanceRequest.app_id = parseInt(this.config.appId);
+        balanceRequest.app_id ||= +this.config.appId;
         balanceRequest.payment_id =  balanceRequest.payment_id ?? this.config.paymentId;
         const dataSign: string = this.getDataToSign(balanceRequest);
         balanceRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
