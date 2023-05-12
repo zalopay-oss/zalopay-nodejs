@@ -38,17 +38,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OACreateOrderRequest'
+              $ref: "#/components/schemas/OrderCreateRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/OACreateOrderRequest'
+              $ref: "#/components/schemas/OrderCreateRequest"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OACreateOrderResponse'
+                $ref: "#/components/schemas/OrderCreateResponse"
           description: OK
   /v2/query:
     post:
@@ -61,17 +61,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OAQueryOrderRequest'
+              $ref: "#/components/schemas/OrderQueryRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/OAQueryOrderRequest'
+              $ref: "#/components/schemas/OrderQueryRequest"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OAQueryOrderResponse'
+                $ref: "#/components/schemas/OrderQueryResponse"
           description: OK
   /v2/refund:
     post:
@@ -84,17 +84,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OARefundRequest'
+              $ref: "#/components/schemas/RefundCreateRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/OARefundRequest'
+              $ref: "#/components/schemas/RefundCreateRequest"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OARefundResponse'
+                $ref: "#/components/schemas/RefundCreateResponse"
           description: OK
   /v2/query_refund:
     post:
@@ -107,17 +107,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OAQueryRefundRequest'
+              $ref: "#/components/schemas/RefundQueryRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/OAQueryRefundRequest'
+              $ref: "#/components/schemas/RefundQueryRequest"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OACommonResponse'
+                $ref: "#/components/schemas/RefundQueryResponse"
           description: OK
 
   /v2/agreement/bind:
@@ -131,20 +131,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgreementBindRequest'
+              $ref: "#/components/schemas/AgreementBindRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/AgreementBindRequest'
+              $ref: "#/components/schemas/AgreementBindRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AgreementBindRequest'
+              $ref: "#/components/schemas/AgreementBindRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgreementBindResponse'
+                $ref: "#/components/schemas/AgreementBindResponse"
           description: OK
         405:
           description: Invalid input
@@ -160,20 +160,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgreementUnbindRequest'
+              $ref: "#/components/schemas/AgreementUnbindRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/AgreementUnbindRequest'
+              $ref: "#/components/schemas/AgreementUnbindRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AgreementUnbindRequest'
+              $ref: "#/components/schemas/AgreementUnbindRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgreementUnbindResponse'
+                $ref: "#/components/schemas/AgreementUnbindResponse"
           description: OK
         405:
           description: Invalid input
@@ -189,20 +189,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgreementQueryRequest'
+              $ref: "#/components/schemas/AgreementQueryRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/AgreementQueryRequest'
+              $ref: "#/components/schemas/AgreementQueryRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AgreementQueryRequest'
+              $ref: "#/components/schemas/AgreementQueryRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgreementQueryResponse'
+                $ref: "#/components/schemas/AgreementQueryResponse"
           description: OK
         405:
           description: Invalid input
@@ -218,20 +218,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgreementBalanceRequest'
+              $ref: "#/components/schemas/AgreementBalanceRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/AgreementBalanceRequest'
+              $ref: "#/components/schemas/AgreementBalanceRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AgreementBalanceRequest'
+              $ref: "#/components/schemas/AgreementBalanceRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgreementBalanceResponse'
+                $ref: "#/components/schemas/AgreementBalanceResponse"
           description: OK
         405:
           description: Invalid input
@@ -247,20 +247,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgreementPayRequest'
+              $ref: "#/components/schemas/AgreementPayRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/AgreementPayRequest'
+              $ref: "#/components/schemas/AgreementPayRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AgreementPayRequest'
+              $ref: "#/components/schemas/AgreementPayRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgreementPayResponse'
+                $ref: "#/components/schemas/AgreementPayResponse"
           description: OK
         405:
           description: Invalid input
@@ -276,27 +276,27 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgreementQueryUserRequest'
+              $ref: "#/components/schemas/AgreementQueryUserRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/AgreementQueryUserRequest'
+              $ref: "#/components/schemas/AgreementQueryUserRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AgreementQueryUserRequest'
+              $ref: "#/components/schemas/AgreementQueryUserRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgreementQueryUserResponse'
+                $ref: "#/components/schemas/AgreementQueryUserResponse"
           description: OK
         405:
           description: Invalid input
           content: {}
 components:
   schemas:
-    OAQueryOrderRequest:
+    OrderQueryRequest:
       type: object
       properties:
         app_id:
@@ -318,8 +318,8 @@ components:
         - app_trans_id
         - mac
       xml:
-        name: OAQueryOrderRequest
-    OAQueryOrderResponse:
+        name: OrderQueryRequest
+    OrderQueryResponse:
       type: object
       properties:
         return_code:
@@ -401,7 +401,7 @@ components:
         zp_trans_id:
           type: integer
           format: int64
-    OARefundRequest:
+    RefundCreateRequest:
       type: object
       properties:
         app_id:
@@ -444,8 +444,8 @@ components:
         - description
         - mac
       xml:
-        name: OARefundRequest
-    OARefundResponse:
+        name: RefundCreateRequest
+    RefundCreateResponse:
       type: object
       properties:
         return_code:
@@ -459,7 +459,7 @@ components:
         refund_id:
           type: integer
           format: int64
-    OAQueryRefundRequest:
+    RefundQueryRequest:
       type: object
       properties:
         app_id:
@@ -487,7 +487,7 @@ components:
         - mac
       xml:
         name: QueryRefundRequest
-    OACommonResponse:
+    RefundQueryResponse:
       type: object
       properties:
         return_code:
@@ -561,7 +561,7 @@ components:
             -329 - User huỷ giao dịch thanh toán.
         sub_return_message:
           type: string
-    OACreateOrderRequest:
+    OrderCreateRequest:
       type: object
       properties:
         app_id:
@@ -650,8 +650,8 @@ components:
         - embed_data
         - mac
       xml:
-        name: OACreateOrderRequest
-    OACreateOrderResponse:
+        name: OrderCreateRequest
+    OrderCreateResponse:
       type: object
       properties:
         return_code:
@@ -876,7 +876,7 @@ components:
               description: "The identifier of ZaloPay user per merchant app_id."
             masked_user_phone:
               type: string
-              description: "Masked user phone (Ex: masked_user_phone: \"****6938\")"
+              description: 'Masked user phone (Ex: masked_user_phone: "****6938")'
     AgreementBalanceRequest:
       type: object
       properties:

@@ -21,14 +21,14 @@ export * from './agreementQueryUserRequest';
 export * from './agreementQueryUserResponse';
 export * from './agreementUnbindRequest';
 export * from './agreementUnbindResponse';
-export * from './oACommonResponse';
-export * from './oACreateOrderRequest';
-export * from './oACreateOrderResponse';
-export * from './oAQueryOrderRequest';
-export * from './oAQueryOrderResponse';
-export * from './oAQueryRefundRequest';
-export * from './oARefundRequest';
-export * from './oARefundResponse';
+export * from './orderCreateRequest';
+export * from './orderCreateResponse';
+export * from './orderQueryRequest';
+export * from './orderQueryResponse';
+export * from './refundCreateRequest';
+export * from './refundCreateResponse';
+export * from './refundQueryRequest';
+export * from './refundQueryResponse';
 
 
 import { AgreementBalanceRequest } from './agreementBalanceRequest';
@@ -45,14 +45,14 @@ import { AgreementQueryUserRequest } from './agreementQueryUserRequest';
 import { AgreementQueryUserResponse } from './agreementQueryUserResponse';
 import { AgreementUnbindRequest } from './agreementUnbindRequest';
 import { AgreementUnbindResponse } from './agreementUnbindResponse';
-import { OACommonResponse } from './oACommonResponse';
-import { OACreateOrderRequest } from './oACreateOrderRequest';
-import { OACreateOrderResponse } from './oACreateOrderResponse';
-import { OAQueryOrderRequest } from './oAQueryOrderRequest';
-import { OAQueryOrderResponse } from './oAQueryOrderResponse';
-import { OAQueryRefundRequest } from './oAQueryRefundRequest';
-import { OARefundRequest } from './oARefundRequest';
-import { OARefundResponse } from './oARefundResponse';
+import { OrderCreateRequest } from './orderCreateRequest';
+import { OrderCreateResponse } from './orderCreateResponse';
+import { OrderQueryRequest } from './orderQueryRequest';
+import { OrderQueryResponse } from './orderQueryResponse';
+import { RefundCreateRequest } from './refundCreateRequest';
+import { RefundCreateResponse } from './refundCreateResponse';
+import { RefundQueryRequest } from './refundQueryRequest';
+import { RefundQueryResponse } from './refundQueryResponse';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -68,7 +68,7 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "AgreementBindRequest.BindingTypeEnum": AgreementBindRequest.BindingTypeEnum,
-        "OACreateOrderRequest.ProductCodeEnum": OACreateOrderRequest.ProductCodeEnum,
+        "OrderCreateRequest.ProductCodeEnum": OrderCreateRequest.ProductCodeEnum,
 }
 
 let typeMap: {[index: string]: any} = {
@@ -86,14 +86,14 @@ let typeMap: {[index: string]: any} = {
     "AgreementQueryUserResponse": AgreementQueryUserResponse,
     "AgreementUnbindRequest": AgreementUnbindRequest,
     "AgreementUnbindResponse": AgreementUnbindResponse,
-    "OACommonResponse": OACommonResponse,
-    "OACreateOrderRequest": OACreateOrderRequest,
-    "OACreateOrderResponse": OACreateOrderResponse,
-    "OAQueryOrderRequest": OAQueryOrderRequest,
-    "OAQueryOrderResponse": OAQueryOrderResponse,
-    "OAQueryRefundRequest": OAQueryRefundRequest,
-    "OARefundRequest": OARefundRequest,
-    "OARefundResponse": OARefundResponse,
+    "OrderCreateRequest": OrderCreateRequest,
+    "OrderCreateResponse": OrderCreateResponse,
+    "OrderQueryRequest": OrderQueryRequest,
+    "OrderQueryResponse": OrderQueryResponse,
+    "RefundCreateRequest": RefundCreateRequest,
+    "RefundCreateResponse": RefundCreateResponse,
+    "RefundQueryRequest": RefundQueryRequest,
+    "RefundQueryResponse": RefundQueryResponse,
 }
 
 export class ObjectSerializer {

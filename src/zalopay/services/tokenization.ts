@@ -1,7 +1,7 @@
-import {ZaloPayClient} from "../zaloPayClient";
+import { ZaloPayClient } from "../zaloPayClient";
 import Service from "../service";
-import {AgreementBindRequest} from "../models/agreementBindRequest";
-import {AgreementBindResponse} from "../models/agreementBindResponse";
+import { AgreementBindRequest } from "../models/agreementBindRequest";
+import { AgreementBindResponse } from "../models/agreementBindResponse";
 import TokenizationResource from "./resource/tokenizationResource";
 import getJsonResponse from "../helpers/getJsonResponse";
 import {
@@ -14,7 +14,6 @@ import {
     AgreementQueryUserResponse,
     AgreementUnbindRequest,
     AgreementUnbindResponse,
-    OACommonResponse,
     ObjectSerializer
 } from "../models/models";
 import HmacUtils from "../utils/hmacUtils";
@@ -69,7 +68,7 @@ class Tokenization extends Service {
         payRequest.app_id ||= +this.config.appId;
         const dataSign: string = this.getDataToSign(payRequest);
         payRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
-        const response = await getJsonResponse<AgreementQueryUserRequest, OACommonResponse>(
+        const response = await getJsonResponse<AgreementPayRequest, AgreementPayResponse>(
             this._pay,
             "post",
             payRequest,
@@ -114,12 +113,12 @@ class Tokenization extends Service {
     }
 
     private getDataToSign(request:
-                              AgreementBindRequest
-                              | AgreementUnbindRequest
-                              | AgreementPayRequest
-                              | AgreementQueryUserRequest
-                              | AgreementBalanceRequest
-                              | AgreementQueryRequest): string {
+        AgreementBindRequest
+        | AgreementUnbindRequest
+        | AgreementPayRequest
+        | AgreementQueryUserRequest
+        | AgreementBalanceRequest
+        | AgreementQueryRequest): string {
         const data = [];
         if (request instanceof AgreementBindRequest) {
             data.push(request.app_id);

@@ -7,24 +7,16 @@
 * Do not edit this class manually.
 */
 
-export class OACreateOrderResponse {
-        /**
-        * Return codes:  1 - SUCCESS  2 - FAIL
-        */
-        'return_code'?: number;
+export class RefundCreateResponse {
+    'return_code'?: number;
 
-        'return_message'?: string;
+    'return_message'?: string;
 
-        /**
-        * The detailed reason explains why the operation has failed. Possible codes are:  -33 - APP_MAINTENANCE - The app is in maintenance  -68 - ALREADY_EXISTS - The order is already exists  -401 - INVALID_ARGUMENT - The request is invalid  -402 - UNAUTHENTICATED - The app is unauthenticated  -500 - SYSTEM_ERROR - The system is error
-        */
-        'sub_return_code'?: number;
+    'sub_return_code'?: number;
 
-        'sub_return_message'?: string;
+    'sub_return_message'?: string;
 
-        'zp_trans_token'?: string;
-
-        'order_url'?: string;
+    'refund_id'?: number;
 
 
     static discriminator: string | undefined = undefined;
@@ -51,18 +43,13 @@ export class OACreateOrderResponse {
             "type": "string"
         },
         {
-            "name": "zp_trans_token",
-            "baseName": "zp_trans_token",
-            "type": "string"
-        },
-        {
-            "name": "order_url",
-            "baseName": "order_url",
-            "type": "string"
+            "name": "refund_id",
+            "baseName": "refund_id",
+            "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
-        return OACreateOrderResponse.attributeTypeMap;
+        return RefundCreateResponse.attributeTypeMap;
     }
 }
 
