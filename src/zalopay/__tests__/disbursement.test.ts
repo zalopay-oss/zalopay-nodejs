@@ -13,6 +13,7 @@ import { DisbursementQueryMerchantBalanceRequest } from "../models/disbursementQ
 import { DisbursementQueryUserRequest } from "../models/disbursementQueryUserRequest";
 import { DisbursementTopupRequest } from "../models/disbursementTopupRequest";
 import { DisbursementQueryOrderRequest } from "../models/disbursementQueryOrderRequest";
+import { Config } from "../model/Config";
 
 let client: ZaloPayClient;
 let disbursementAPI: DisbursementAPI;
@@ -32,6 +33,14 @@ afterEach(() => {
 });
 
 describe("Disbursement API", (): void => {
+    test('should throw an error if paymentId or privateKey are not in the config', () => {
+        const errorMessage = 'The paymentId and privateKey config keys are required for Disbursement service';
+        const clientWithoutPaymentIdAndPrivateKey = new ZaloPayClient({} as Config);
+        expect(() => new DisbursementAPI(clientWithoutPaymentIdAndPrivateKey)).toThrow(errorMessage);
+        const clientWithoutPrivateKey = new ZaloPayClient({ paymentId: "1234" } as Config);
+        expect(() => new DisbursementAPI(clientWithoutPrivateKey)).toThrow(errorMessage);
+    });
+
     test("should query merchant balance", async (): Promise<void> => {
         scope.post("/v2/disbursement/balance")
             .reply(200, queryMerchantBalanceSuccess);

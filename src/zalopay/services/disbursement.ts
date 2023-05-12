@@ -23,11 +23,14 @@ class Disbursement extends Service {
     private readonly _topup: DisbursementResource;
     private readonly _query_order: DisbursementResource;
 
-    private hmacUtils: HmacUtils;
+    private readonly hmacUtils: HmacUtils;
     private readonly rsaUtils: RSAUtils;
 
     public constructor(client: ZaloPayClient) {
         super(client);
+        if(!client.config.paymentId || !client.config.privateKey) {
+            throw new Error("The paymentId and privateKey config keys are required for Disbursement service");
+        }
         this._query_merchant_balance = new DisbursementResource(this, "/v2/disbursement/balance");
         this._query_user = new DisbursementResource(this, "/v2/disbursement/user");
         this._topup = new DisbursementResource(this, "/v2/disbursement/topup");
