@@ -1,8 +1,8 @@
 export const queryMerchantBalanceSuccess = {
     "return_code": 1,
-    "return_message": "Giao dịch thành công.",
+    "return_message": "Transaction successful.",
     "sub_return_code": 1,
-    "sub_return_message": "Giao dịch thành công.",
+    "sub_return_message": "Transaction successful.",
     "data": {
         "balance": 1000000000,
     }
@@ -10,9 +10,9 @@ export const queryMerchantBalanceSuccess = {
 
 export const queryUserSuccess = {
     "return_code": 1,
-    "return_message": "Giao dịch thành công.",
+    "return_message": "Transaction successful.",
     "sub_return_code": 1,
-    "sub_return_message": "Giao dịch thành công.",
+    "sub_return_message": "Transaction successful.",
     "data": {
         "reference_id": "23040713221300383",
         "m_u_id": "230407qQe7vGnqp0agyforLAy0D2b1x3",
@@ -24,9 +24,9 @@ export const queryUserSuccess = {
 
 export const topupSuccess = {
     "return_code": 1,
-    "return_message": "Giao dịch thành công.",
+    "return_message": "Transaction successful.",
     "sub_return_code": 1,
-    "sub_return_message": "Giao dịch thành công.",
+    "sub_return_message": "Transaction successful.",
     "data": {
         "order_id": "202305110902928474",
         "status": 3,
@@ -44,9 +44,9 @@ export const topupSuccess = {
 
 export const queryOrderSuccess = {
     "return_code": 1,
-    "return_message": "Giao dịch thành công.",
+    "return_message": "Transaction successful.",
     "sub_return_code": 1,
-    "sub_return_message": "Giao dịch thành công.",
+    "sub_return_message": "Transaction successful.",
     "data": {
         "order_id": "202305110902928474",
         "status": 1,
