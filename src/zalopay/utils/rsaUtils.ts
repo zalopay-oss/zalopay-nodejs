@@ -1,20 +1,20 @@
 
-import { Config } from "../model/Config";
+import { Config } from "../utils/Config";
 import NodeRSA from "node-rsa";
 
-type Encoding = 'ascii' | 'utf8' | 'utf16le' | 'ucs2' | 'latin1' | 'base64' | 'hex' | 'binary' | 'buffer';
+type Encoding = "ascii" | "utf8" | "utf16le" | "ucs2" | "latin1" | "base64" | "hex" | "binary" | "buffer";
 
-export type Scheme = 'pkcs1' | 'pkcs8';
+export type Scheme = "pkcs1" | "pkcs8";
 
 export interface RSAOptions {
     /**
      * The encryption scheme
      */
     scheme: Scheme;
-  }
+}
 
 class RSAUtils {
-    private rsa: NodeRSA
+    private rsa: NodeRSA;
 
     static fromConfig(config: Config, options: RSAOptions): RSAUtils {
         return new RSAUtils(config.privateKey ?? "", options.scheme);

@@ -7,79 +7,79 @@
 * Do not edit this class manually.
 */
 
-export * from './agreementBalanceRequest';
-export * from './agreementBalanceResponse';
-export * from './agreementBalanceResponseDataInner';
-export * from './agreementBindRequest';
-export * from './agreementBindResponse';
-export * from './agreementPayRequest';
-export * from './agreementPayResponse';
-export * from './agreementQueryRequest';
-export * from './agreementQueryResponse';
-export * from './agreementQueryResponseData';
-export * from './agreementQueryUserRequest';
-export * from './agreementQueryUserResponse';
-export * from './agreementUnbindRequest';
-export * from './agreementUnbindResponse';
-export * from './disbursementQueryMerchantBalanceRequest';
-export * from './disbursementQueryMerchantBalanceResponse';
-export * from './disbursementQueryMerchantBalanceResponseData';
-export * from './disbursementQueryOrderRequest';
-export * from './disbursementQueryOrderResponse';
-export * from './disbursementQueryOrderResponseData';
-export * from './disbursementQueryUserRequest';
-export * from './disbursementQueryUserResponse';
-export * from './disbursementQueryUserResponseData';
-export * from './disbursementTopupRequest';
-export * from './disbursementTopupResponse';
-export * from './disbursementTopupResponseData';
-export * from './orderCreateRequest';
-export * from './orderCreateResponse';
-export * from './orderQueryRequest';
-export * from './orderQueryResponse';
-export * from './refundCreateRequest';
-export * from './refundCreateResponse';
-export * from './refundQueryRequest';
-export * from './refundQueryResponse';
+export * from "./agreementBalanceRequest";
+export * from "./agreementBalanceResponse";
+export * from "./agreementBalanceResponseDataInner";
+export * from "./agreementBindRequest";
+export * from "./agreementBindResponse";
+export * from "./agreementPayRequest";
+export * from "./agreementPayResponse";
+export * from "./agreementQueryRequest";
+export * from "./agreementQueryResponse";
+export * from "./agreementQueryResponseData";
+export * from "./agreementQueryUserRequest";
+export * from "./agreementQueryUserResponse";
+export * from "./agreementUnbindRequest";
+export * from "./agreementUnbindResponse";
+export * from "./disbursementQueryMerchantBalanceRequest";
+export * from "./disbursementQueryMerchantBalanceResponse";
+export * from "./disbursementQueryMerchantBalanceResponseData";
+export * from "./disbursementQueryOrderRequest";
+export * from "./disbursementQueryOrderResponse";
+export * from "./disbursementQueryOrderResponseData";
+export * from "./disbursementQueryUserRequest";
+export * from "./disbursementQueryUserResponse";
+export * from "./disbursementQueryUserResponseData";
+export * from "./disbursementTopupRequest";
+export * from "./disbursementTopupResponse";
+export * from "./disbursementTopupResponseData";
+export * from "./orderCreateRequest";
+export * from "./orderCreateResponse";
+export * from "./orderQueryRequest";
+export * from "./orderQueryResponse";
+export * from "./refundCreateRequest";
+export * from "./refundCreateResponse";
+export * from "./refundQueryRequest";
+export * from "./refundQueryResponse";
 
 
-import { AgreementBalanceRequest } from './agreementBalanceRequest';
-import { AgreementBalanceResponse } from './agreementBalanceResponse';
-import { AgreementBalanceResponseDataInner } from './agreementBalanceResponseDataInner';
-import { AgreementBindRequest } from './agreementBindRequest';
-import { AgreementBindResponse } from './agreementBindResponse';
-import { AgreementPayRequest } from './agreementPayRequest';
-import { AgreementPayResponse } from './agreementPayResponse';
-import { AgreementQueryRequest } from './agreementQueryRequest';
-import { AgreementQueryResponse } from './agreementQueryResponse';
-import { AgreementQueryResponseData } from './agreementQueryResponseData';
-import { AgreementQueryUserRequest } from './agreementQueryUserRequest';
-import { AgreementQueryUserResponse } from './agreementQueryUserResponse';
-import { AgreementUnbindRequest } from './agreementUnbindRequest';
-import { AgreementUnbindResponse } from './agreementUnbindResponse';
-import { DisbursementQueryMerchantBalanceRequest } from './disbursementQueryMerchantBalanceRequest';
-import { DisbursementQueryMerchantBalanceResponse } from './disbursementQueryMerchantBalanceResponse';
-import { DisbursementQueryMerchantBalanceResponseData } from './disbursementQueryMerchantBalanceResponseData';
-import { DisbursementQueryOrderRequest } from './disbursementQueryOrderRequest';
-import { DisbursementQueryOrderResponse } from './disbursementQueryOrderResponse';
-import { DisbursementQueryOrderResponseData } from './disbursementQueryOrderResponseData';
-import { DisbursementQueryUserRequest } from './disbursementQueryUserRequest';
-import { DisbursementQueryUserResponse } from './disbursementQueryUserResponse';
-import { DisbursementQueryUserResponseData } from './disbursementQueryUserResponseData';
-import { DisbursementTopupRequest } from './disbursementTopupRequest';
-import { DisbursementTopupResponse } from './disbursementTopupResponse';
-import { DisbursementTopupResponseData } from './disbursementTopupResponseData';
-import { OrderCreateRequest } from './orderCreateRequest';
-import { OrderCreateResponse } from './orderCreateResponse';
-import { OrderQueryRequest } from './orderQueryRequest';
-import { OrderQueryResponse } from './orderQueryResponse';
-import { RefundCreateRequest } from './refundCreateRequest';
-import { RefundCreateResponse } from './refundCreateResponse';
-import { RefundQueryRequest } from './refundQueryRequest';
-import { RefundQueryResponse } from './refundQueryResponse';
+import { AgreementBalanceRequest } from "./agreementBalanceRequest";
+import { AgreementBalanceResponse } from "./agreementBalanceResponse";
+import { AgreementBalanceResponseDataInner } from "./agreementBalanceResponseDataInner";
+import { AgreementBindRequest } from "./agreementBindRequest";
+import { AgreementBindResponse } from "./agreementBindResponse";
+import { AgreementPayRequest } from "./agreementPayRequest";
+import { AgreementPayResponse } from "./agreementPayResponse";
+import { AgreementQueryRequest } from "./agreementQueryRequest";
+import { AgreementQueryResponse } from "./agreementQueryResponse";
+import { AgreementQueryResponseData } from "./agreementQueryResponseData";
+import { AgreementQueryUserRequest } from "./agreementQueryUserRequest";
+import { AgreementQueryUserResponse } from "./agreementQueryUserResponse";
+import { AgreementUnbindRequest } from "./agreementUnbindRequest";
+import { AgreementUnbindResponse } from "./agreementUnbindResponse";
+import { DisbursementQueryMerchantBalanceRequest } from "./disbursementQueryMerchantBalanceRequest";
+import { DisbursementQueryMerchantBalanceResponse } from "./disbursementQueryMerchantBalanceResponse";
+import { DisbursementQueryMerchantBalanceResponseData } from "./disbursementQueryMerchantBalanceResponseData";
+import { DisbursementQueryOrderRequest } from "./disbursementQueryOrderRequest";
+import { DisbursementQueryOrderResponse } from "./disbursementQueryOrderResponse";
+import { DisbursementQueryOrderResponseData } from "./disbursementQueryOrderResponseData";
+import { DisbursementQueryUserRequest } from "./disbursementQueryUserRequest";
+import { DisbursementQueryUserResponse } from "./disbursementQueryUserResponse";
+import { DisbursementQueryUserResponseData } from "./disbursementQueryUserResponseData";
+import { DisbursementTopupRequest } from "./disbursementTopupRequest";
+import { DisbursementTopupResponse } from "./disbursementTopupResponse";
+import { DisbursementTopupResponseData } from "./disbursementTopupResponseData";
+import { OrderCreateRequest } from "./orderCreateRequest";
+import { OrderCreateResponse } from "./orderCreateResponse";
+import { OrderQueryRequest } from "./orderQueryRequest";
+import { OrderQueryResponse } from "./orderQueryResponse";
+import { RefundCreateRequest } from "./refundCreateRequest";
+import { RefundCreateResponse } from "./refundCreateResponse";
+import { RefundQueryRequest } from "./refundQueryRequest";
+import { RefundQueryResponse } from "./refundQueryResponse";
 
 /* tslint:disable:no-unused-variable */
-let primitives = [
+const primitives = [
   "string",
   "boolean",
   "double",
@@ -90,12 +90,12 @@ let primitives = [
   "any"
 ];
 
-let enumsMap: { [index: string]: any } = {
+const enumsMap: {[index: string]: any} = {
   "AgreementBindRequest.BindingTypeEnum": AgreementBindRequest.BindingTypeEnum,
   "OrderCreateRequest.ProductCodeEnum": OrderCreateRequest.ProductCodeEnum,
-}
+};
 
-let typeMap: { [index: string]: any } = {
+const typeMap: {[index: string]: any} = {
   "AgreementBalanceRequest": AgreementBalanceRequest,
   "AgreementBalanceResponse": AgreementBalanceResponse,
   "AgreementBalanceResponseDataInner": AgreementBalanceResponseDataInner,
@@ -130,7 +130,7 @@ let typeMap: { [index: string]: any } = {
   "RefundCreateResponse": RefundCreateResponse,
   "RefundQueryRequest": RefundQueryRequest,
   "RefundQueryResponse": RefundQueryResponse,
-}
+};
 
 export class ObjectSerializer {
   public static findCorrectType(data: any, expectedType: string) {
@@ -150,13 +150,13 @@ export class ObjectSerializer {
       }
 
       // Check the discriminator
-      let discriminatorProperty = typeMap[expectedType].discriminator;
+      const discriminatorProperty = typeMap[expectedType].discriminator;
       if (discriminatorProperty == null) {
         return expectedType; // the type does not have a discriminator. use it.
       } else {
         if (data[discriminatorProperty]) {
-          var discriminatorType = data[discriminatorProperty];
-          if (typeMap[discriminatorType]) {
+          const discriminatorType = data[discriminatorProperty];
+          if(typeMap[discriminatorType]){
             return discriminatorType; // use the type given in the discriminator
           } else {
             return expectedType; // discriminator did not map to a type
@@ -176,9 +176,9 @@ export class ObjectSerializer {
     } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
       let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
       subType = subType.substring(0, subType.length - 1); // Type> => Type
-      let transformedData: any[] = [];
+      const transformedData: any[] = [];
       for (let index = 0; index < data.length; index++) {
-        let datum = data[index];
+        const datum = data[index];
         transformedData.push(ObjectSerializer.serialize(datum, subType));
       }
       return transformedData;
@@ -199,10 +199,10 @@ export class ObjectSerializer {
       type = this.findCorrectType(data, type);
 
       // get the map for the correct type.
-      let attributeTypes = typeMap[type].getAttributeTypeMap();
-      let instance: { [index: string]: any } = {};
+      const attributeTypes = typeMap[type].getAttributeTypeMap();
+      const instance: {[index: string]: any} = {};
       for (let index = 0; index < attributeTypes.length; index++) {
-        let attributeType = attributeTypes[index];
+        const attributeType = attributeTypes[index];
         instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type);
       }
       return instance;
@@ -219,9 +219,9 @@ export class ObjectSerializer {
     } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
       let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
       subType = subType.substring(0, subType.length - 1); // Type> => Type
-      let transformedData: any[] = [];
+      const transformedData: any[] = [];
       for (let index = 0; index < data.length; index++) {
-        let datum = data[index];
+        const datum = data[index];
         transformedData.push(ObjectSerializer.deserialize(datum, subType));
       }
       return transformedData;
@@ -235,10 +235,10 @@ export class ObjectSerializer {
       if (!typeMap[type]) { // dont know the type
         return data;
       }
-      let instance = new typeMap[type]();
-      let attributeTypes = typeMap[type].getAttributeTypeMap();
+      const instance = new typeMap[type]();
+      const attributeTypes = typeMap[type].getAttributeTypeMap();
       for (let index = 0; index < attributeTypes.length; index++) {
-        let attributeType = attributeTypes[index];
+        const attributeType = attributeTypes[index];
         instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type);
       }
       return instance;

@@ -32,7 +32,8 @@ module.exports = {
           "{}": false
         }
       }
-    ]
+    ],
+    "@typescript-eslint/no-namespace": "off"
   },
   overrides: [
     {

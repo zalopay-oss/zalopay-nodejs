@@ -71,7 +71,7 @@ class Disbursement extends Service {
         payRequest.payment_id =  payRequest.payment_id ?? this.config.paymentId;
         const dataSign: string = this.getDataToSign(payRequest);
         const mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
-        payRequest.sig = this.rsaUtils.sign(mac, 'base64', 'utf8');
+        payRequest.sig = this.rsaUtils.sign(mac, "base64", "utf8");
         const response = await getJsonResponse<DisbursementTopupRequest, DisbursementTopupResponse>(
             this._topup,
             "post",

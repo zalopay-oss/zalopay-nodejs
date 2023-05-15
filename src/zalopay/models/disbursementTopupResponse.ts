@@ -6,63 +6,63 @@
 * https://openapi-generator.tech
 * Do not edit this class manually.
 */
-import { DisbursementTopupResponseData } from './disbursementTopupResponseData';
+import { DisbursementTopupResponseData } from "./disbursementTopupResponseData";
 
 export class DisbursementTopupResponse {
-    /**
-    * 1 - SUCCESS  2 - FAIL
-    */
-    'return_code'?: number;
+  /**
+  * 1 - SUCCESS  2 - FAIL
+  */
+  "return_code"?: number;
 
-    /**
-    * Return code description
-    */
-    'return_message'?: string;
+  /**
+  * Return code description
+  */
+  "return_message"?: string;
 
-    /**
-    * -68 - Duplicate resource  -101 - User wallet account not exists  -401 - Request param illegal  -402 - Unauthorized  -406 - User wallet reaches a fund-in limitation  -500 - ZaloPay system error  -503 - The system is maintenance
-    */
-    'sub_return_code'?: number;
+  /**
+  * -68 - Duplicate resource  -101 - User wallet account not exists  -401 - Request param illegal  -402 - Unauthorized  -406 - User wallet reaches a fund-in limitation  -500 - ZaloPay system error  -503 - The system is maintenance
+  */
+  "sub_return_code"?: number;
 
-    /**
-    * Sub return code description
-    */
-    'sub_return_message'?: string;
+  /**
+  * Sub return code description
+  */
+  "sub_return_message"?: string;
 
-    'data'?: DisbursementTopupResponseData;
+  "data"?: DisbursementTopupResponseData;
 
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "return_code",
-            "baseName": "return_code",
-            "type": "number"
-        },
-        {
-            "name": "return_message",
-            "baseName": "return_message",
-            "type": "string"
-        },
-        {
-            "name": "sub_return_code",
-            "baseName": "sub_return_code",
-            "type": "number"
-        },
-        {
-            "name": "sub_return_message",
-            "baseName": "sub_return_message",
-            "type": "string"
-        },
-        {
-            "name": "data",
-            "baseName": "data",
-            "type": "DisbursementTopupResponseData"
-        }    ];
+  static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    {
+      "name": "return_code",
+      "baseName": "return_code",
+      "type": "number"
+    },
+    {
+      "name": "return_message",
+      "baseName": "return_message",
+      "type": "string"
+    },
+    {
+      "name": "sub_return_code",
+      "baseName": "sub_return_code",
+      "type": "number"
+    },
+    {
+      "name": "sub_return_message",
+      "baseName": "sub_return_message",
+      "type": "string"
+    },
+    {
+      "name": "data",
+      "baseName": "data",
+      "type": "DisbursementTopupResponseData"
+    }  ];
 
-    static getAttributeTypeMap() {
-        return DisbursementTopupResponse.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return DisbursementTopupResponse.attributeTypeMap;
+  }
 }
 
