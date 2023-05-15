@@ -23,7 +23,7 @@ class Refund extends Service {
 
   public async create(createRequest: RefundCreateRequest): Promise<RefundCreateResponse> {
     createRequest.app_id ||= +this.config.appId;
-    const dataSign: string = this.getDataToSign(createRequest);
+    const dataSign: string = this.getDataToSignForCreateRefund(createRequest);
     createRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
     const response = await getJsonResponse<RefundCreateRequest, RefundCreateResponse>(
       this._create,
@@ -35,7 +35,7 @@ class Refund extends Service {
 
   public async query(queryRequest: RefundQueryRequest): Promise<RefundQueryResponse> {
     queryRequest.app_id ||= +this.config.appId;
-    const dataSign: string = this.getDataToSign(queryRequest);
+    const dataSign: string = this.getDataToSignForQueryRefund(queryRequest);
     queryRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
     const response = await getJsonResponse<RefundQueryRequest, RefundQueryResponse>(
       this._query,
@@ -45,21 +45,21 @@ class Refund extends Service {
     return ObjectSerializer.deserialize(response, "RefundQueryResponse");
   }
 
-  private getDataToSign(request:
-    RefundCreateRequest
-    | RefundQueryRequest): string {
+  private getDataToSignForCreateRefund(request: RefundCreateRequest): string {
     const data = [];
-    if (request instanceof RefundCreateRequest) {
-      data.push(request.app_id);
-      data.push(request.zp_trans_id);
-      data.push(request.amount);
-      data.push(request.description);
-      data.push(request.timestamp);
-    } else { // OAQueryOrderRequest
-      data.push(request.app_id);
-      data.push(request.m_refund_id);
-      data.push(request.timestamp);
-    }
+    data.push(request.app_id);
+    data.push(request.zp_trans_id);
+    data.push(request.amount);
+    data.push(request.description);
+    data.push(request.timestamp);
+    return data.join(HmacUtils.DATA_SEPARATOR);
+  }
+
+  private getDataToSignForQueryRefund(request: RefundQueryRequest): string {
+    const data = [];
+    data.push(request.app_id);
+    data.push(request.m_refund_id);
+    data.push(request.timestamp);
     return data.join(HmacUtils.DATA_SEPARATOR);
   }
 }

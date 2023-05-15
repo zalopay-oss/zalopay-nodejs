@@ -20,7 +20,7 @@ class Order extends Service {
 
   public async create(createRequest: OrderCreateRequest): Promise<OrderCreateResponse> {
     createRequest.app_id ||= +this.config.appId;
-    const dataSign: string = this.getDataToSign(createRequest);
+    const dataSign: string = this.getDataToSignForCreateOrder(createRequest);
     createRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
     const response = await getJsonResponse<OrderCreateRequest, OrderCreateResponse>(
       this._create,
@@ -32,7 +32,7 @@ class Order extends Service {
 
   public async query(queryRequest: OrderQueryRequest): Promise<OrderQueryResponse> {
     queryRequest.app_id ||= +this.config.appId;
-    const dataSign: string = this.getDataToSign(queryRequest);
+    const dataSign: string = this.getDataToSignForQueryOrder(queryRequest);
     queryRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
     const response = await getJsonResponse<OrderQueryRequest, OrderQueryResponse>(
       this._query,
@@ -42,22 +42,23 @@ class Order extends Service {
     return ObjectSerializer.deserialize(response, "OrderQueryResponse");
   }
 
-  private getDataToSign(request:
-    OrderQueryRequest
-    | OrderCreateRequest): string {
+  private getDataToSignForCreateOrder(request: OrderCreateRequest): string {
     const data = [];
-    if (request instanceof OrderCreateRequest) {
-      data.push(request.app_id);
-      data.push(request.app_trans_id);
-      data.push(request.app_user);
-      data.push(request.amount);
-      data.push(request.app_time);
-      data.push(request.embed_data);
-      data.push(request.item);
-    } else { // OAQueryOrderRequest
-      data.push(request.app_id);
-      data.push(request.app_trans_id);
-    }
+    data.push(request.app_id);
+    data.push(request.app_trans_id);
+    data.push(request.app_user);
+    data.push(request.amount);
+    data.push(request.app_time);
+    data.push(request.embed_data);
+    data.push(request.item);
+    return data.join(HmacUtils.DATA_SEPARATOR);
+  }
+
+  private getDataToSignForQueryOrder(request: OrderQueryRequest): string {
+    const data = [];
+    data.push(request.app_id);
+    data.push(request.app_trans_id);
+    data.push(this.config.key1);
     return data.join(HmacUtils.DATA_SEPARATOR);
   }
 }
