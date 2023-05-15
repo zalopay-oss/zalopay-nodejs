@@ -21,6 +21,18 @@ export * from './agreementQueryUserRequest';
 export * from './agreementQueryUserResponse';
 export * from './agreementUnbindRequest';
 export * from './agreementUnbindResponse';
+export * from './disbursementQueryMerchantBalanceRequest';
+export * from './disbursementQueryMerchantBalanceResponse';
+export * from './disbursementQueryMerchantBalanceResponseData';
+export * from './disbursementQueryOrderRequest';
+export * from './disbursementQueryOrderResponse';
+export * from './disbursementQueryOrderResponseData';
+export * from './disbursementQueryUserRequest';
+export * from './disbursementQueryUserResponse';
+export * from './disbursementQueryUserResponseData';
+export * from './disbursementTopupRequest';
+export * from './disbursementTopupResponse';
+export * from './disbursementTopupResponseData';
 export * from './orderCreateRequest';
 export * from './orderCreateResponse';
 export * from './orderQueryRequest';
@@ -45,6 +57,18 @@ import { AgreementQueryUserRequest } from './agreementQueryUserRequest';
 import { AgreementQueryUserResponse } from './agreementQueryUserResponse';
 import { AgreementUnbindRequest } from './agreementUnbindRequest';
 import { AgreementUnbindResponse } from './agreementUnbindResponse';
+import { DisbursementQueryMerchantBalanceRequest } from './disbursementQueryMerchantBalanceRequest';
+import { DisbursementQueryMerchantBalanceResponse } from './disbursementQueryMerchantBalanceResponse';
+import { DisbursementQueryMerchantBalanceResponseData } from './disbursementQueryMerchantBalanceResponseData';
+import { DisbursementQueryOrderRequest } from './disbursementQueryOrderRequest';
+import { DisbursementQueryOrderResponse } from './disbursementQueryOrderResponse';
+import { DisbursementQueryOrderResponseData } from './disbursementQueryOrderResponseData';
+import { DisbursementQueryUserRequest } from './disbursementQueryUserRequest';
+import { DisbursementQueryUserResponse } from './disbursementQueryUserResponse';
+import { DisbursementQueryUserResponseData } from './disbursementQueryUserResponseData';
+import { DisbursementTopupRequest } from './disbursementTopupRequest';
+import { DisbursementTopupResponse } from './disbursementTopupResponse';
+import { DisbursementTopupResponseData } from './disbursementTopupResponseData';
 import { OrderCreateRequest } from './orderCreateRequest';
 import { OrderCreateResponse } from './orderCreateResponse';
 import { OrderQueryRequest } from './orderQueryRequest';
@@ -56,156 +80,168 @@ import { RefundQueryResponse } from './refundQueryResponse';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
-                    "string",
-                    "boolean",
-                    "double",
-                    "integer",
-                    "long",
-                    "float",
-                    "number",
-                    "any"
-                 ];
+  "string",
+  "boolean",
+  "double",
+  "integer",
+  "long",
+  "float",
+  "number",
+  "any"
+];
 
-let enumsMap: {[index: string]: any} = {
-        "AgreementBindRequest.BindingTypeEnum": AgreementBindRequest.BindingTypeEnum,
-        "OrderCreateRequest.ProductCodeEnum": OrderCreateRequest.ProductCodeEnum,
+let enumsMap: { [index: string]: any } = {
+  "AgreementBindRequest.BindingTypeEnum": AgreementBindRequest.BindingTypeEnum,
+  "OrderCreateRequest.ProductCodeEnum": OrderCreateRequest.ProductCodeEnum,
 }
 
-let typeMap: {[index: string]: any} = {
-    "AgreementBalanceRequest": AgreementBalanceRequest,
-    "AgreementBalanceResponse": AgreementBalanceResponse,
-    "AgreementBalanceResponseDataInner": AgreementBalanceResponseDataInner,
-    "AgreementBindRequest": AgreementBindRequest,
-    "AgreementBindResponse": AgreementBindResponse,
-    "AgreementPayRequest": AgreementPayRequest,
-    "AgreementPayResponse": AgreementPayResponse,
-    "AgreementQueryRequest": AgreementQueryRequest,
-    "AgreementQueryResponse": AgreementQueryResponse,
-    "AgreementQueryResponseData": AgreementQueryResponseData,
-    "AgreementQueryUserRequest": AgreementQueryUserRequest,
-    "AgreementQueryUserResponse": AgreementQueryUserResponse,
-    "AgreementUnbindRequest": AgreementUnbindRequest,
-    "AgreementUnbindResponse": AgreementUnbindResponse,
-    "OrderCreateRequest": OrderCreateRequest,
-    "OrderCreateResponse": OrderCreateResponse,
-    "OrderQueryRequest": OrderQueryRequest,
-    "OrderQueryResponse": OrderQueryResponse,
-    "RefundCreateRequest": RefundCreateRequest,
-    "RefundCreateResponse": RefundCreateResponse,
-    "RefundQueryRequest": RefundQueryRequest,
-    "RefundQueryResponse": RefundQueryResponse,
+let typeMap: { [index: string]: any } = {
+  "AgreementBalanceRequest": AgreementBalanceRequest,
+  "AgreementBalanceResponse": AgreementBalanceResponse,
+  "AgreementBalanceResponseDataInner": AgreementBalanceResponseDataInner,
+  "AgreementBindRequest": AgreementBindRequest,
+  "AgreementBindResponse": AgreementBindResponse,
+  "AgreementPayRequest": AgreementPayRequest,
+  "AgreementPayResponse": AgreementPayResponse,
+  "AgreementQueryRequest": AgreementQueryRequest,
+  "AgreementQueryResponse": AgreementQueryResponse,
+  "AgreementQueryResponseData": AgreementQueryResponseData,
+  "AgreementQueryUserRequest": AgreementQueryUserRequest,
+  "AgreementQueryUserResponse": AgreementQueryUserResponse,
+  "AgreementUnbindRequest": AgreementUnbindRequest,
+  "AgreementUnbindResponse": AgreementUnbindResponse,
+  "DisbursementQueryMerchantBalanceRequest": DisbursementQueryMerchantBalanceRequest,
+  "DisbursementQueryMerchantBalanceResponse": DisbursementQueryMerchantBalanceResponse,
+  "DisbursementQueryMerchantBalanceResponseData": DisbursementQueryMerchantBalanceResponseData,
+  "DisbursementQueryOrderRequest": DisbursementQueryOrderRequest,
+  "DisbursementQueryOrderResponse": DisbursementQueryOrderResponse,
+  "DisbursementQueryOrderResponseData": DisbursementQueryOrderResponseData,
+  "DisbursementQueryUserRequest": DisbursementQueryUserRequest,
+  "DisbursementQueryUserResponse": DisbursementQueryUserResponse,
+  "DisbursementQueryUserResponseData": DisbursementQueryUserResponseData,
+  "DisbursementTopupRequest": DisbursementTopupRequest,
+  "DisbursementTopupResponse": DisbursementTopupResponse,
+  "DisbursementTopupResponseData": DisbursementTopupResponseData,
+  "OrderCreateRequest": OrderCreateRequest,
+  "OrderCreateResponse": OrderCreateResponse,
+  "OrderQueryRequest": OrderQueryRequest,
+  "OrderQueryResponse": OrderQueryResponse,
+  "RefundCreateRequest": RefundCreateRequest,
+  "RefundCreateResponse": RefundCreateResponse,
+  "RefundQueryRequest": RefundQueryRequest,
+  "RefundQueryResponse": RefundQueryResponse,
 }
 
 export class ObjectSerializer {
-    public static findCorrectType(data: any, expectedType: string) {
-        if (data == undefined) {
-            return expectedType;
-        } else if (primitives.indexOf(expectedType.toLowerCase()) !== -1) {
-            return expectedType;
-        } else if (expectedType === "Date") {
-            return expectedType;
+  public static findCorrectType(data: any, expectedType: string) {
+    if (data == undefined) {
+      return expectedType;
+    } else if (primitives.indexOf(expectedType.toLowerCase()) !== -1) {
+      return expectedType;
+    } else if (expectedType === "Date") {
+      return expectedType;
+    } else {
+      if (enumsMap[expectedType]) {
+        return expectedType;
+      }
+
+      if (!typeMap[expectedType]) {
+        return expectedType; // w/e we don't know the type
+      }
+
+      // Check the discriminator
+      let discriminatorProperty = typeMap[expectedType].discriminator;
+      if (discriminatorProperty == null) {
+        return expectedType; // the type does not have a discriminator. use it.
+      } else {
+        if (data[discriminatorProperty]) {
+          var discriminatorType = data[discriminatorProperty];
+          if (typeMap[discriminatorType]) {
+            return discriminatorType; // use the type given in the discriminator
+          } else {
+            return expectedType; // discriminator did not map to a type
+          }
         } else {
-            if (enumsMap[expectedType]) {
-                return expectedType;
-            }
-
-            if (!typeMap[expectedType]) {
-                return expectedType; // w/e we don't know the type
-            }
-
-            // Check the discriminator
-            let discriminatorProperty = typeMap[expectedType].discriminator;
-            if (discriminatorProperty == null) {
-                return expectedType; // the type does not have a discriminator. use it.
-            } else {
-                if (data[discriminatorProperty]) {
-                    var discriminatorType = data[discriminatorProperty];
-                    if(typeMap[discriminatorType]){
-                        return discriminatorType; // use the type given in the discriminator
-                    } else {
-                        return expectedType; // discriminator did not map to a type
-                    }
-                } else {
-                    return expectedType; // discriminator was not present (or an empty string)
-                }
-            }
+          return expectedType; // discriminator was not present (or an empty string)
         }
+      }
     }
+  }
 
-    public static serialize(data: any, type: string) {
-        if (data == undefined) {
-            return data;
-        } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
-            return data;
-        } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
-            let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
-            subType = subType.substring(0, subType.length - 1); // Type> => Type
-            let transformedData: any[] = [];
-            for (let index = 0; index < data.length; index++) {
-                let datum = data[index];
-                transformedData.push(ObjectSerializer.serialize(datum, subType));
-            }
-            return transformedData;
-        } else if (type === "Date") {
-            return data.toISOString();
-        } else if (type === "SaleToAcquirerData") {
-            const dataString = JSON.stringify(data);
-            return Buffer.from(dataString).toString("base64");
-        } else {
-            if (enumsMap[type]) {
-                return data;
-            }
-            if (!typeMap[type]) { // in case we dont know the type
-                return data;
-            }
+  public static serialize(data: any, type: string) {
+    if (data == undefined) {
+      return data;
+    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
+      return data;
+    } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
+      let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
+      subType = subType.substring(0, subType.length - 1); // Type> => Type
+      let transformedData: any[] = [];
+      for (let index = 0; index < data.length; index++) {
+        let datum = data[index];
+        transformedData.push(ObjectSerializer.serialize(datum, subType));
+      }
+      return transformedData;
+    } else if (type === "Date") {
+      return data.toISOString();
+    } else if (type === "SaleToAcquirerData") {
+      const dataString = JSON.stringify(data);
+      return Buffer.from(dataString).toString("base64");
+    } else {
+      if (enumsMap[type]) {
+        return data;
+      }
+      if (!typeMap[type]) { // in case we dont know the type
+        return data;
+      }
 
-            // Get the actual type of this object
-            type = this.findCorrectType(data, type);
+      // Get the actual type of this object
+      type = this.findCorrectType(data, type);
 
-            // get the map for the correct type.
-            let attributeTypes = typeMap[type].getAttributeTypeMap();
-            let instance: {[index: string]: any} = {};
-            for (let index = 0; index < attributeTypes.length; index++) {
-                let attributeType = attributeTypes[index];
-                instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type);
-            }
-            return instance;
-        }
+      // get the map for the correct type.
+      let attributeTypes = typeMap[type].getAttributeTypeMap();
+      let instance: { [index: string]: any } = {};
+      for (let index = 0; index < attributeTypes.length; index++) {
+        let attributeType = attributeTypes[index];
+        instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type);
+      }
+      return instance;
     }
+  }
 
-    public static deserialize(data: any, type: string) {
-        // polymorphism may change the actual type.
-        type = ObjectSerializer.findCorrectType(data, type);
-        if (data == undefined) {
-            return data;
-        } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
-            return data;
-        } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
-            let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
-            subType = subType.substring(0, subType.length - 1); // Type> => Type
-            let transformedData: any[] = [];
-            for (let index = 0; index < data.length; index++) {
-                let datum = data[index];
-                transformedData.push(ObjectSerializer.deserialize(datum, subType));
-            }
-            return transformedData;
-        } else if (type === "Date") {
-            return new Date(data);
-        } else {
-            if (enumsMap[type]) {// is Enum
-                return data;
-            }
+  public static deserialize(data: any, type: string) {
+    // polymorphism may change the actual type.
+    type = ObjectSerializer.findCorrectType(data, type);
+    if (data == undefined) {
+      return data;
+    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
+      return data;
+    } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
+      let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
+      subType = subType.substring(0, subType.length - 1); // Type> => Type
+      let transformedData: any[] = [];
+      for (let index = 0; index < data.length; index++) {
+        let datum = data[index];
+        transformedData.push(ObjectSerializer.deserialize(datum, subType));
+      }
+      return transformedData;
+    } else if (type === "Date") {
+      return new Date(data);
+    } else {
+      if (enumsMap[type]) {// is Enum
+        return data;
+      }
 
-            if (!typeMap[type]) { // dont know the type
-                return data;
-            }
-            let instance = new typeMap[type]();
-            let attributeTypes = typeMap[type].getAttributeTypeMap();
-            for (let index = 0; index < attributeTypes.length; index++) {
-                let attributeType = attributeTypes[index];
-                instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type);
-            }
-            return instance;
-        }
+      if (!typeMap[type]) { // dont know the type
+        return data;
+      }
+      let instance = new typeMap[type]();
+      let attributeTypes = typeMap[type].getAttributeTypeMap();
+      for (let index = 0; index < attributeTypes.length; index++) {
+        let attributeType = attributeTypes[index];
+        instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type);
+      }
+      return instance;
     }
+  }
 }
