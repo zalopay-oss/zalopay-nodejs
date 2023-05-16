@@ -46,21 +46,11 @@ class Refund extends Service {
   }
 
   private getDataToSignForCreateRefund(request: RefundCreateRequest): string {
-    const data = [];
-    data.push(request.app_id);
-    data.push(request.zp_trans_id);
-    data.push(request.amount);
-    data.push(request.description);
-    data.push(request.timestamp);
-    return data.join(HmacUtils.DATA_SEPARATOR);
+    return [request.app_id, request.zp_trans_id, request.amount, request.description, request.timestamp].join(HmacUtils.DATA_SEPARATOR);
   }
 
   private getDataToSignForQueryRefund(request: RefundQueryRequest): string {
-    const data = [];
-    data.push(request.app_id);
-    data.push(request.m_refund_id);
-    data.push(request.timestamp);
-    return data.join(HmacUtils.DATA_SEPARATOR);
+    return [request.app_id, request.m_refund_id, request.timestamp].join(HmacUtils.DATA_SEPARATOR);
   }
 }
 

@@ -1,8 +1,8 @@
 export const refundCreateSuccess = {
   "return_code": 1,
-  "return_message": "Giao dịch thành công",
+  "return_message": "Transaction successful.",
   "sub_return_code": 1,
-  "sub_return_message": "Giao dịch thành công",
+  "sub_return_message": "Transaction successful.",
   "refund_id": 123456789,
 };
 

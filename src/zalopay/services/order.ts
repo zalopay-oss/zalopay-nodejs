@@ -43,23 +43,11 @@ class Order extends Service {
   }
 
   private getDataToSignForCreateOrder(request: OrderCreateRequest): string {
-    const data = [];
-    data.push(request.app_id);
-    data.push(request.app_trans_id);
-    data.push(request.app_user);
-    data.push(request.amount);
-    data.push(request.app_time);
-    data.push(request.embed_data);
-    data.push(request.item);
-    return data.join(HmacUtils.DATA_SEPARATOR);
+    return [request.app_id, request.app_trans_id, request.app_user, request.amount, request.app_time, request.embed_data, request.item].join(HmacUtils.DATA_SEPARATOR);
   }
 
   private getDataToSignForQueryOrder(request: OrderQueryRequest): string {
-    const data = [];
-    data.push(request.app_id);
-    data.push(request.app_trans_id);
-    data.push(this.config.key1);
-    return data.join(HmacUtils.DATA_SEPARATOR);
+    return [request.app_id, request.app_trans_id, this.config.key1].join(HmacUtils.DATA_SEPARATOR);
   }
 }
 
