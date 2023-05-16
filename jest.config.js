@@ -1,7 +1,11 @@
+/** @type {import('jest').Config} */
 module.exports = {
-  preset: "ts-jest",
+  bail: true,
   testEnvironment: "node",
-  testMatch: [
-    "**/src/zalopay/__tests__/**/*.test.ts"
-  ],
+  testTimeout: 60_000,
+  transform: {
+    "^.+\\.ts$": "@swc/jest"
+  },
+  moduleFileExtensions: ["ts", "js", "json"],
+  testMatch: ["**/*.test.ts"]
 };

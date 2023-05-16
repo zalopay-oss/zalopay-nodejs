@@ -1,2 +1,3 @@
-/src/zalopay/typings/**/*.ts
-/examples
+lib
+templates
+.eslintrc.js
