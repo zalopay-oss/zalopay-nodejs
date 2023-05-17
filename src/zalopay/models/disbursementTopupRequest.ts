@@ -8,123 +8,123 @@
 */
 
 export class DisbursementTopupRequest {
-    /**
-    * The unique ID of the partner will be provided after the partner registered successfully with ZaloPay
-    */
-    'app_id'?: number;
+  /**
+  * The unique ID of the partner will be provided after the partner registered successfully with ZaloPay
+  */
+  "app_id"?: number;
 
-    /**
-    * The unique ID of the partner will be provided after the partner registered successfully with ZaloPay
-    */
-    'payment_id'?: string;
+  /**
+  * The unique ID of the partner will be provided after the partner registered successfully with ZaloPay
+  */
+  "payment_id"?: string;
 
-    /**
-    * The unique id, generate in partner system. Using for reconcile
-    */
-    'partner_order_id': string;
+  /**
+  * The unique id, generate in partner system. Using for reconcile
+  */
+  "partner_order_id": string;
 
-    /**
-    * The user\'s identity in the response of QueryUser API
-    */
-    'm_u_id': string;
+  /**
+  * The user\'s identity in the response of QueryUser API
+  */
+  "m_u_id": string;
 
-    /**
-    * The amount top-up to receiver’s wallet
-    */
-    'amount': number;
+  /**
+  * The amount top-up to receiver’s wallet
+  */
+  "amount": number;
 
-    /**
-    * Extend information
-    */
-    'description': string;
+  /**
+  * Extend information
+  */
+  "description": string;
 
-    /**
-    * Partner\'s specify info, a json string.   Example: “{\\“store_id\\”:\\“s2\\”,\\“store_name\\”:\\ “name\\”}
-    */
-    'partner_embed_data': string;
+  /**
+  * Partner\'s specify info, a json string.   Example: “{\\“store_id\\”:\\“s2\\”,\\“store_name\\”:\\ “name\\”}
+  */
+  "partner_embed_data": string;
 
-    /**
-    * Zalopay reference id response in query user response
-    */
-    'reference_id'?: string;
+  /**
+  * Zalopay reference id response in query user response
+  */
+  "reference_id"?: string;
 
-    /**
-    * Using for extend purpose, a json string
-    */
-    'extra_info': string;
+  /**
+  * Using for extend purpose, a json string
+  */
+  "extra_info": string;
 
-    /**
-    * Requests timestamp in ms
-    */
-    'time': number;
+  /**
+  * Requests timestamp in ms
+  */
+  "time": number;
 
-    /**
-    * It’s calculated by following input: hmacinput = (app_id + “|” + payment_id + “|” + partner_order_id + “|” + m_u_id + “|” + amount + “|” + description + “|” + partner_embed_data + “|” + extra_info + “|” + time)  and use sha256 with app’s hmac key  then RSA with app’s private key ZaloPay provide
-    */
-    'sig'?: string;
+  /**
+  * It’s calculated by following input: hmacinput = (app_id + “|” + payment_id + “|” + partner_order_id + “|” + m_u_id + “|” + amount + “|” + description + “|” + partner_embed_data + “|” + extra_info + “|” + time)  and use sha256 with app’s hmac key  then RSA with app’s private key ZaloPay provide
+  */
+  "sig"?: string;
 
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "app_id",
-            "baseName": "app_id",
-            "type": "number"
-        },
-        {
-            "name": "payment_id",
-            "baseName": "payment_id",
-            "type": "string"
-        },
-        {
-            "name": "partner_order_id",
-            "baseName": "partner_order_id",
-            "type": "string"
-        },
-        {
-            "name": "m_u_id",
-            "baseName": "m_u_id",
-            "type": "string"
-        },
-        {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number"
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string"
-        },
-        {
-            "name": "partner_embed_data",
-            "baseName": "partner_embed_data",
-            "type": "string"
-        },
-        {
-            "name": "reference_id",
-            "baseName": "reference_id",
-            "type": "string"
-        },
-        {
-            "name": "extra_info",
-            "baseName": "extra_info",
-            "type": "string"
-        },
-        {
-            "name": "time",
-            "baseName": "time",
-            "type": "number"
-        },
-        {
-            "name": "sig",
-            "baseName": "sig",
-            "type": "string"
-        }    ];
+  static attributeTypeMap: Array<{ name: string, baseName: string, type: string }> = [
+    {
+      "name": "app_id",
+      "baseName": "app_id",
+      "type": "number"
+    },
+    {
+      "name": "payment_id",
+      "baseName": "payment_id",
+      "type": "string"
+    },
+    {
+      "name": "partner_order_id",
+      "baseName": "partner_order_id",
+      "type": "string"
+    },
+    {
+      "name": "m_u_id",
+      "baseName": "m_u_id",
+      "type": "string"
+    },
+    {
+      "name": "amount",
+      "baseName": "amount",
+      "type": "number"
+    },
+    {
+      "name": "description",
+      "baseName": "description",
+      "type": "string"
+    },
+    {
+      "name": "partner_embed_data",
+      "baseName": "partner_embed_data",
+      "type": "string"
+    },
+    {
+      "name": "reference_id",
+      "baseName": "reference_id",
+      "type": "string"
+    },
+    {
+      "name": "extra_info",
+      "baseName": "extra_info",
+      "type": "string"
+    },
+    {
+      "name": "time",
+      "baseName": "time",
+      "type": "number"
+    },
+    {
+      "name": "sig",
+      "baseName": "sig",
+      "type": "string"
+    }];
 
-    static getAttributeTypeMap() {
-        return DisbursementTopupRequest.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return DisbursementTopupRequest.attributeTypeMap;
+  }
 }
 

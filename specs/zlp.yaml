@@ -38,17 +38,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OACreateOrderRequest'
+              $ref: "#/components/schemas/OrderCreateRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/OACreateOrderRequest'
+              $ref: "#/components/schemas/OrderCreateRequest"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OACreateOrderResponse'
+                $ref: "#/components/schemas/OrderCreateResponse"
           description: OK
   /v2/query:
     post:
@@ -61,17 +61,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OAQueryOrderRequest'
+              $ref: "#/components/schemas/OrderQueryRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/OAQueryOrderRequest'
+              $ref: "#/components/schemas/OrderQueryRequest"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OAQueryOrderResponse'
+                $ref: "#/components/schemas/OrderQueryResponse"
           description: OK
   /v2/refund:
     post:
@@ -84,17 +84,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OARefundRequest'
+              $ref: "#/components/schemas/RefundCreateRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/OARefundRequest'
+              $ref: "#/components/schemas/RefundCreateRequest"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OARefundResponse'
+                $ref: "#/components/schemas/RefundCreateResponse"
           description: OK
   /v2/query_refund:
     post:
@@ -107,17 +107,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OAQueryRefundRequest'
+              $ref: "#/components/schemas/RefundQueryRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/OAQueryRefundRequest'
+              $ref: "#/components/schemas/RefundQueryRequest"
         required: true
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OACommonResponse'
+                $ref: "#/components/schemas/RefundQueryResponse"
           description: OK
 
   /v2/agreement/bind:
@@ -131,20 +131,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgreementBindRequest'
+              $ref: "#/components/schemas/AgreementBindRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/AgreementBindRequest'
+              $ref: "#/components/schemas/AgreementBindRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AgreementBindRequest'
+              $ref: "#/components/schemas/AgreementBindRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgreementBindResponse'
+                $ref: "#/components/schemas/AgreementBindResponse"
           description: OK
         405:
           description: Invalid input
@@ -160,20 +160,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgreementUnbindRequest'
+              $ref: "#/components/schemas/AgreementUnbindRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/AgreementUnbindRequest'
+              $ref: "#/components/schemas/AgreementUnbindRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AgreementUnbindRequest'
+              $ref: "#/components/schemas/AgreementUnbindRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgreementUnbindResponse'
+                $ref: "#/components/schemas/AgreementUnbindResponse"
           description: OK
         405:
           description: Invalid input
@@ -189,20 +189,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgreementQueryRequest'
+              $ref: "#/components/schemas/AgreementQueryRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/AgreementQueryRequest'
+              $ref: "#/components/schemas/AgreementQueryRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AgreementQueryRequest'
+              $ref: "#/components/schemas/AgreementQueryRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgreementQueryResponse'
+                $ref: "#/components/schemas/AgreementQueryResponse"
           description: OK
         405:
           description: Invalid input
@@ -218,20 +218,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgreementBalanceRequest'
+              $ref: "#/components/schemas/AgreementBalanceRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/AgreementBalanceRequest'
+              $ref: "#/components/schemas/AgreementBalanceRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AgreementBalanceRequest'
+              $ref: "#/components/schemas/AgreementBalanceRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgreementBalanceResponse'
+                $ref: "#/components/schemas/AgreementBalanceResponse"
           description: OK
         405:
           description: Invalid input
@@ -247,20 +247,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgreementPayRequest'
+              $ref: "#/components/schemas/AgreementPayRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/AgreementPayRequest'
+              $ref: "#/components/schemas/AgreementPayRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AgreementPayRequest'
+              $ref: "#/components/schemas/AgreementPayRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgreementPayResponse'
+                $ref: "#/components/schemas/AgreementPayResponse"
           description: OK
         405:
           description: Invalid input
@@ -276,20 +276,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgreementQueryUserRequest'
+              $ref: "#/components/schemas/AgreementQueryUserRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/AgreementQueryUserRequest'
+              $ref: "#/components/schemas/AgreementQueryUserRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AgreementQueryUserRequest'
+              $ref: "#/components/schemas/AgreementQueryUserRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgreementQueryUserResponse'
+                $ref: "#/components/schemas/AgreementQueryUserResponse"
           description: OK
         405:
           description: Invalid input
@@ -305,20 +305,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DisbursementQueryUserRequest'
+              $ref: "#/components/schemas/DisbursementQueryUserRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/DisbursementQueryUserRequest'
+              $ref: "#/components/schemas/DisbursementQueryUserRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/DisbursementQueryUserRequest'
+              $ref: "#/components/schemas/DisbursementQueryUserRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DisbursementQueryUserResponse'
+                $ref: "#/components/schemas/DisbursementQueryUserResponse"
           description: OK
   /v2/disbursement/topup:
     post:
@@ -331,20 +331,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DisbursementTopupRequest'
+              $ref: "#/components/schemas/DisbursementTopupRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/DisbursementTopupRequest'
+              $ref: "#/components/schemas/DisbursementTopupRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/DisbursementTopupRequest'
+              $ref: "#/components/schemas/DisbursementTopupRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DisbursementTopupResponse'
+                $ref: "#/components/schemas/DisbursementTopupResponse"
           description: OK
   /v2/disbursement/txn:
     post:
@@ -357,20 +357,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DisbursementQueryOrderRequest'
+              $ref: "#/components/schemas/DisbursementQueryOrderRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/DisbursementQueryOrderRequest'
+              $ref: "#/components/schemas/DisbursementQueryOrderRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/DisbursementQueryOrderRequest'
+              $ref: "#/components/schemas/DisbursementQueryOrderRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DisbursementQueryOrderResponse'
+                $ref: "#/components/schemas/DisbursementQueryOrderResponse"
           description: OK
   /v2/disbursement/balance:
     post:
@@ -383,24 +383,24 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DisbursementQueryMerchantBalanceRequest'
+              $ref: "#/components/schemas/DisbursementQueryMerchantBalanceRequest"
           application/xml:
             schema:
-              $ref: '#/components/schemas/DisbursementQueryMerchantBalanceRequest'
+              $ref: "#/components/schemas/DisbursementQueryMerchantBalanceRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/DisbursementQueryMerchantBalanceRequest'
+              $ref: "#/components/schemas/DisbursementQueryMerchantBalanceRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DisbursementQueryMerchantBalanceResponse'
-          description: OK                                   
+                $ref: "#/components/schemas/DisbursementQueryMerchantBalanceResponse"
+          description: OK
 components:
   schemas:
-    OAQueryOrderRequest:
+    OrderQueryRequest:
       type: object
       properties:
         app_id:
@@ -422,8 +422,8 @@ components:
         - app_trans_id
         - mac
       xml:
-        name: OAQueryOrderRequest
-    OAQueryOrderResponse:
+        name: OrderQueryRequest
+    OrderQueryResponse:
       type: object
       properties:
         return_code:
@@ -505,7 +505,7 @@ components:
         zp_trans_id:
           type: integer
           format: int64
-    OARefundRequest:
+    RefundCreateRequest:
       type: object
       properties:
         app_id:
@@ -548,8 +548,8 @@ components:
         - description
         - mac
       xml:
-        name: OARefundRequest
-    OARefundResponse:
+        name: RefundCreateRequest
+    RefundCreateResponse:
       type: object
       properties:
         return_code:
@@ -563,7 +563,7 @@ components:
         refund_id:
           type: integer
           format: int64
-    OAQueryRefundRequest:
+    RefundQueryRequest:
       type: object
       properties:
         app_id:
@@ -591,7 +591,7 @@ components:
         - mac
       xml:
         name: QueryRefundRequest
-    OACommonResponse:
+    RefundQueryResponse:
       type: object
       properties:
         return_code:
@@ -665,7 +665,7 @@ components:
             -329 - User huỷ giao dịch thanh toán.
         sub_return_message:
           type: string
-    OACreateOrderRequest:
+    OrderCreateRequest:
       type: object
       properties:
         app_id:
@@ -754,8 +754,8 @@ components:
         - embed_data
         - mac
       xml:
-        name: OACreateOrderRequest
-    OACreateOrderResponse:
+        name: OrderCreateRequest
+    OrderCreateResponse:
       type: object
       properties:
         return_code:
@@ -980,7 +980,7 @@ components:
               description: "The identifier of ZaloPay user per merchant app_id."
             masked_user_phone:
               type: string
-              description: "Masked user phone (Ex: masked_user_phone: \"****6938\")"
+              description: 'Masked user phone (Ex: masked_user_phone: "****6938")'
     AgreementBalanceRequest:
       type: object
       properties:
@@ -1155,14 +1155,14 @@ components:
           description: "The unique ID of the partner will be provided after the partner registered successfully with ZaloPay"
         phone:
           type: string
-          description: "The user's phone"          
+          description: "The user's phone"
         time:
           type: integer
           format: int64
           description: "Requests timestamp in ms"
         mac:
           type: string
-          description: >- 
+          description: >-
             "It is signature of order. It’s calculated by following input: hmacInput = (app_id + “|” + phone + “|” + time) and use sha256 with app’s hmac key"
       required:
         - app_id
@@ -1175,7 +1175,7 @@ components:
       type: object
       properties:
         return_code:
-          type: integer    
+          type: integer
           description: |-
             1 - SUCCESS
 
@@ -1193,7 +1193,7 @@ components:
             -402 - Unauthorized
 
             -500 - ZaloPay system error
-            
+
             -503 - The system is maintenance   
 
             -1011 - User wallet account has been locked
@@ -1208,18 +1208,18 @@ components:
               description: "ZaloPay reference id"
             m_u_id:
               type: string
-              description: "User’s identity in ZaloPay system"    
+              description: "User’s identity in ZaloPay system"
             name:
               type: string
               description: "User’s full name"
             phone:
               type: string
-              description: "User's phone"                                                      
+              description: "User's phone"
             onboarding_url:
               type: string
-              description: >- 
+              description: >-
                 "ZaloPay middle_page url to onboard new users"  
-                "Displayed when receiving return_code =2 && sub_return_code = -101"      
+                "Displayed when receiving return_code =2 && sub_return_code = -101"
     DisbursementTopupRequest:
       type: object
       properties:
@@ -1245,16 +1245,16 @@ components:
           description: "Extend information"
         partner_embed_data:
           type: string
-          description: |- 
+          description: |-
             Partner's specify info, a json string. 
 
             Example: “{\“store_id\”:\“s2\”,\“store_name\”:\ “name\”}
         reference_id:
           type: string
-          description: "Zalopay reference id response in query user response"  
+          description: "Zalopay reference id response in query user response"
         extra_info:
           type: string
-          description: "Using for extend purpose, a json string"                                                                      
+          description: "Using for extend purpose, a json string"
         time:
           type: integer
           format: int64
@@ -1314,7 +1314,7 @@ components:
           properties:
             order_id:
               type: string
-              description: "Merchant transaction code" 
+              description: "Merchant transaction code"
             status:
               type: integer
               description: |-
@@ -1327,38 +1327,38 @@ components:
                 4 – PENDING: Pending transactions, needs to be manually fixed by internal teams
             m_u_id:
               type: string
-              description: "User's identity" 
+              description: "User's identity"
             phone:
               type: string
-              description: "User’s phone"               
+              description: "User’s phone"
             amount:
               type: integer
               format: int64
-              description: "Transaction amount" 
+              description: "Transaction amount"
             description:
               type: string
-              description: "Transaction description"               
+              description: "Transaction description"
             partner_fee:
               type: integer
               format: int64
-              description: "Partner fee"    
+              description: "Partner fee"
             zlp_fee:
               type: integer
               format: int64
-              description: "ZaloPay fee"  
+              description: "ZaloPay fee"
             extra_info:
               type: string
-              description: "Order extra info, json string" 
+              description: "Order extra info, json string"
             time:
               type: integer
               format: int64
-              description: "Transaction timestamp in millisecond"                
+              description: "Transaction timestamp in millisecond"
             upgrade_url:
               type: string
-              description: |- 
+              description: |-
                 ZaloPay middle_page url to upgrade for users with fund-in limit
 
-                Displayed when receiving return_code =2 && sub_return_code = -406           
+                Displayed when receiving return_code =2 && sub_return_code = -406
     DisbursementQueryOrderRequest:
       type: object
       properties:
@@ -1415,7 +1415,7 @@ components:
           properties:
             order_id:
               type: string
-              description: "Merchant transaction code" 
+              description: "Merchant transaction code"
             status:
               type: integer
               description: |-
@@ -1428,38 +1428,38 @@ components:
                 4 – PENDING: Pending transactions, needs to be manually fixed by internal teams
             m_u_id:
               type: string
-              description: "User's identity" 
+              description: "User's identity"
             phone:
               type: string
-              description: "User’s phone"               
+              description: "User’s phone"
             amount:
               type: integer
               format: int64
-              description: "Transaction amount" 
+              description: "Transaction amount"
             description:
               type: string
-              description: "Transaction description"               
+              description: "Transaction description"
             partner_fee:
               type: integer
               format: int64
-              description: "Partner fee"    
+              description: "Partner fee"
             zlp_fee:
               type: integer
               format: int64
-              description: "ZaloPay fee"  
+              description: "ZaloPay fee"
             extra_info:
               type: string
-              description: "Order extra info, json string" 
+              description: "Order extra info, json string"
             time:
               type: integer
               format: int64
-              description: "Transaction timestamp in millisecond"                
+              description: "Transaction timestamp in millisecond"
             zp_trans_id:
               type: string
-              description: "ZaloPay's transaction code" 
+              description: "ZaloPay's transaction code"
             result_url:
               type: string
-              description: "ZaloPay middle_page url for notify merchant about success disbursement result"                               
+              description: "ZaloPay middle_page url for notify merchant about success disbursement result"
     DisbursementQueryMerchantBalanceRequest:
       type: object
       properties:
@@ -1518,4 +1518,4 @@ components:
             balance:
               type: integer
               format: int64
-              description: "Partner’s account balance"          
+              description: "Partner’s account balance"

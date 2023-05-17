@@ -7,36 +7,24 @@
 * Do not edit this class manually.
 */
 
-export class AgreementPayResponse {
+export class OrderCreateResponse {
   /**
-  * 1: Success, 2: Failed, 3: Processing
+  * Return codes:  1 - SUCCESS  2 - FAIL
   */
   "return_code"?: number;
 
-  /**
-  * Description of return code
-  */
   "return_message"?: string;
 
   /**
-  * Detail error code
+  * The detailed reason explains why the operation has failed. Possible codes are:  -33 - APP_MAINTENANCE - The app is in maintenance  -68 - ALREADY_EXISTS - The order is already exists  -401 - INVALID_ARGUMENT - The request is invalid  -402 - UNAUTHENTICATED - The app is unauthenticated  -500 - SYSTEM_ERROR - The system is error
   */
   "sub_return_code"?: number;
 
-  /**
-  * Detail error message
-  */
   "sub_return_message"?: string;
 
-  /**
-  * TXID of order transaction
-  */
-  "app_trans_id"?: string;
+  "zp_trans_token"?: string;
 
-  /**
-  * The ZaloPay\'s transaction code
-  */
-  "zp_trans_id"?: number;
+  "order_url"?: string;
 
 
   static discriminator: string | undefined = undefined;
@@ -63,18 +51,18 @@ export class AgreementPayResponse {
       "type": "string"
     },
     {
-      "name": "app_trans_id",
-      "baseName": "app_trans_id",
+      "name": "zp_trans_token",
+      "baseName": "zp_trans_token",
       "type": "string"
     },
     {
-      "name": "zp_trans_id",
-      "baseName": "zp_trans_id",
-      "type": "number"
+      "name": "order_url",
+      "baseName": "order_url",
+      "type": "string"
     }  ];
 
   static getAttributeTypeMap() {
-    return AgreementPayResponse.attributeTypeMap;
+    return OrderCreateResponse.attributeTypeMap;
   }
 }
 

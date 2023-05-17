@@ -7,24 +7,19 @@
 * Do not edit this class manually.
 */
 
-export class AgreementQueryUserRequest {
+export class OrderQueryRequest {
   /**
   * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
   */
   "app_id"?: number;
 
   /**
-  * The access token of the user after binding success.(This is pay_token value)
+  * The transaction ID that is used for querying.
   */
-  "access_token"?: string;
+  "app_trans_id": string;
 
   /**
-  * Current timestamp in milliseconds.
-  */
-  "req_date": number;
-
-  /**
-  * It is signature of request. It\'s calculated by following input: hmacinput = app_id + `|` + access_token + `|` + req_date; and use sha256 with app\'s hmac key as sign key.
+  * It is signature of order. It\'s calculated by following input: hmacinput = appid + `|` + apptransid and use sha256 with app\'s hmac key as sign key
   */
   "mac"?: string;
 
@@ -38,14 +33,9 @@ export class AgreementQueryUserRequest {
       "type": "number"
     },
     {
-      "name": "access_token",
-      "baseName": "access_token",
+      "name": "app_trans_id",
+      "baseName": "app_trans_id",
       "type": "string"
-    },
-    {
-      "name": "req_date",
-      "baseName": "req_date",
-      "type": "number"
     },
     {
       "name": "mac",
@@ -54,7 +44,7 @@ export class AgreementQueryUserRequest {
     }];
 
   static getAttributeTypeMap() {
-    return AgreementQueryUserRequest.attributeTypeMap;
+    return OrderQueryRequest.attributeTypeMap;
   }
 }
 

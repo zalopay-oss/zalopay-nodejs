@@ -7,24 +7,24 @@
 * Do not edit this class manually.
 */
 
-export class AgreementQueryUserRequest {
+export class RefundQueryRequest {
   /**
   * The unique ID of the application will be provided after the merchant registered successfully with ZaloPay.
   */
   "app_id"?: number;
 
   /**
-  * The access token of the user after binding success.(This is pay_token value)
+  * Refund ID that is used for requesting refund.
   */
-  "access_token"?: string;
+  "m_refund_id": string;
 
   /**
-  * Current timestamp in milliseconds.
+  * Timestamp of request in ms.
   */
-  "req_date": number;
+  "timestamp": number;
 
   /**
-  * It is signature of request. It\'s calculated by following input: hmacinput = app_id + `|` + access_token + `|` + req_date; and use sha256 with app\'s hmac key as sign key.
+  * It is signature of order. It\'s calculated by following input: hmacinput = appid + `|` + mrefundid + `|` + timestamp and use sha256 with app\'s hmac key as sign key
   */
   "mac"?: string;
 
@@ -38,13 +38,13 @@ export class AgreementQueryUserRequest {
       "type": "number"
     },
     {
-      "name": "access_token",
-      "baseName": "access_token",
+      "name": "m_refund_id",
+      "baseName": "m_refund_id",
       "type": "string"
     },
     {
-      "name": "req_date",
-      "baseName": "req_date",
+      "name": "timestamp",
+      "baseName": "timestamp",
       "type": "number"
     },
     {
@@ -54,7 +54,7 @@ export class AgreementQueryUserRequest {
     }];
 
   static getAttributeTypeMap() {
-    return AgreementQueryUserRequest.attributeTypeMap;
+    return RefundQueryRequest.attributeTypeMap;
   }
 }
 

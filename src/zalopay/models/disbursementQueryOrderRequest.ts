@@ -8,53 +8,53 @@
 */
 
 export class DisbursementQueryOrderRequest {
-    /**
-    * The unique ID of the partner will be provided after the partner registered successfully with ZaloPay
-    */
-    'app_id'?: number;
+  /**
+  * The unique ID of the partner will be provided after the partner registered successfully with ZaloPay
+  */
+  "app_id"?: number;
 
-    /**
-    * The unique id in partner system
-    */
-    'partner_order_id': string;
+  /**
+  * The unique id in partner system
+  */
+  "partner_order_id": string;
 
-    /**
-    * Requests timestamp in ms
-    */
-    'time': number;
+  /**
+  * Requests timestamp in ms
+  */
+  "time": number;
 
-    /**
-    * It is a signature of the order. It’s calculated by following input: hmacInput = (app_id+ “|” + partner_order_id+ “|” + time) and use sha256 with app’s hmac key
-    */
-    'mac'?: string;
+  /**
+  * It is a signature of the order. It’s calculated by following input: hmacInput = (app_id+ “|” + partner_order_id+ “|” + time) and use sha256 with app’s hmac key
+  */
+  "mac"?: string;
 
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "app_id",
-            "baseName": "app_id",
-            "type": "number"
-        },
-        {
-            "name": "partner_order_id",
-            "baseName": "partner_order_id",
-            "type": "string"
-        },
-        {
-            "name": "time",
-            "baseName": "time",
-            "type": "number"
-        },
-        {
-            "name": "mac",
-            "baseName": "mac",
-            "type": "string"
-        }    ];
+  static attributeTypeMap: Array<{ name: string, baseName: string, type: string }> = [
+    {
+      "name": "app_id",
+      "baseName": "app_id",
+      "type": "number"
+    },
+    {
+      "name": "partner_order_id",
+      "baseName": "partner_order_id",
+      "type": "string"
+    },
+    {
+      "name": "time",
+      "baseName": "time",
+      "type": "number"
+    },
+    {
+      "name": "mac",
+      "baseName": "mac",
+      "type": "string"
+    }];
 
-    static getAttributeTypeMap() {
-        return DisbursementQueryOrderRequest.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return DisbursementQueryOrderRequest.attributeTypeMap;
+  }
 }
 

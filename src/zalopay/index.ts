@@ -1,18 +1,4 @@
-import { ZaloPayClient } from "./zaloPayClient";
-import {
-  CreateOrderRequest,
-  CreateOrderResponse,
-  CreateQuickPayOrderRequest,
-  CreateQuickPayOrderResponse,
-} from "./model/Order";
+export { ZaloPayClient } from "./zaloPayClient";
+export { Config } from "./utils/Config";
 export * from "./models/models";
-import { Config } from "./model/Config";
-export { TokenizationAPI, DisbursementAPI } from "./services";
-export { ZaloPayClient };
-export type {
-  CreateOrderRequest,
-  CreateOrderResponse,
-  Config,
-  CreateQuickPayOrderRequest,
-  CreateQuickPayOrderResponse,
-};
+export { TokenizationAPI, OrderAPI, RefundAPI, DisbursementAPI, SecurityProvider } from "./services";

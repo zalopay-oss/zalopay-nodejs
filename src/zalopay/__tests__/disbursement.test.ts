@@ -13,7 +13,7 @@ import { DisbursementQueryMerchantBalanceRequest } from "../models/disbursementQ
 import { DisbursementQueryUserRequest } from "../models/disbursementQueryUserRequest";
 import { DisbursementTopupRequest } from "../models/disbursementTopupRequest";
 import { DisbursementQueryOrderRequest } from "../models/disbursementQueryOrderRequest";
-import { Config } from "../model/Config";
+import { Config } from "../utils/Config";
 
 let client: ZaloPayClient;
 let disbursementAPI: DisbursementAPI;
@@ -33,8 +33,8 @@ afterEach(() => {
 });
 
 describe("Disbursement API", (): void => {
-    test('should throw an error if paymentId or privateKey are not in the config', () => {
-        const errorMessage = 'The paymentId and privateKey config keys are required for Disbursement service';
+    test("should throw an error if paymentId or privateKey are not in the config", () => {
+        const errorMessage = "The paymentId and privateKey config keys are required for Disbursement service";
         const clientWithoutPaymentIdAndPrivateKey = new ZaloPayClient({} as Config);
         expect(() => new DisbursementAPI(clientWithoutPaymentIdAndPrivateKey)).toThrow(errorMessage);
         const clientWithoutPrivateKey = new ZaloPayClient({ paymentId: "1234" } as Config);
@@ -47,7 +47,7 @@ describe("Disbursement API", (): void => {
         // exclude app_id, mac
         const request: DisbursementQueryMerchantBalanceRequest = {
             time: Date.now(),
-        }
+        };
         const response = await disbursementAPI.queryMerchantBalance(request);
         expect(response.return_code).toEqual(1);
         expect(response.sub_return_code).toEqual(1);

@@ -7,36 +7,16 @@
 * Do not edit this class manually.
 */
 
-export class AgreementPayResponse {
-  /**
-  * 1: Success, 2: Failed, 3: Processing
-  */
+export class RefundCreateResponse {
   "return_code"?: number;
 
-  /**
-  * Description of return code
-  */
   "return_message"?: string;
 
-  /**
-  * Detail error code
-  */
   "sub_return_code"?: number;
 
-  /**
-  * Detail error message
-  */
   "sub_return_message"?: string;
 
-  /**
-  * TXID of order transaction
-  */
-  "app_trans_id"?: string;
-
-  /**
-  * The ZaloPay\'s transaction code
-  */
-  "zp_trans_id"?: number;
+  "refund_id"?: number;
 
 
   static discriminator: string | undefined = undefined;
@@ -63,18 +43,13 @@ export class AgreementPayResponse {
       "type": "string"
     },
     {
-      "name": "app_trans_id",
-      "baseName": "app_trans_id",
-      "type": "string"
-    },
-    {
-      "name": "zp_trans_id",
-      "baseName": "zp_trans_id",
+      "name": "refund_id",
+      "baseName": "refund_id",
       "type": "number"
     }  ];
 
   static getAttributeTypeMap() {
-    return AgreementPayResponse.attributeTypeMap;
+    return RefundCreateResponse.attributeTypeMap;
   }
 }
 

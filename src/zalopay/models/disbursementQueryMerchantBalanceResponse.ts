@@ -6,63 +6,63 @@
 * https://openapi-generator.tech
 * Do not edit this class manually.
 */
-import { DisbursementQueryMerchantBalanceResponseData } from './disbursementQueryMerchantBalanceResponseData';
+import { DisbursementQueryMerchantBalanceResponseData } from "./disbursementQueryMerchantBalanceResponseData";
 
 export class DisbursementQueryMerchantBalanceResponse {
-    /**
-    * 1 - SUCCESS  2 - FAIL
-    */
-    'return_code'?: number;
+  /**
+  * 1 - SUCCESS  2 - FAIL
+  */
+  "return_code"?: number;
 
-    /**
-    * Return code description
-    */
-    'return_message'?: string;
+  /**
+  * Return code description
+  */
+  "return_message"?: string;
 
-    /**
-    * -401 - Request param illegal  -402 - Unauthorized  -500 - ZaloPay system error  -503 - The system is maintenance
-    */
-    'sub_return_code'?: number;
+  /**
+  * -401 - Request param illegal  -402 - Unauthorized  -500 - ZaloPay system error  -503 - The system is maintenance
+  */
+  "sub_return_code"?: number;
 
-    /**
-    * Sub return code description
-    */
-    'sub_return_message'?: string;
+  /**
+  * Sub return code description
+  */
+  "sub_return_message"?: string;
 
-    'data'?: DisbursementQueryMerchantBalanceResponseData;
+  "data"?: DisbursementQueryMerchantBalanceResponseData;
 
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "return_code",
-            "baseName": "return_code",
-            "type": "number"
-        },
-        {
-            "name": "return_message",
-            "baseName": "return_message",
-            "type": "string"
-        },
-        {
-            "name": "sub_return_code",
-            "baseName": "sub_return_code",
-            "type": "number"
-        },
-        {
-            "name": "sub_return_message",
-            "baseName": "sub_return_message",
-            "type": "string"
-        },
-        {
-            "name": "data",
-            "baseName": "data",
-            "type": "DisbursementQueryMerchantBalanceResponseData"
-        }    ];
+  static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    {
+      "name": "return_code",
+      "baseName": "return_code",
+      "type": "number"
+    },
+    {
+      "name": "return_message",
+      "baseName": "return_message",
+      "type": "string"
+    },
+    {
+      "name": "sub_return_code",
+      "baseName": "sub_return_code",
+      "type": "number"
+    },
+    {
+      "name": "sub_return_message",
+      "baseName": "sub_return_message",
+      "type": "string"
+    },
+    {
+      "name": "data",
+      "baseName": "data",
+      "type": "DisbursementQueryMerchantBalanceResponseData"
+    }  ];
 
-    static getAttributeTypeMap() {
-        return DisbursementQueryMerchantBalanceResponse.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return DisbursementQueryMerchantBalanceResponse.attributeTypeMap;
+  }
 }
 

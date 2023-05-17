@@ -8,23 +8,23 @@
 */
 
 export class DisbursementQueryMerchantBalanceResponseData {
-    /**
-    * Partner’s account balance
-    */
-    'balance'?: number;
+  /**
+  * Partner’s account balance
+  */
+  "balance"?: number;
 
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "balance",
-            "baseName": "balance",
-            "type": "number"
-        }    ];
+  static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    {
+      "name": "balance",
+      "baseName": "balance",
+      "type": "number"
+    }  ];
 
-    static getAttributeTypeMap() {
-        return DisbursementQueryMerchantBalanceResponseData.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return DisbursementQueryMerchantBalanceResponseData.attributeTypeMap;
+  }
 }
 

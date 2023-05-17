@@ -8,63 +8,63 @@
 */
 
 export class DisbursementQueryUserResponseData {
-    /**
-    * ZaloPay reference id
-    */
-    'reference_id'?: string;
+  /**
+  * ZaloPay reference id
+  */
+  "reference_id"?: string;
 
-    /**
-    * User’s identity in ZaloPay system
-    */
-    'm_u_id'?: string;
+  /**
+  * User’s identity in ZaloPay system
+  */
+  "m_u_id"?: string;
 
-    /**
-    * User’s full name
-    */
-    'name'?: string;
+  /**
+  * User’s full name
+  */
+  "name"?: string;
 
-    /**
-    * User\'s phone
-    */
-    'phone'?: string;
+  /**
+  * User\'s phone
+  */
+  "phone"?: string;
 
-    /**
-    * \"ZaloPay middle_page url to onboard new users\"   \"Displayed when receiving return_code =2 && sub_return_code = -101\"      
-    */
-    'onboarding_url'?: string;
+  /**
+  * \"ZaloPay middle_page url to onboard new users\"   \"Displayed when receiving return_code =2 && sub_return_code = -101\"
+  */
+  "onboarding_url"?: string;
 
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "reference_id",
-            "baseName": "reference_id",
-            "type": "string"
-        },
-        {
-            "name": "m_u_id",
-            "baseName": "m_u_id",
-            "type": "string"
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string"
-        },
-        {
-            "name": "phone",
-            "baseName": "phone",
-            "type": "string"
-        },
-        {
-            "name": "onboarding_url",
-            "baseName": "onboarding_url",
-            "type": "string"
-        }    ];
+  static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    {
+      "name": "reference_id",
+      "baseName": "reference_id",
+      "type": "string"
+    },
+    {
+      "name": "m_u_id",
+      "baseName": "m_u_id",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "baseName": "name",
+      "type": "string"
+    },
+    {
+      "name": "phone",
+      "baseName": "phone",
+      "type": "string"
+    },
+    {
+      "name": "onboarding_url",
+      "baseName": "onboarding_url",
+      "type": "string"
+    }  ];
 
-    static getAttributeTypeMap() {
-        return DisbursementQueryUserResponseData.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return DisbursementQueryUserResponseData.attributeTypeMap;
+  }
 }
 

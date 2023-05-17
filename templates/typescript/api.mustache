@@ -12,30 +12,30 @@ import { ObjectSerializer } from "../../typings/{{serviceName}}/models";
 
 export default class {{classname}} extends Service {
 {{#operation}}
-    /**
-     {{#summary}}
-     * @summary {{&summary}}
-     {{/summary}}
-     {{#allParams}}
-     * @param {{paramName}} {{description}}
-     {{/allParams}}
-     */
-    public async {{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{nickname}}{{/vendorExtensions.x-methodName}}({{#pathParams}}{{paramName}}: {{{dataType}}}, {{/pathParams}}{{#bodyParams}}{{paramName}}: {{{dataType}}}, {{/bodyParams}}requestOptions?: IRequest.Options): Promise<{{#returnType}}{{{.}}}{{/returnType}}{{^returnType}}void{{/returnType}}> {
-        const localVarPath = "{{{path}}}"{{#pathParams}}
-            .replace('{' + '{{baseName}}' + '}', encodeURIComponent(String({{paramName}}))){{/pathParams}};
-        const resource = new {{#lambda.titlecase}}{{serviceName}}{{/lambda.titlecase}}Resource(this, localVarPath);
+  /**
+   {{#summary}}
+   * @summary {{&summary}}
+   {{/summary}}
+   {{#allParams}}
+   * @param {{paramName}} {{description}}
+   {{/allParams}}
+   */
+  public async {{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{nickname}}{{/vendorExtensions.x-methodName}}({{#pathParams}}{{paramName}}: {{{dataType}}}, {{/pathParams}}{{#bodyParams}}{{paramName}}: {{{dataType}}}, {{/bodyParams}}requestOptions?: IRequest.Options): Promise<{{#returnType}}{{{.}}}{{/returnType}}{{^returnType}}void{{/returnType}}> {
+    const localVarPath = "{{{path}}}"{{#pathParams}}
+      .replace('{' + '{{baseName}}' + '}', encodeURIComponent(String({{paramName}}))){{/pathParams}};
+    const resource = new {{#lambda.titlecase}}{{serviceName}}{{/lambda.titlecase}}Resource(this, localVarPath);
 {{#bodyParam}}
-        const request: {{{dataType}}} = ObjectSerializer.serialize({{paramName}}, "{{{dataType}}}");
+    const request: {{{dataType}}} = ObjectSerializer.serialize({{paramName}}, "{{{dataType}}}");
 {{/bodyParam}}
-        {{#returnType}}const response = {{/returnType}}await getJsonResponse<{{#bodyParam}}{{{dataType}}}{{/bodyParam}}{{^bodyParam}}string{{/bodyParam}}, {{#returnType}}{{{.}}}{{/returnType}}{{^returnType}}void{{/returnType}}>(
-            resource,
-            {{#bodyParam}}request{{/bodyParam}}{{^bodyParam}}""{{/bodyParam}},
-            { ...requestOptions, method: "{{httpMethod}}" }
-        );
-        {{#returnType}}
-        return ObjectSerializer.deserialize(response, "{{{.}}}");
-        {{/returnType}}
-    }
+    {{#returnType}}const response = {{/returnType}}await getJsonResponse<{{#bodyParam}}{{{dataType}}}{{/bodyParam}}{{^bodyParam}}string{{/bodyParam}}, {{#returnType}}{{{.}}}{{/returnType}}{{^returnType}}void{{/returnType}}>(
+      resource,
+      {{#bodyParam}}request{{/bodyParam}}{{^bodyParam}}""{{/bodyParam}},
+      { ...requestOptions, method: "{{httpMethod}}" }
+    );
+    {{#returnType}}
+    return ObjectSerializer.deserialize(response, "{{{.}}}");
+    {{/returnType}}
+  }
 {{/operation}}
 }
 {{/operations}}
