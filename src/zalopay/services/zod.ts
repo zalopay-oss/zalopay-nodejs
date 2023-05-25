@@ -33,7 +33,6 @@ class ZOD extends Service {
   public async create(
     createRequest: ZODCreateInvoiceRequest
   ): Promise<ZODCreateInvoiceResponse> {
-    console.log(createRequest);
     createRequest.appId ||= this.config.appId;
     const dataSign = [
       createRequest.appId,
