@@ -13,7 +13,7 @@ export class ZODCreateInvoiceRequest {
   /**
   * AppID provided by ZaloPay
   */
-  "appId": string;
+  "appId"?: string;
 
   /**
   * Merchant\'s reference ID of the order
@@ -47,7 +47,7 @@ export class ZODCreateInvoiceRequest {
   /**
   * It is signature of request. It’s calculated by following input: hmacInput = (appId + “|” + mcRefId + “|” + amount + “|” + mcExtInfo) and use sha256 with app’s hmac key
   */
-  "mac": string;
+  "mac"?: string;
 
 
   static discriminator: string | undefined = undefined;
