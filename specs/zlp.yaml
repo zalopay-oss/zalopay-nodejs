@@ -16,6 +16,9 @@ externalDocs:
   url: https://docs.zalopay.vn
 servers:
   - url: https://sb-openapi.zalopay.vn
+    description: Sandbox server (uses test data)
+  - url: https://openapi.zalopay.vn
+    description: Production server (uses live data)
 tags:
   - name: order
     description: Payment Orders
@@ -26,6 +29,15 @@ tags:
   - name: tokenization
     description: Tokenization
     x-displayName: Tokenization
+  - name: disbursement
+    description: Disbursement
+    x-displayName: Disbursement
+  - name: gateway
+    description: Payment Gateway
+    x-displayName: Payment Gateway
+  - name: zod
+    description: ZaloPay On Delivery
+    x-displayName: ZOD
 paths:
   /v2/create:
     post:
@@ -294,6 +306,7 @@ paths:
         405:
           description: Invalid input
           content: {}
+
   /v2/disbursement/user:
     post:
       tags:
@@ -398,6 +411,145 @@ paths:
               schema:
                 $ref: "#/components/schemas/DisbursementQueryMerchantBalanceResponse"
           description: OK
+
+  /v2/zod:
+    servers:
+      - url: https://sbapimep.zalopay.vn
+        description: Sandbox server (uses test data)
+      - url: https://apimep.zalopay.vn
+        description: Production server (uses live data)
+    post:
+      tags:
+        - zod
+      servers:
+        - url: https://sbapimep.zalopay.vn
+      summary: Create ZOD invoice
+      operationId: ZODCreateInvoice
+      requestBody:
+        description: Create ZOD invoice request
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ZODCreateInvoiceRequest"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/ZODCreateInvoiceRequest"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/ZODCreateInvoiceRequest"
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZODCreateInvoiceResponse"
+          description: OK
+  /v2/zod/invoice:
+    servers:
+      - url: https://sbapimep.zalopay.vn
+        description: Sandbox server (uses test data)
+      - url: https://apimep.zalopay.vn
+        description: Production server (uses live data)
+    get:
+      tags:
+        - zod
+      servers:
+        - url: https://sbapimep.zalopay.vn
+      summary: Query ZOD invoice
+      operationId: QueryZODInvoice
+      parameters:
+        - in: query
+          name: appId
+          schema:
+            type: string
+          description: "AppID provided by ZaloPay"
+          required: true
+        - in: query
+          name: mcRefId
+          schema:
+            type: string
+          description: "Merchant's reference ID of the order"
+          required: true
+        - in: query
+          name: mac
+          schema:
+            type: string
+          description: >-
+            It is signature of request. It’s calculated by following input: hmacInput = (app_id + “|” + mc_ref_id) and use sha256 with app’s hmac key
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZODQueryInvoiceResponse"
+          description: OK
+  /v2/zod/status:
+    servers:
+      - url: https://sbapimep.zalopay.vn
+        description: Sandbox server (uses test data)
+      - url: https://apimep.zalopay.vn
+        description: Production server (uses live data)
+    get:
+      tags:
+        - zod
+      servers:
+        - url: https://sbapimep.zalopay.vn
+      summary: Query ZOD order status
+      operationId: QueryZODOrderStatus
+      parameters:
+        - in: query
+          name: appId
+          schema:
+            type: string
+          description: "AppID provided by ZaloPay"
+          required: true
+        - in: query
+          name: mcRefId
+          schema:
+            type: string
+          description: "Merchant's reference ID of the order"
+          required: true
+        - in: query
+          name: mac
+          schema:
+            type: string
+          description: >-
+            It is signature of request. It’s calculated by following input: hmacInput = (appId + “|” + mcRefId) and use sha256 with app’s hmac key
+          required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZODQueryStatusResponse"
+          description: OK
+  /api/getlistmerchantbanks:
+    servers:
+      - url: https://sbgateway.zalopay.vn
+        description: Sandbox server (uses test data)
+      - url: https://gateway.zalopay.vn
+        description: Production server (uses live data)
+    post:
+      tags:
+        - gateway
+      summary: List supported banks
+      description: Returns a list of supported banks.
+      requestBody:
+        description: List supported banks request
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/GatewayGetListBanksRequest"
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GatewayGetListBanksResponse"
+          description: OK
 components:
   schemas:
     OrderQueryRequest:
@@ -415,7 +567,7 @@ components:
           type: string
           description: >-
             It is signature of order. It's calculated by following input:
-            hmacinput = appid + `|` + apptransid and use sha256 with app's hmac
+            hmacinput = appid + `|` + apptransid + `|` + key1 and use sha256 with app's hmac
             key as sign key
       required:
         - app_id
@@ -1143,6 +1295,8 @@ components:
         zp_trans_id:
           type: integer
           description: "The ZaloPay's transaction code"
+
+    ### DISBURSEMENT ###
     DisbursementQueryUserRequest:
       type: object
       properties:
@@ -1163,7 +1317,7 @@ components:
         mac:
           type: string
           description: >-
-            "It is signature of order. It’s calculated by following input: hmacInput = (app_id + “|” + phone + “|” + time) and use sha256 with app’s hmac key"
+            It is signature of order. It’s calculated by following input: hmacInput = (app_id + “|” + phone + “|” + time) and use sha256 with app’s hmac key
       required:
         - app_id
         - phone
@@ -1519,3 +1673,191 @@ components:
               type: integer
               format: int64
               description: "Partner’s account balance"
+    ### PAYMENT GATEWAY ###
+    GatewayGetListBanksRequest:
+      type: object
+      properties:
+        appid:
+          type: string
+          description: "The unique ID of the partner will be provided after the partner registered successfully with ZaloPay"
+        reqtime:
+          type: string
+          description: "The timestamp that API was requested at in ms."
+        mac:
+          type: string
+          description: "It is signature of request. It's calculated by following input: hmacinput = appid + `|` + reqtime; and use sha256 with app's hmac key as sign key."
+      required:
+        - appid
+        - reqtime
+        - mac
+    GatewayGetListBanksResponse:
+      type: object
+      properties:
+        returncode:
+          type: integer
+          description: |-
+            1 - SUCCESS
+
+            2 - FAIL
+        returnmessage:
+          type: string
+          description: "Return code description"
+        banks:
+          type: object
+          description: |-
+            List of supported banks
+
+            Data type: 	Map(pmcid, Array(bankdto))
+
+            Note about pcmid:
+
+              36 - Visa/Master/JCB
+
+              37 - Bank account
+
+              38 - ZaloPay
+
+              39 - ATM
+              
+              41 - VISA/Master Debit
+          properties:
+            "36":
+              type: array
+              items:
+                $ref: "#/components/schemas/GatewayBankItem"
+            "37":
+              type: array
+              items:
+                $ref: "#/components/schemas/GatewayBankItem"
+            "38":
+              type: array
+              items:
+                $ref: "#/components/schemas/GatewayBankItem"
+            "39":
+              type: array
+              items:
+                $ref: "#/components/schemas/GatewayBankItem"
+            "41":
+              type: array
+              items:
+                $ref: "#/components/schemas/GatewayBankItem"
+    GatewayBankItem:
+      type: object
+      properties:
+        bankcode:
+          type: string
+          description: "Bank code"
+        name:
+          type: string
+          description: "Bank name"
+        displayorder:
+          type: integer
+          format: int64
+          description: "Display order"
+        pcmid:
+          type: integer
+          format: int64
+        minamount:
+          type: integer
+          format: int64
+          description: "Minimum payment amount"
+        maxamount:
+          type: integer
+          format: int64
+          description: "Maximum payment amount"
+
+    ### ZOD ###
+    ZODCreateInvoiceRequest:
+      type: object
+      properties:
+        appId:
+          type: string
+          description: "AppID provided by ZaloPay"
+        mcRefId:
+          type: string
+          description: "Merchant's reference ID of the order"
+        hubId:
+          type: string
+          description: "The merchant's hub ID"
+        driverId:
+          type: string
+          description: "The driver ID"
+        amount:
+          type: integer
+          format: int64
+          description: "Requests timestamp in ms"
+        receiver:
+          type: object
+          description: "Receiver information"
+          properties:
+            contact:
+              type: string
+              description: "Receiver name"
+        orderInfo:
+          type: array
+          items:
+            type: object
+            description: "Requests timestamp in ms"
+            properties:
+              trackingNumber:
+                type: string
+                description: "Order's tracking number"
+              description:
+                type: string
+                description: "Order's description"
+              amount:
+                type: integer
+                format: int64
+                description: "Order's amount"
+        mcExtInfo:
+          type: string
+          description: |-
+            JSOn string used for external info: merchandiseSubtotal, shippingSubtotal
+
+            Ex: "{\"merchandiseSubtotal\":100000, \"shippingSubtotal\":10000}"
+        mac:
+          type: string
+          description: >-
+            It is signature of request. It’s calculated by following input: hmacInput = (appId + “|” + mcRefId + “|” + amount + “|” + mcExtInfo) and use sha256 with app’s hmac key
+      required:
+        - appId
+        - mcRefId
+        - amount
+        - receiver
+        - orderInfo
+        - mcExtInfo
+        - mac
+
+      xml:
+        name: ZODCreateInvoiceRequest
+    ZODCreateInvoiceResponse:
+      type: object
+      properties:
+        orderUrl:
+          type: string
+          description: "Url used to generate QR Code"
+      xml:
+        name: ZODCreateInvoiceResponse
+    ZODQueryInvoiceResponse:
+      type: object
+      properties:
+        orderUrl:
+          type: string
+          description: "Url used to generate QR Code"
+      xml:
+        name: ZODQueryInvoiceResponse
+    ZODQueryStatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: "Order's status: 1: SUCCESS - 2: FAILURE - 3: UNPAID"
+        amount:
+          type: integer
+          format: int64
+          description: "Order's amount"
+        zpTransId:
+          type: string
+          description: "ZaloPay transaction's ID"
+      xml:
+        name: ZODQueryStatusResponse

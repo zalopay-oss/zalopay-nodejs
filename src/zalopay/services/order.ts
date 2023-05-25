@@ -1,5 +1,11 @@
 import getJsonResponse from "../helpers/getJsonResponse";
-import { ObjectSerializer, OrderCreateRequest, OrderCreateResponse, OrderQueryRequest, OrderQueryResponse } from "../models/models";
+import {
+  ObjectSerializer,
+  OrderCreateRequest,
+  OrderCreateResponse,
+  OrderQueryRequest,
+  OrderQueryResponse
+} from "../models/models";
 import Service from "../service";
 import HmacUtils from "../utils/hmacUtils";
 import { ZaloPayClient } from "../zaloPayClient";
@@ -18,36 +24,45 @@ class Order extends Service {
     this.hmacUtils = new HmacUtils();
   }
 
-  public async create(createRequest: OrderCreateRequest): Promise<OrderCreateResponse> {
+  public async create(
+    createRequest: OrderCreateRequest
+  ): Promise<OrderCreateResponse> {
     createRequest.app_id ||= +this.config.appId;
-    const dataSign: string = this.getDataToSignForCreateOrder(createRequest);
-    createRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
-    const response = await getJsonResponse<OrderCreateRequest, OrderCreateResponse>(
-      this._create,
-      "post",
-      createRequest,
+    const dataSign = [
+      createRequest.app_id,
+      createRequest.app_trans_id,
+      createRequest.app_user,
+      createRequest.amount,
+      createRequest.app_time,
+      createRequest.embed_data,
+      createRequest.item
+    ].join(HmacUtils.DATA_SEPARATOR);
+    createRequest.mac = this.hmacUtils.calculateHmac(
+      dataSign,
+      this.config.key1
     );
+    const response = await getJsonResponse<
+      OrderCreateRequest,
+      OrderCreateResponse
+    >(this._create, "post", createRequest);
     return ObjectSerializer.deserialize(response, "OrderCreateResponse");
   }
 
-  public async query(queryRequest: OrderQueryRequest): Promise<OrderQueryResponse> {
+  public async query(
+    queryRequest: OrderQueryRequest
+  ): Promise<OrderQueryResponse> {
     queryRequest.app_id ||= +this.config.appId;
-    const dataSign: string = this.getDataToSignForQueryOrder(queryRequest);
+    const dataSign = [
+      queryRequest.app_id,
+      queryRequest.app_trans_id,
+      this.config.key1
+    ].join(HmacUtils.DATA_SEPARATOR);
     queryRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
-    const response = await getJsonResponse<OrderQueryRequest, OrderQueryResponse>(
-      this._query,
-      "post",
-      queryRequest,
-    );
+    const response = await getJsonResponse<
+      OrderQueryRequest,
+      OrderQueryResponse
+    >(this._query, "post", queryRequest);
     return ObjectSerializer.deserialize(response, "OrderQueryResponse");
-  }
-
-  private getDataToSignForCreateOrder(request: OrderCreateRequest): string {
-    return [request.app_id, request.app_trans_id, request.app_user, request.amount, request.app_time, request.embed_data, request.item].join(HmacUtils.DATA_SEPARATOR);
-  }
-
-  private getDataToSignForQueryOrder(request: OrderQueryRequest): string {
-    return [request.app_id, request.app_trans_id, this.config.key1].join(HmacUtils.DATA_SEPARATOR);
   }
 }
 

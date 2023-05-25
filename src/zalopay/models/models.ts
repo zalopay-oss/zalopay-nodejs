@@ -33,6 +33,9 @@ export * from "./disbursementQueryUserResponseData";
 export * from "./disbursementTopupRequest";
 export * from "./disbursementTopupResponse";
 export * from "./disbursementTopupResponseData";
+export * from "./gatewayBankItem";
+export * from "./gatewayGetListBanksResponse";
+export * from "./gatewayGetListBanksResponseBanks";
 export * from "./orderCreateRequest";
 export * from "./orderCreateResponse";
 export * from "./orderQueryRequest";
@@ -41,6 +44,12 @@ export * from "./refundCreateRequest";
 export * from "./refundCreateResponse";
 export * from "./refundQueryRequest";
 export * from "./refundQueryResponse";
+export * from "./zODCreateInvoiceRequest";
+export * from "./zODCreateInvoiceRequestOrderInfoInner";
+export * from "./zODCreateInvoiceRequestReceiver";
+export * from "./zODCreateInvoiceResponse";
+export * from "./zODQueryInvoiceResponse";
+export * from "./zODQueryStatusResponse";
 
 
 import { AgreementBalanceRequest } from "./agreementBalanceRequest";
@@ -69,6 +78,9 @@ import { DisbursementQueryUserResponseData } from "./disbursementQueryUserRespon
 import { DisbursementTopupRequest } from "./disbursementTopupRequest";
 import { DisbursementTopupResponse } from "./disbursementTopupResponse";
 import { DisbursementTopupResponseData } from "./disbursementTopupResponseData";
+import { GatewayBankItem } from "./gatewayBankItem";
+import { GatewayGetListBanksResponse } from "./gatewayGetListBanksResponse";
+import { GatewayGetListBanksResponseBanks } from "./gatewayGetListBanksResponseBanks";
 import { OrderCreateRequest } from "./orderCreateRequest";
 import { OrderCreateResponse } from "./orderCreateResponse";
 import { OrderQueryRequest } from "./orderQueryRequest";
@@ -77,6 +89,12 @@ import { RefundCreateRequest } from "./refundCreateRequest";
 import { RefundCreateResponse } from "./refundCreateResponse";
 import { RefundQueryRequest } from "./refundQueryRequest";
 import { RefundQueryResponse } from "./refundQueryResponse";
+import { ZODCreateInvoiceRequest } from "./zODCreateInvoiceRequest";
+import { ZODCreateInvoiceRequestOrderInfoInner } from "./zODCreateInvoiceRequestOrderInfoInner";
+import { ZODCreateInvoiceRequestReceiver } from "./zODCreateInvoiceRequestReceiver";
+import { ZODCreateInvoiceResponse } from "./zODCreateInvoiceResponse";
+import { ZODQueryInvoiceResponse } from "./zODQueryInvoiceResponse";
+import { ZODQueryStatusResponse } from "./zODQueryStatusResponse";
 
 /* tslint:disable:no-unused-variable */
 const primitives = [
@@ -122,6 +140,9 @@ const typeMap: {[index: string]: any} = {
   "DisbursementTopupRequest": DisbursementTopupRequest,
   "DisbursementTopupResponse": DisbursementTopupResponse,
   "DisbursementTopupResponseData": DisbursementTopupResponseData,
+  "GatewayBankItem": GatewayBankItem,
+  "GatewayGetListBanksResponse": GatewayGetListBanksResponse,
+  "GatewayGetListBanksResponseBanks": GatewayGetListBanksResponseBanks,
   "OrderCreateRequest": OrderCreateRequest,
   "OrderCreateResponse": OrderCreateResponse,
   "OrderQueryRequest": OrderQueryRequest,
@@ -130,6 +151,12 @@ const typeMap: {[index: string]: any} = {
   "RefundCreateResponse": RefundCreateResponse,
   "RefundQueryRequest": RefundQueryRequest,
   "RefundQueryResponse": RefundQueryResponse,
+  "ZODCreateInvoiceRequest": ZODCreateInvoiceRequest,
+  "ZODCreateInvoiceRequestOrderInfoInner": ZODCreateInvoiceRequestOrderInfoInner,
+  "ZODCreateInvoiceRequestReceiver": ZODCreateInvoiceRequestReceiver,
+  "ZODCreateInvoiceResponse": ZODCreateInvoiceResponse,
+  "ZODQueryInvoiceResponse": ZODQueryInvoiceResponse,
+  "ZODQueryStatusResponse": ZODQueryStatusResponse,
 };
 
 export class ObjectSerializer {
