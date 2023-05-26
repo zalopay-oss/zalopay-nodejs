@@ -7,7 +7,7 @@
 * Do not edit this class manually.
 */
 
-export class ZODQueryInvoiceResponse {
+export class ZodQueryInvoiceResponse {
   /**
   * Url used to generate QR Code
   */
@@ -24,7 +24,7 @@ export class ZODQueryInvoiceResponse {
     }  ];
 
   static getAttributeTypeMap() {
-    return ZODQueryInvoiceResponse.attributeTypeMap;
+    return ZodQueryInvoiceResponse.attributeTypeMap;
   }
 }
 

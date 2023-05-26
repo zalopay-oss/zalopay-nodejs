@@ -1,16 +1,16 @@
 import nock from "nock";
 import { createClient } from "./__mocks__/base";
 import { ZaloPayClient } from "../zaloPayClient";
-import { ZODAPI } from "../services";
+import { ZodAPI } from "../services";
 import {
   createInvoiceSuccess,
   queryInvoiceSuccess,
   queryStatusSuccess
 } from "./__mocks__/zod/responses";
-import { ZODCreateInvoiceRequest } from "../models/zODCreateInvoiceRequest";
+import { ZodCreateInvoiceRequest } from "../models/zodCreateInvoiceRequest";
 
 let client: ZaloPayClient;
-let zodAPI: ZODAPI;
+let zodAPI: ZodAPI;
 let scope: nock.Scope;
 
 beforeEach((): void => {
@@ -18,7 +18,7 @@ beforeEach((): void => {
     nock.activate();
   }
   client = createClient();
-  zodAPI = new ZODAPI(client);
+  zodAPI = new ZodAPI(client);
   scope = nock("https://sbapimep.zalopay.vn");
 });
 
@@ -30,7 +30,7 @@ describe("ZOD API", () => {
   test("should create invoice", async (): Promise<void> => {
     scope.post("/v2/zod").reply(200, createInvoiceSuccess);
 
-    const request: ZODCreateInvoiceRequest = {
+    const request: ZodCreateInvoiceRequest = {
       mcRefId: "230525_26596",
       amount: 2000,
       receiver: {

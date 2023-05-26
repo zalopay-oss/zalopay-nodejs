@@ -6,6 +6,6 @@ export {
   OrderAPI,
   RefundAPI,
   DisbursementAPI,
-  ZODAPI,
+  ZodAPI,
   SecurityProvider
 } from "./services";

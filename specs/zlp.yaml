@@ -430,20 +430,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ZODCreateInvoiceRequest"
+              $ref: "#/components/schemas/ZodCreateInvoiceRequest"
           application/xml:
             schema:
-              $ref: "#/components/schemas/ZODCreateInvoiceRequest"
+              $ref: "#/components/schemas/ZodCreateInvoiceRequest"
           application/x-www-form-urlencoded:
             schema:
-              $ref: "#/components/schemas/ZODCreateInvoiceRequest"
+              $ref: "#/components/schemas/ZodCreateInvoiceRequest"
         required: true
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ZODCreateInvoiceResponse"
+                $ref: "#/components/schemas/ZodCreateInvoiceResponse"
           description: OK
   /v2/zod/invoice:
     servers:
@@ -483,7 +483,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ZODQueryInvoiceResponse"
+                $ref: "#/components/schemas/ZodQueryInvoiceResponse"
           description: OK
   /v2/zod/status:
     servers:
@@ -523,7 +523,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ZODQueryStatusResponse"
+                $ref: "#/components/schemas/ZodQueryStatusResponse"
           description: OK
   /api/getlistmerchantbanks:
     servers:
@@ -1767,7 +1767,7 @@ components:
           description: "Maximum payment amount"
 
     ### ZOD ###
-    ZODCreateInvoiceRequest:
+    ZodCreateInvoiceRequest:
       type: object
       properties:
         appId:
@@ -1829,24 +1829,24 @@ components:
         - mac
 
       xml:
-        name: ZODCreateInvoiceRequest
-    ZODCreateInvoiceResponse:
+        name: ZodCreateInvoiceRequest
+    ZodCreateInvoiceResponse:
       type: object
       properties:
         orderUrl:
           type: string
           description: "Url used to generate QR Code"
       xml:
-        name: ZODCreateInvoiceResponse
-    ZODQueryInvoiceResponse:
+        name: ZodCreateInvoiceResponse
+    ZodQueryInvoiceResponse:
       type: object
       properties:
         orderUrl:
           type: string
           description: "Url used to generate QR Code"
       xml:
-        name: ZODQueryInvoiceResponse
-    ZODQueryStatusResponse:
+        name: ZodQueryInvoiceResponse
+    ZodQueryStatusResponse:
       type: object
       properties:
         status:
@@ -1860,4 +1860,4 @@ components:
           type: string
           description: "ZaloPay transaction's ID"
       xml:
-        name: ZODQueryStatusResponse
+        name: ZodQueryStatusResponse

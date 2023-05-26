@@ -10,7 +10,7 @@
 /**
 * Receiver information
 */
-export class ZODCreateInvoiceRequestReceiver {
+export class ZodCreateInvoiceRequestReceiver {
   /**
   * Receiver name
   */
@@ -27,7 +27,7 @@ export class ZODCreateInvoiceRequestReceiver {
     }  ];
 
   static getAttributeTypeMap() {
-    return ZODCreateInvoiceRequestReceiver.attributeTypeMap;
+    return ZodCreateInvoiceRequestReceiver.attributeTypeMap;
   }
 }
 

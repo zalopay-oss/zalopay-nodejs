@@ -7,7 +7,7 @@
 * Do not edit this class manually.
 */
 
-export class ZODQueryStatusResponse {
+export class ZodQueryStatusResponse {
   /**
   * Order\'s status: 1: SUCCESS - 2: FAILURE - 3: UNPAID
   */
@@ -44,7 +44,7 @@ export class ZODQueryStatusResponse {
     }  ];
 
   static getAttributeTypeMap() {
-    return ZODQueryStatusResponse.attributeTypeMap;
+    return ZodQueryStatusResponse.attributeTypeMap;
   }
 }
 

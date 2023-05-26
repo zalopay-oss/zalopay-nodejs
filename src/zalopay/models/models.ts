@@ -44,12 +44,12 @@ export * from "./refundCreateRequest";
 export * from "./refundCreateResponse";
 export * from "./refundQueryRequest";
 export * from "./refundQueryResponse";
-export * from "./zODCreateInvoiceRequest";
-export * from "./zODCreateInvoiceRequestOrderInfoInner";
-export * from "./zODCreateInvoiceRequestReceiver";
-export * from "./zODCreateInvoiceResponse";
-export * from "./zODQueryInvoiceResponse";
-export * from "./zODQueryStatusResponse";
+export * from "./zodCreateInvoiceRequest";
+export * from "./zodCreateInvoiceRequestOrderInfoInner";
+export * from "./zodCreateInvoiceRequestReceiver";
+export * from "./zodCreateInvoiceResponse";
+export * from "./zodQueryInvoiceResponse";
+export * from "./zodQueryStatusResponse";
 
 
 import { AgreementBalanceRequest } from "./agreementBalanceRequest";
@@ -89,12 +89,12 @@ import { RefundCreateRequest } from "./refundCreateRequest";
 import { RefundCreateResponse } from "./refundCreateResponse";
 import { RefundQueryRequest } from "./refundQueryRequest";
 import { RefundQueryResponse } from "./refundQueryResponse";
-import { ZODCreateInvoiceRequest } from "./zODCreateInvoiceRequest";
-import { ZODCreateInvoiceRequestOrderInfoInner } from "./zODCreateInvoiceRequestOrderInfoInner";
-import { ZODCreateInvoiceRequestReceiver } from "./zODCreateInvoiceRequestReceiver";
-import { ZODCreateInvoiceResponse } from "./zODCreateInvoiceResponse";
-import { ZODQueryInvoiceResponse } from "./zODQueryInvoiceResponse";
-import { ZODQueryStatusResponse } from "./zODQueryStatusResponse";
+import { ZodCreateInvoiceRequest } from "./zodCreateInvoiceRequest";
+import { ZodCreateInvoiceRequestOrderInfoInner } from "./zodCreateInvoiceRequestOrderInfoInner";
+import { ZodCreateInvoiceRequestReceiver } from "./zodCreateInvoiceRequestReceiver";
+import { ZodCreateInvoiceResponse } from "./zodCreateInvoiceResponse";
+import { ZodQueryInvoiceResponse } from "./zodQueryInvoiceResponse";
+import { ZodQueryStatusResponse } from "./zodQueryStatusResponse";
 
 /* tslint:disable:no-unused-variable */
 const primitives = [
@@ -151,12 +151,12 @@ const typeMap: {[index: string]: any} = {
   "RefundCreateResponse": RefundCreateResponse,
   "RefundQueryRequest": RefundQueryRequest,
   "RefundQueryResponse": RefundQueryResponse,
-  "ZODCreateInvoiceRequest": ZODCreateInvoiceRequest,
-  "ZODCreateInvoiceRequestOrderInfoInner": ZODCreateInvoiceRequestOrderInfoInner,
-  "ZODCreateInvoiceRequestReceiver": ZODCreateInvoiceRequestReceiver,
-  "ZODCreateInvoiceResponse": ZODCreateInvoiceResponse,
-  "ZODQueryInvoiceResponse": ZODQueryInvoiceResponse,
-  "ZODQueryStatusResponse": ZODQueryStatusResponse,
+  "ZodCreateInvoiceRequest": ZodCreateInvoiceRequest,
+  "ZodCreateInvoiceRequestOrderInfoInner": ZodCreateInvoiceRequestOrderInfoInner,
+  "ZodCreateInvoiceRequestReceiver": ZodCreateInvoiceRequestReceiver,
+  "ZodCreateInvoiceResponse": ZodCreateInvoiceResponse,
+  "ZodQueryInvoiceResponse": ZodQueryInvoiceResponse,
+  "ZodQueryStatusResponse": ZodQueryStatusResponse,
 };
 
 export class ObjectSerializer {

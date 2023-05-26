@@ -1,20 +1,20 @@
 import getJsonResponse from "../helpers/getJsonResponse";
 import {
   ObjectSerializer,
-  ZODCreateInvoiceRequest,
-  ZODCreateInvoiceResponse,
-  ZODQueryInvoiceResponse,
-  ZODQueryStatusResponse
+  ZodCreateInvoiceRequest,
+  ZodCreateInvoiceResponse,
+  ZodQueryInvoiceResponse,
+  ZodQueryStatusResponse
 } from "../models/models";
 import Service from "../service";
 import HmacUtils from "../utils/hmacUtils";
 import { ZaloPayClient } from "../zaloPayClient";
-import ZODResource from "./resource/zodResource";
+import ZodResource from "./resource/zodResource";
 
-class ZOD extends Service {
-  private readonly _create: ZODResource;
-  private readonly _query_invoice: ZODResource;
-  private readonly _query_status: ZODResource;
+class Zod extends Service {
+  private readonly _create: ZodResource;
+  private readonly _query_invoice: ZodResource;
+  private readonly _query_status: ZodResource;
 
   private hmacUtils: HmacUtils;
 
@@ -24,15 +24,15 @@ class ZOD extends Service {
         ? "https://sbapimep.zalopay.vn"
         : "https://apimep.zalopay.vn/";
     super(client);
-    this._create = new ZODResource(this, "/v2/zod");
-    this._query_invoice = new ZODResource(this, "/v2/zod/invoice");
-    this._query_status = new ZODResource(this, "/v2/zod/status");
+    this._create = new ZodResource(this, "/v2/zod");
+    this._query_invoice = new ZodResource(this, "/v2/zod/invoice");
+    this._query_status = new ZodResource(this, "/v2/zod/status");
     this.hmacUtils = new HmacUtils();
   }
 
   public async createInvoice(
-    createRequest: ZODCreateInvoiceRequest
-  ): Promise<ZODCreateInvoiceResponse> {
+    createRequest: ZodCreateInvoiceRequest
+  ): Promise<ZodCreateInvoiceResponse> {
     createRequest.appId ||= this.config.appId;
     const dataSign = [
       createRequest.appId,
@@ -45,16 +45,16 @@ class ZOD extends Service {
       this.config.key1
     );
     const response = await getJsonResponse<
-      ZODCreateInvoiceRequest,
-      ZODCreateInvoiceResponse
+      ZodCreateInvoiceRequest,
+      ZodCreateInvoiceResponse
     >(this._create, "post", createRequest);
-    return ObjectSerializer.deserialize(response, "ZODCreateInvoiceResponse");
+    return ObjectSerializer.deserialize(response, "ZodCreateInvoiceResponse");
   }
 
   public async queryInvoice(
     mcRefId: string,
     appId?: string
-  ): Promise<ZODQueryInvoiceResponse> {
+  ): Promise<ZodQueryInvoiceResponse> {
     const requestAppId = (appId ||= this.config.appId);
     const dataSign = [requestAppId, mcRefId].join(HmacUtils.DATA_SEPARATOR);
     const mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
@@ -64,7 +64,7 @@ class ZOD extends Service {
       mcRefId: mcRefId,
       mac: mac
     };
-    const response = await getJsonResponse<string, ZODQueryInvoiceResponse>(
+    const response = await getJsonResponse<string, ZodQueryInvoiceResponse>(
       this._query_invoice,
       "get",
       "",
@@ -72,13 +72,13 @@ class ZOD extends Service {
         params: new URLSearchParams(requestParam)
       }
     );
-    return ObjectSerializer.deserialize(response, "ZODQueryInvoiceResponse");
+    return ObjectSerializer.deserialize(response, "ZodQueryInvoiceResponse");
   }
 
   public async queryStatus(
     mcRefId: string,
     appId?: string
-  ): Promise<ZODQueryStatusResponse> {
+  ): Promise<ZodQueryStatusResponse> {
     const requestAppId = (appId ||= this.config.appId);
     const dataSign = [requestAppId, mcRefId].join(HmacUtils.DATA_SEPARATOR);
     const mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
@@ -89,7 +89,7 @@ class ZOD extends Service {
       mac: mac
     };
 
-    const response = await getJsonResponse<string, ZODQueryStatusResponse>(
+    const response = await getJsonResponse<string, ZodQueryStatusResponse>(
       this._query_status,
       "get",
       "",
@@ -97,8 +97,8 @@ class ZOD extends Service {
         params: new URLSearchParams(requestParam)
       }
     );
-    return ObjectSerializer.deserialize(response, "ZODQueryStatusResponse");
+    return ObjectSerializer.deserialize(response, "ZodQueryStatusResponse");
   }
 }
 
-export default ZOD;
+export default Zod;

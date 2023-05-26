@@ -6,10 +6,10 @@
 * https://openapi-generator.tech
 * Do not edit this class manually.
 */
-import { ZODCreateInvoiceRequestOrderInfoInner } from "./zODCreateInvoiceRequestOrderInfoInner";
-import { ZODCreateInvoiceRequestReceiver } from "./zODCreateInvoiceRequestReceiver";
+import { ZodCreateInvoiceRequestOrderInfoInner } from "./zodCreateInvoiceRequestOrderInfoInner";
+import { ZodCreateInvoiceRequestReceiver } from "./zodCreateInvoiceRequestReceiver";
 
-export class ZODCreateInvoiceRequest {
+export class ZodCreateInvoiceRequest {
   /**
   * AppID provided by ZaloPay
   */
@@ -35,9 +35,9 @@ export class ZODCreateInvoiceRequest {
   */
   "amount": number;
 
-  "receiver": ZODCreateInvoiceRequestReceiver;
+  "receiver": ZodCreateInvoiceRequestReceiver;
 
-  "orderInfo": Array<ZODCreateInvoiceRequestOrderInfoInner>;
+  "orderInfo": Array<ZodCreateInvoiceRequestOrderInfoInner>;
 
   /**
   * JSOn string used for external info: merchandiseSubtotal, shippingSubtotal  Ex: \"{\\\"merchandiseSubtotal\\\":100000, \\\"shippingSubtotal\\\":10000}\"
@@ -81,12 +81,12 @@ export class ZODCreateInvoiceRequest {
     {
       "name": "receiver",
       "baseName": "receiver",
-      "type": "ZODCreateInvoiceRequestReceiver"
+      "type": "ZodCreateInvoiceRequestReceiver"
     },
     {
       "name": "orderInfo",
       "baseName": "orderInfo",
-      "type": "Array<ZODCreateInvoiceRequestOrderInfoInner>"
+      "type": "Array<ZodCreateInvoiceRequestOrderInfoInner>"
     },
     {
       "name": "mcExtInfo",
@@ -100,7 +100,7 @@ export class ZODCreateInvoiceRequest {
     }  ];
 
   static getAttributeTypeMap() {
-    return ZODCreateInvoiceRequest.attributeTypeMap;
+    return ZodCreateInvoiceRequest.attributeTypeMap;
   }
 }
 
