@@ -1850,11 +1850,11 @@ components:
       type: object
       properties:
         status:
-          type: string
-          description: "Order's status: 1: SUCCESS - 2: FAILURE - 3: UNPAID"
-        amount:
           type: integer
           format: int64
+          description: "Order's status: 1: SUCCESS - 2: FAILURE - 3: UNPAID"
+        amount:
+          type: string
           description: "Order's amount"
         zpTransId:
           type: string

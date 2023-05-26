@@ -27,7 +27,7 @@ afterEach(() => {
 });
 
 describe("ZOD API", () => {
-  test("should create order", async (): Promise<void> => {
+  test("should create invoice", async (): Promise<void> => {
     scope.post("/v2/zod").reply(200, createInvoiceSuccess);
 
     const request: ZODCreateInvoiceRequest = {
@@ -43,7 +43,7 @@ describe("ZOD API", () => {
       ],
       mcExtInfo: "{}"
     };
-    const response = await zodAPI.create(request);
+    const response = await zodAPI.createInvoice(request);
 
     expect(response.orderUrl).toEqual(
       "https://zlpqc-onlpm-zod.zalopay.vn/zod/0a553-230525_77222"
@@ -87,7 +87,7 @@ describe("ZOD API", () => {
 
     const response = await zodAPI.queryStatus("230525_26596");
 
-    expect(response.amount).toEqual(430000);
+    expect(response.amount).toEqual("430000");
     expect(response.status).toEqual(1);
   });
 });

@@ -7,7 +7,7 @@ export const queryInvoiceSuccess = {
 };
 
 export const queryStatusSuccess = {
-  amount: 430000,
+  amount: "430000",
   status: 1,
   zpTransId: "0"
 };

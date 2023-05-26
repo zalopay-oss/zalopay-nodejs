@@ -30,7 +30,7 @@ class ZOD extends Service {
     this.hmacUtils = new HmacUtils();
   }
 
-  public async create(
+  public async createInvoice(
     createRequest: ZODCreateInvoiceRequest
   ): Promise<ZODCreateInvoiceResponse> {
     createRequest.appId ||= this.config.appId;

@@ -11,12 +11,12 @@ export class ZODQueryStatusResponse {
   /**
   * Order\'s status: 1: SUCCESS - 2: FAILURE - 3: UNPAID
   */
-  "status"?: string;
+  "status"?: number;
 
   /**
   * Order\'s amount
   */
-  "amount"?: number;
+  "amount"?: string;
 
   /**
   * ZaloPay transaction\'s ID
@@ -30,12 +30,12 @@ export class ZODQueryStatusResponse {
     {
       "name": "status",
       "baseName": "status",
-      "type": "string"
+      "type": "number"
     },
     {
       "name": "amount",
       "baseName": "amount",
-      "type": "number"
+      "type": "string"
     },
     {
       "name": "zpTransId",
