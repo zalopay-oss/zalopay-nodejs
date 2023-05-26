@@ -59,7 +59,7 @@ class Zod extends Service {
     const dataSign = [requestAppId, mcRefId].join(HmacUtils.DATA_SEPARATOR);
     const mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
 
-    const requestParam = {
+    const requestParams = {
       appId: requestAppId,
       mcRefId: mcRefId,
       mac: mac
@@ -69,7 +69,7 @@ class Zod extends Service {
       "get",
       "",
       {
-        params: new URLSearchParams(requestParam)
+        params: new URLSearchParams(requestParams)
       }
     );
     return ObjectSerializer.deserialize(response, "ZodQueryInvoiceResponse");
@@ -83,7 +83,7 @@ class Zod extends Service {
     const dataSign = [requestAppId, mcRefId].join(HmacUtils.DATA_SEPARATOR);
     const mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
 
-    const requestParam = {
+    const requestParams = {
       appId: requestAppId,
       mcRefId: mcRefId,
       mac: mac
@@ -94,7 +94,7 @@ class Zod extends Service {
       "get",
       "",
       {
-        params: new URLSearchParams(requestParam)
+        params: new URLSearchParams(requestParams)
       }
     );
     return ObjectSerializer.deserialize(response, "ZodQueryStatusResponse");
