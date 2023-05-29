@@ -21,36 +21,43 @@ class Refund extends Service {
     this.hmacUtils = new HmacUtils();
   }
 
-  public async create(createRequest: RefundCreateRequest): Promise<RefundCreateResponse> {
+  public async create(
+    createRequest: RefundCreateRequest
+  ): Promise<RefundCreateResponse> {
     createRequest.app_id ||= +this.config.appId;
-    const dataSign: string = this.getDataToSignForCreateRefund(createRequest);
-    createRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
-    const response = await getJsonResponse<RefundCreateRequest, RefundCreateResponse>(
-      this._create,
-      "post",
-      createRequest,
+    const dataSign = [
+      createRequest.app_id,
+      createRequest.zp_trans_id,
+      createRequest.amount,
+      createRequest.description,
+      createRequest.timestamp
+    ].join(HmacUtils.DATA_SEPARATOR);
+    createRequest.mac = this.hmacUtils.calculateHmac(
+      dataSign,
+      this.config.key1
     );
+    const response = await getJsonResponse<
+      RefundCreateRequest,
+      RefundCreateResponse
+    >(this._create, "post", createRequest);
     return ObjectSerializer.deserialize(response, "RefundCreateResponse");
   }
 
-  public async query(queryRequest: RefundQueryRequest): Promise<RefundQueryResponse> {
+  public async query(
+    queryRequest: RefundQueryRequest
+  ): Promise<RefundQueryResponse> {
     queryRequest.app_id ||= +this.config.appId;
-    const dataSign: string = this.getDataToSignForQueryRefund(queryRequest);
+    const dataSign = [
+      queryRequest.app_id,
+      queryRequest.m_refund_id,
+      queryRequest.timestamp
+    ].join(HmacUtils.DATA_SEPARATOR);
     queryRequest.mac = this.hmacUtils.calculateHmac(dataSign, this.config.key1);
-    const response = await getJsonResponse<RefundQueryRequest, RefundQueryResponse>(
-      this._query,
-      "post",
-      queryRequest,
-    );
+    const response = await getJsonResponse<
+      RefundQueryRequest,
+      RefundQueryResponse
+    >(this._query, "post", queryRequest);
     return ObjectSerializer.deserialize(response, "RefundQueryResponse");
-  }
-
-  private getDataToSignForCreateRefund(request: RefundCreateRequest): string {
-    return [request.app_id, request.zp_trans_id, request.amount, request.description, request.timestamp].join(HmacUtils.DATA_SEPARATOR);
-  }
-
-  private getDataToSignForQueryRefund(request: RefundQueryRequest): string {
-    return [request.app_id, request.m_refund_id, request.timestamp].join(HmacUtils.DATA_SEPARATOR);
   }
 }
 
